@@ -3,1313 +3,1217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Karachi Gwadar International Logistics - Premier freight forwarding, sea freight, air freight, and customs clearance services across Pakistan and globally.">
-    <meta name="keywords" content="logistics, freight forwarding, sea freight, air freight, customs clearance, Karachi, Gwadar, Pakistan">
-    <title>Karachi Gwadar International Logistics (Pvt) Ltd. | Global Freight Forwarding</title>
+    <title>Karachi Gwadar International Logistics Pvt Ltd</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: {
-                            50: '#e8ecf4',
-                            100: '#c5d0e6',
-                            200: '#9eb1d5',
-                            300: '#7792c4',
-                            400: '#5a7bb8',
-                            500: '#3d64ac',
-                            600: '#375a9e',
-                            700: '#2f4f8e',
-                            800: '#1a2d50',
-                            900: '#0c1e3a',
-                            950: '#061226',
-                        },
                         gold: {
-                            50: '#fdf9ed',
-                            100: '#faf0cd',
-                            200: '#f5e49b',
-                            300: '#f0d669',
-                            400: '#e8c53c',
-                            500: '#d4af37',
-                            600: '#c8a020',
-                            700: '#a67d1b',
-                            800: '#85631d',
-                            900: '#6e521d',
+                            50: '#FBF7EC',
+                            100: '#F5EDD0',
+                            200: '#EAD9A0',
+                            300: '#DFC170',
+                            400: '#D4A843',
+                            500: '#C8962F',
+                            600: '#B07A22',
+                            700: '#8E5E1C',
+                            800: '#6F4A1C',
+                            900: '#5A3D1B',
+                        },
+                        brand: {
+                            black: '#1A1A1A',
+                            dark: '#2D2D2D',
+                            grey: '#6B6B6B',
+                            light: '#F7F7F7',
+                            border: '#E5E5E5',
                         }
                     },
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        
-        /* Animations */
+        * { font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        ::selection {
+            background: rgba(212, 168, 67, 0.25);
+            color: #1A1A1A;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-40px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(40px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        @keyframes pulse-gold {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-            50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
         @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
         }
-        @keyframes planeMove {
-            0% { transform: translateX(-100px) translateY(20px); opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { transform: translateX(calc(100vw + 100px)) translateY(-40px); opacity: 0; }
+        @keyframes slideRight {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
         }
-        @keyframes shipMove {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-5px) rotate(0.5deg); }
-            75% { transform: translateY(3px) rotate(-0.5deg); }
-        }
-        @keyframes routeDash {
-            to { stroke-dashoffset: 0; }
-        }
-        @keyframes countUp {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes borderGlow {
-            0%, 100% { border-color: rgba(212,175,55,0.3); }
-            50% { border-color: rgba(212,175,55,0.8); }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
         }
 
-        .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
-        .animate-fade-left { animation: fadeInLeft 0.8s ease-out forwards; opacity: 0; }
-        .animate-fade-right { animation: fadeInRight 0.8s ease-out forwards; opacity: 0; }
-        .animate-float { animation: float 3s ease-in-out infinite; }
-        .animate-ship { animation: shipMove 4s ease-in-out infinite; }
-        .animate-plane { animation: planeMove 12s linear infinite; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-        .delay-600 { animation-delay: 0.6s; }
-        .delay-700 { animation-delay: 0.7s; }
-        .delay-800 { animation-delay: 0.8s; }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animate-on-scroll.from-left { transform: translateX(-30px); }
+        .animate-on-scroll.from-left.visible { transform: translateX(0); }
+        .animate-on-scroll.from-right { transform: translateX(30px); }
+        .animate-on-scroll.from-right.visible { transform: translateX(0); }
+
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.55) 100%);
+        }
+        .hero-slow-zoom {
+            animation: slowZoom 20s ease-out forwards;
+        }
+
+        .section-bg-overlay {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.93), rgba(255,255,255,0.90));
+        }
+        .section-bg-overlay-dark {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.85));
+        }
 
         .gold-gradient {
-            background: linear-gradient(135deg, #d4af37, #f0d669, #d4af37);
-            background-size: 200% 200%;
-            animation: shimmer 3s ease-in-out infinite;
+            background: linear-gradient(135deg, #D4A843 0%, #C8962F 50%, #B07A22 100%);
         }
-        .gold-text {
-            background: linear-gradient(135deg, #d4af37, #f0d669);
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #D4A843, #B07A22);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .navy-gradient {
-            background: linear-gradient(135deg, #0c1e3a, #1a2d50, #2f4f8e);
-        }
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(6,18,38,0.85) 0%, rgba(12,30,58,0.7) 40%, rgba(26,45,80,0.6) 100%);
-        }
-        .section-overlay {
-            background: linear-gradient(180deg, rgba(6,18,38,0.03) 0%, rgba(6,18,38,0.08) 100%);
+        .gold-shimmer {
+            background: linear-gradient(90deg, #D4A843 0%, #F0D890 25%, #D4A843 50%, #F0D890 75%, #D4A843 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
         }
 
-        /* Service card hover */
-        .service-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(212,175,55,0.1);
-        }
+        .service-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .service-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(212,175,55,0.5);
-            box-shadow: 0 25px 50px -12px rgba(212,175,55,0.15), 0 0 0 1px rgba(212,175,55,0.2);
+            box-shadow: 0 20px 60px rgba(212, 168, 67, 0.15), 0 8px 24px rgba(0,0,0,0.08);
         }
         .service-card:hover .service-icon {
-            background: linear-gradient(135deg, #d4af37, #f0d669);
-            color: #0c1e3a;
-            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, #D4A843, #B07A22);
+            color: white;
+            transform: scale(1.1);
         }
-        .service-icon {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .service-card:hover .service-line {
+            width: 60px;
+            background: linear-gradient(90deg, #D4A843, #B07A22);
         }
 
-        /* Why choose card */
-        .why-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
+        .why-card { transition: all 0.3s ease; }
         .why-card:hover {
-            background: rgba(212,175,55,0.08);
-            border-color: rgba(212,175,55,0.3);
             transform: translateY(-4px);
+            border-color: #D4A843;
         }
         .why-card:hover .why-icon {
-            color: #d4af37;
-            transform: scale(1.2);
-        }
-        .why-icon { transition: all 0.3s ease; }
-
-        /* Route animation on map */
-        .route-line {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: routeDash 3s ease-in-out forwards;
+            color: #D4A843;
+            transform: scale(1.15);
         }
 
-        /* Button effects */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #D4A843, #B07A22);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after { width: 100%; }
+        .nav-link:hover,
+        .nav-link.active { color: #D4A843; }
+
         .btn-gold {
-            background: linear-gradient(135deg, #d4af37, #c8a020);
+            background: linear-gradient(135deg, #D4A843 0%, #B07A22 100%);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        .btn-gold::after {
+        .btn-gold::before {
             content: '';
             position: absolute;
             top: 0; left: -100%; width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.5s ease;
         }
-        .btn-gold:hover::after { left: 100%; }
+        .btn-gold:hover::before { left: 100%; }
         .btn-gold:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.4);
         }
 
-        .btn-outline {
+        .btn-outline-gold {
+            border: 2px solid #D4A843;
+            color: #D4A843;
             transition: all 0.3s ease;
-            border: 2px solid rgba(212,175,55,0.6);
         }
-        .btn-outline:hover {
-            background: rgba(212,175,55,0.1);
-            border-color: #d4af37;
+        .btn-outline-gold:hover {
+            background: linear-gradient(135deg, #D4A843, #B07A22);
+            color: white;
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.3);
         }
 
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .stat-item { transition: all 0.3s ease; }
+        .stat-item:hover { transform: translateY(-4px); }
 
-        /* Detailed service list */
-        .detail-item {
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-        .detail-item:hover {
-            border-left-color: #d4af37;
-            background: rgba(212,175,55,0.05);
-            padding-left: 24px;
-        }
-
-        /* Navbar scroll effect */
-        .nav-scrolled {
-            background: rgba(6,18,38,0.97) !important;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Map dots pulse */
-        .map-dot {
-            animation: pulse-gold 2s ease-in-out infinite;
-        }
-        .map-dot:nth-child(2) { animation-delay: 0.5s; }
-        .map-dot:nth-child(3) { animation-delay: 1s; }
-        .map-dot:nth-child(4) { animation-delay: 1.5s; }
-
-        /* Form inputs */
-        .form-input {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(212,175,55,0.2);
-            background: rgba(255,255,255,0.03);
+        .tracking-input:focus {
+            border-color: #D4A843;
+            box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
         }
         .form-input:focus {
-            border-color: #d4af37;
-            box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
-            background: rgba(255,255,255,0.05);
+            border-color: #D4A843;
+            box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+            outline: none;
         }
 
-        /* Counter animation */
-        .counter-box {
-            transition: all 0.3s ease;
-        }
-        .counter-box:hover {
-            transform: scale(1.05);
-        }
-
-        /* Mobile menu */
         .mobile-menu {
             transform: translateX(100%);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .mobile-menu.open {
-            transform: translateX(0);
+        .mobile-menu.open { transform: translateX(0); }
+
+        .gold-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #D4A843, #EAD9A0, #D4A843);
+            border-radius: 2px;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #061226; }
-        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #c8a020; }
+        .footer-link { transition: all 0.3s ease; }
+        .footer-link:hover { color: #D4A843; padding-left: 4px; }
 
-        /* Toast notification */
-        .toast {
-            transform: translateX(120%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .logistics-watermark {
+            position: absolute;
+            opacity: 0.03;
+            pointer-events: none;
         }
-        .toast.show {
-            transform: translateX(0);
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem !important; }
+            .hero-sub { font-size: 0.95rem !important; }
+            .header-company-name { display: none; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .header-company-name { font-size: 0.7rem !important; }
         }
     </style>
 </head>
-<body class="bg-navy-950 text-white overflow-x-hidden">
+<body class="bg-white text-brand-black antialiased">
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast fixed top-24 right-4 z-[100] bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
-        <i data-lucide="check-circle" class="w-5 h-5"></i>
-        <span id="toast-message">Message sent successfully!</span>
-    </div>
-
-    <!-- ========== NAVIGATION ========== -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <!-- ==================== HEADER — WHITE, BIG LOGO, BLACK NAV ==================== -->
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-border shadow-sm">
+        <!-- Top gold line -->
+        <div class="h-1 gold-gradient w-full"></div>
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#home" class="flex items-center gap-3 group">
-                    <img src="https://z-cdn-media.chatglm.cn/files/c2ffb5ae-b62b-4c20-92f5-184d3fa7b63d.png?auth_key=1877144940-ea57b13c3cfd44fc87c9eb16481be928-0-92b7a06a3442ba287b078682dcd239e4" alt="KGI Logistics Logo" class="h-12 w-auto">
+            <!-- Logo + Company Name Row -->
+            <div class="flex items-center justify-between h-20 lg:h-28">
+                <a href="#home" class="flex items-center gap-3 lg:gap-4 flex-shrink-0">
+                    <img src="https://z-cdn-media.chatglm.cn/files/e1e83489-ce2b-4bd7-92a1-bb0f40b8536b.jpg?auth_key=1877153826-61952aa1848a491c9783ee12fc507e7f-0-9ea1f395058057c03dd379cee1fb805b" 
+                         alt="KGI Logo" class="h-16 lg:h-20 w-auto object-contain">
+                    <div class="header-company-name">
+                        <div class="text-brand-black font-bold text-sm lg:text-base leading-tight tracking-wide">Karachi Gwadar</div>
+                        <div class="text-brand-black font-bold text-sm lg:text-base leading-tight tracking-wide">International Logistics</div>
+                        <div class="text-brand-grey text-[10px] lg:text-xs font-medium tracking-wider">(Pvt) Ltd.</div>
+                    </div>
                 </a>
 
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center gap-1">
-                    <a href="#home" class="nav-link px-4 py-2 text-sm font-medium text-white/80 hover:text-gold-500 transition-colors rounded-lg hover:bg-white/5">Home</a>
-                    <a href="#about" class="nav-link px-4 py-2 text-sm font-medium text-white/80 hover:text-gold-500 transition-colors rounded-lg hover:bg-white/5">About</a>
-                    <a href="#services" class="nav-link px-4 py-2 text-sm font-medium text-white/80 hover:text-gold-500 transition-colors rounded-lg hover:bg-white/5">Services</a>
-                    <a href="#network" class="nav-link px-4 py-2 text-sm font-medium text-white/80 hover:text-gold-500 transition-colors rounded-lg hover:bg-white/5">Network</a>
-                    <a href="#profile" class="nav-link px-4 py-2 text-sm font-medium text-white/80 hover:text-gold-500 transition-colors rounded-lg hover:bg-white/5">Profile</a>
-                    <a href="#contact" class="nav-link px-4 py-2 text-sm font-medium text-white/80 hover:text-gold-500 transition-colors rounded-lg hover:bg-white/5">Contact</a>
-                </div>
+                <!-- Desktop Nav — BLACK BAR -->
+                <nav class="hidden lg:flex items-center bg-brand-black rounded-xl px-2 py-1.5">
+                    <a href="#home" class="nav-link active text-white text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg hover:bg-white/10 transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-white text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg hover:bg-white/10 transition-colors">About</a>
+                    <a href="#services" class="nav-link text-white text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg hover:bg-white/10 transition-colors">Services</a>
+                    <a href="#tracking" class="nav-link text-white text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg hover:bg-white/10 transition-colors">Tracking</a>
+                    <a href="#contact" class="nav-link text-white text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg hover:bg-white/10 transition-colors">Contact</a>
+                    <a href="#contact" class="btn-gold text-white text-xs font-bold px-6 py-2.5 rounded-lg ml-1 inline-block">Get Quote</a>
+                </nav>
 
-                <!-- CTA + Mobile Toggle -->
-                <div class="flex items-center gap-4">
-                    <a href="#contact" class="hidden md:inline-flex btn-gold text-navy-900 font-semibold text-sm px-6 py-2.5 rounded-lg">
-                        Get a Quote
-                    </a>
-                    <button id="menu-toggle" class="lg:hidden p-2 text-white/80 hover:text-gold-500 transition-colors">
-                        <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-navy-900/98 backdrop-blur-xl border-l border-gold-500/10 lg:hidden z-50">
-            <div class="flex items-center justify-between p-6 border-b border-white/10">
-                <span class="text-gold-500 font-semibold">Menu</span>
-                <button id="menu-close" class="p-2 text-white/80 hover:text-gold-500 transition-colors">
-                    <i data-lucide="x" class="w-6 h-6"></i>
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6 text-brand-black"></i>
                 </button>
             </div>
-            <div class="flex flex-col p-6 gap-2">
-                <a href="#home" class="mobile-link px-4 py-3 text-white/80 hover:text-gold-500 hover:bg-white/5 rounded-lg transition-all font-medium">Home</a>
-                <a href="#about" class="mobile-link px-4 py-3 text-white/80 hover:text-gold-500 hover:bg-white/5 rounded-lg transition-all font-medium">About</a>
-                <a href="#services" class="mobile-link px-4 py-3 text-white/80 hover:text-gold-500 hover:bg-white/5 rounded-lg transition-all font-medium">Services</a>
-                <a href="#network" class="mobile-link px-4 py-3 text-white/80 hover:text-gold-500 hover:bg-white/5 rounded-lg transition-all font-medium">Network</a>
-                <a href="#profile" class="mobile-link px-4 py-3 text-white/80 hover:text-gold-500 hover:bg-white/5 rounded-lg transition-all font-medium">Profile</a>
-                <a href="#contact" class="mobile-link px-4 py-3 text-white/80 hover:text-gold-500 hover:bg-white/5 rounded-lg transition-all font-medium">Contact</a>
-                <a href="#contact" class="btn-gold text-navy-900 font-semibold text-sm px-6 py-3 rounded-lg text-center mt-4">Get a Quote</a>
-            </div>
         </div>
-        <div id="mobile-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden lg:hidden z-40"></div>
-    </nav>
+    </header>
 
-    <!-- ========== HERO SECTION ========== -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-[60] shadow-2xl">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-10">
+                <img src="https://z-cdn-media.chatglm.cn/files/e1e83489-ce2b-4bd7-92a1-bb0f40b8536b.jpg?auth_key=1877153826-61952aa1848a491c9783ee12fc507e7f-0-9ea1f395058057c03dd379cee1fb805b" 
+                     alt="KGI Logo" class="h-12 w-auto object-contain">
+                <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100">
+                    <i data-lucide="x" class="w-6 h-6 text-brand-dark"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-1">
+                <a href="#home" class="mobile-nav-link text-base font-medium text-brand-dark px-4 py-3 rounded-lg hover:bg-gold-50 hover:text-gold-600 transition-colors">Home</a>
+                <a href="#about" class="mobile-nav-link text-base font-medium text-brand-dark px-4 py-3 rounded-lg hover:bg-gold-50 hover:text-gold-600 transition-colors">About</a>
+                <a href="#services" class="mobile-nav-link text-base font-medium text-brand-dark px-4 py-3 rounded-lg hover:bg-gold-50 hover:text-gold-600 transition-colors">Services</a>
+                <a href="#tracking" class="mobile-nav-link text-base font-medium text-brand-dark px-4 py-3 rounded-lg hover:bg-gold-50 hover:text-gold-600 transition-colors">Tracking</a>
+                <a href="#contact" class="mobile-nav-link text-base font-medium text-brand-dark px-4 py-3 rounded-lg hover:bg-gold-50 hover:text-gold-600 transition-colors">Contact</a>
+                <div class="mt-4 pt-4 border-t border-brand-border">
+                    <a href="#contact" class="btn-gold text-white text-sm font-semibold px-6 py-3 rounded-lg block text-center">Get Quote</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div id="menuOverlay" class="fixed inset-0 bg-black/40 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
+
+
+    <!-- ==================== HERO — CARGO SHIP AT SEA ==================== -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=80" 
-                 alt="Cargo ship at sea" 
-                 class="w-full h-full object-cover animate-ship">
-            <div class="hero-overlay absolute inset-0"></div>
+            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb95?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Cargo Ship at Sea" 
+                 class="w-full h-full object-cover hero-slow-zoom">
+            <div class="hero-bg absolute inset-0"></div>
         </div>
+        <!-- Decorative ship silhouette watermark -->
+        <svg class="logistics-watermark bottom-0 left-0 w-[600px] h-[200px]" viewBox="0 0 600 200" fill="white">
+            <path d="M50,150 Q100,80 200,100 Q300,120 350,90 Q400,60 500,100 L550,150 L500,180 L0,180 Z"/>
+            <rect x="180" y="50" width="60" height="60" rx="2" fill="white" opacity="0.5"/>
+            <rect x="250" y="60" width="50" height="50" rx="2" fill="white" opacity="0.5"/>
+            <rect x="310" y="55" width="55" height="55" rx="2" fill="white" opacity="0.5"/>
+        </svg>
 
-        <!-- Animated plane -->
-        <div class="absolute top-32 left-0 animate-plane opacity-30 pointer-events-none">
-            <i data-lucide="plane" class="w-10 h-10 text-gold-400"></i>
-        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 gold-gradient"></div>
 
-        <!-- Decorative elements -->
-        <div class="absolute top-20 left-10 w-72 h-72 bg-gold-500/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-navy-400/10 rounded-full blur-3xl"></div>
-
-        <!-- Content -->
-        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
-            <div class="animate-fade-up">
-                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-5 py-2 mb-8">
-                    <div class="w-2 h-2 bg-gold-500 rounded-full animate-pulse"></div>
-                    <span class="text-sm text-white/80 font-medium">Trusted Logistics Partner Since Day One</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
+            <div class="max-w-3xl" style="animation: fadeInUp 1s ease-out forwards;">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
+                    <div class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></div>
+                    <span class="text-gold-300 text-xs font-semibold tracking-widest uppercase">Trusted Worldwide</span>
                 </div>
-            </div>
-            
-            <h1 class="animate-fade-up delay-200 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
-                Connecting Cargo,
-                <br>
-                <span class="gold-text">Creating Opportunities</span>
-            </h1>
-            
-            <p class="animate-fade-up delay-300 text-lg sm:text-xl md:text-2xl text-white/70 font-light mb-10 max-w-3xl mx-auto">
-                By Air, By Sea, Across Borders
-            </p>
 
-            <div class="animate-fade-up delay-400 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="btn-gold text-navy-900 font-semibold text-lg px-8 py-4 rounded-xl w-full sm:w-auto">
-                    Get a Quote
-                </a>
-                <a href="#contact" class="btn-outline text-gold-500 font-semibold text-lg px-8 py-4 rounded-xl w-full sm:w-auto">
-                    Contact Us
-                </a>
-            </div>
+                <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] mb-6">
+                    Global Logistics<br>
+                    <span class="gold-shimmer">& Freight Solutions</span>
+                </h1>
 
-            <!-- Stats row -->
-            <div class="animate-fade-up delay-600 mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-                <div class="counter-box text-center p-4">
-                    <div class="text-2xl sm:text-3xl font-bold gold-text" data-count="150">0+</div>
-                    <div class="text-xs sm:text-sm text-white/50 mt-1">Global Partners</div>
-                </div>
-                <div class="counter-box text-center p-4">
-                    <div class="text-2xl sm:text-3xl font-bold gold-text" data-count="50">0+</div>
-                    <div class="text-xs sm:text-sm text-white/50 mt-1">Countries Served</div>
-                </div>
-                <div class="counter-box text-center p-4">
-                    <div class="text-2xl sm:text-3xl font-bold gold-text" data-count="10">0K+</div>
-                    <div class="text-xs sm:text-sm text-white/50 mt-1">Shipments Yearly</div>
-                </div>
-                <div class="counter-box text-center p-4">
-                    <div class="text-2xl sm:text-3xl font-bold gold-text" data-count="99">0%</div>
-                    <div class="text-xs sm:text-sm text-white/50 mt-1">On-Time Delivery</div>
+                <p class="hero-sub text-lg sm:text-xl text-white/80 font-light leading-relaxed mb-10 max-w-xl">
+                    Connecting Cargo, Creating Opportunities by Air, Sea & Land
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="btn-gold text-white font-semibold px-8 py-4 rounded-lg text-base inline-flex items-center justify-center gap-2">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        Get Quote
+                    </a>
+                    <a href="#tracking" class="btn-outline-gold bg-transparent font-semibold px-8 py-4 rounded-lg text-base inline-flex items-center justify-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        Track Shipment
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <i data-lucide="chevron-down" class="w-6 h-6 text-gold-500/60"></i>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" style="animation: float 2s ease-in-out infinite;">
+            <div class="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center pt-2">
+                <div class="w-1.5 h-3 bg-gold-400 rounded-full animate-bounce"></div>
+            </div>
         </div>
     </section>
 
-    <!-- ========== ABOUT SECTION ========== -->
-    <section id="about" class="relative py-24 sm:py-32 bg-navy-950">
-        <div class="absolute inset-0 section-overlay"></div>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="relative bg-brand-black py-10 lg:py-14 overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.04]">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000&auto=format&fit=crop" 
+                 alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+                <div class="stat-item text-center">
+                    <div class="text-3xl lg:text-4xl font-bold text-gold-400 mb-1">15+</div>
+                    <div class="text-sm text-gray-400 font-medium tracking-wide uppercase">Years Experience</div>
+                </div>
+                <div class="stat-item text-center">
+                    <div class="text-3xl lg:text-4xl font-bold text-gold-400 mb-1">50+</div>
+                    <div class="text-sm text-gray-400 font-medium tracking-wide uppercase">Countries Served</div>
+                </div>
+                <div class="stat-item text-center">
+                    <div class="text-3xl lg:text-4xl font-bold text-gold-400 mb-1">5000+</div>
+                    <div class="text-sm text-gray-400 font-medium tracking-wide uppercase">Shipments Yearly</div>
+                </div>
+                <div class="stat-item text-center">
+                    <div class="text-3xl lg:text-4xl font-bold text-gold-400 mb-1">98%</div>
+                    <div class="text-sm text-gray-400 font-medium tracking-wide uppercase">Client Retention</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== ABOUT — OFFICE + SHIP IN BACKGROUND ==================== -->
+    <section id="about" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Modern Business Office" class="w-full h-full object-cover">
+            <div class="section-bg-overlay absolute inset-0"></div>
+        </div>
+        <!-- Ship watermark in about section -->
+        <svg class="logistics-watermark top-10 right-0 w-[500px] h-[180px] opacity-[0.02]" viewBox="0 0 500 180" fill="#1A1A1A">
+            <path d="M30,130 Q80,60 180,80 Q280,100 320,70 Q380,40 470,80 L500,130 L460,160 L0,160 Z"/>
+            <rect x="150" y="30" width="50" height="50" rx="2" opacity="0.5"/>
+            <rect x="210" y="40" width="45" height="40" rx="2" opacity="0.5"/>
+            <rect x="265" y="35" width="50" height="45" rx="2" opacity="0.5"/>
+        </svg>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <!-- Image Side -->
-                <div class="reveal relative">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" 
-                             alt="Container yard with cranes" 
-                             class="w-full h-[400px] sm:h-[500px] object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent"></div>
-                    </div>
-                    <!-- Floating card -->
-                    <div class="absolute -bottom-6 -right-4 sm:right-8 bg-navy-900/95 backdrop-blur-xl border border-gold-500/20 rounded-xl p-5 shadow-2xl animate-float">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 gold-gradient rounded-lg flex items-center justify-center">
-                                <i data-lucide="award" class="w-6 h-6 text-navy-900"></i>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold gold-text">15+</div>
-                                <div class="text-xs text-white/60">Years Experience</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Corner accent -->
-                    <div class="absolute -top-3 -left-3 w-20 h-20 border-t-2 border-l-2 border-gold-500/40 rounded-tl-2xl"></div>
-                </div>
-
-                <!-- Content Side -->
-                <div class="reveal delay-200">
+                <div class="animate-on-scroll from-left">
                     <div class="inline-flex items-center gap-2 mb-4">
-                        <div class="w-8 h-[2px] bg-gold-500"></div>
-                        <span class="text-gold-500 text-sm font-semibold uppercase tracking-wider">About Us</span>
+                        <div class="w-8 h-[2px] gold-gradient rounded"></div>
+                        <span class="text-gold-600 text-xs font-bold tracking-[0.2em] uppercase">About Us</span>
                     </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                        Your Trusted Partner in
-                        <span class="gold-text">Global Logistics</span>
+
+                    <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-black leading-tight mb-6">
+                        Your Trusted Partner in <span class="gold-text-gradient">Global Logistics</span>
                     </h2>
-                    <p class="text-white/60 text-lg leading-relaxed mb-6">
-                        Karachi Gwadar International Logistics (Pvt) Ltd. is a premier freight forwarding and logistics solutions provider based in Pakistan. With deep expertise in sea freight, air freight, and land transport, we deliver seamless cargo movement across continents.
+
+                    <div class="gold-divider w-16 mb-8"></div>
+
+                    <p class="text-brand-grey text-base lg:text-lg leading-relaxed mb-6">
+                        Karachi Gwadar International Logistics Pvt Ltd is a dynamic and customer-focused logistics company offering comprehensive freight forwarding and supply chain solutions. With a strong global network and dedicated team, we ensure seamless, reliable and cost-effective logistics services across the world.
                     </p>
-                    <p class="text-white/60 text-lg leading-relaxed mb-8">
-                        Our extensive global network, combined with a commitment to reliability and cost-effective solutions, makes us the preferred logistics partner for businesses of all sizes — from local enterprises to multinational corporations.
+
+                    <p class="text-brand-grey text-base lg:text-lg leading-relaxed mb-10">
+                        We specialize in connecting businesses to global markets through our integrated air, sea, and land freight services, supported by cutting-edge technology and unwavering commitment to excellence.
                     </p>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
+
+                    <div class="grid grid-cols-2 gap-4 mb-10">
                         <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-gold-500 flex-shrink-0"></i>
-                            <span class="text-white/70 text-sm">Licensed & Bonded</span>
+                            <div class="w-10 h-10 rounded-lg bg-gold-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-gold-600"></i>
+                            </div>
+                            <span class="text-sm font-medium text-brand-dark">Licensed & Insured</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-gold-500 flex-shrink-0"></i>
-                            <span class="text-white/70 text-sm">Global Network</span>
+                            <div class="w-10 h-10 rounded-lg bg-gold-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-gold-600"></i>
+                            </div>
+                            <span class="text-sm font-medium text-brand-dark">ISO Certified</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-gold-500 flex-shrink-0"></i>
-                            <span class="text-white/70 text-sm">Cost Effective</span>
+                            <div class="w-10 h-10 rounded-lg bg-gold-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-gold-600"></i>
+                            </div>
+                            <span class="text-sm font-medium text-brand-dark">Global Network</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-gold-500 flex-shrink-0"></i>
-                            <span class="text-white/70 text-sm">24/7 Support</span>
+                            <div class="w-10 h-10 rounded-lg bg-gold-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-gold-600"></i>
+                            </div>
+                            <span class="text-sm font-medium text-brand-dark">24/7 Support</span>
                         </div>
                     </div>
-                    <a href="#services" class="btn-gold inline-flex items-center gap-2 text-navy-900 font-semibold px-8 py-3.5 rounded-xl">
-                        Our Services
+
+                    <a href="#services" class="btn-gold text-white font-semibold px-8 py-3.5 rounded-lg text-sm inline-flex items-center gap-2">
+                        Explore Services
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
+
+                <div class="animate-on-scroll from-right">
+                    <div class="relative">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=1974&auto=format&fit=crop" 
+                                 alt="Cargo Ship at Dock" class="w-full h-[400px] lg:h-[500px] object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 border border-brand-border" style="animation: float 3s ease-in-out infinite;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center">
+                                    <i data-lucide="award" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-brand-black">15+</div>
+                                    <div class="text-xs text-brand-grey font-medium">Years of Excellence</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-3 -right-3 w-20 h-20 border-t-4 border-r-4 border-gold-400 rounded-tr-2xl"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== SERVICES SECTION (ICONS GRID) ========== -->
-    <section id="services" class="relative py-24 sm:py-32 bg-navy-900">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.05),transparent_60%)]"></div>
+
+    <!-- ==================== SERVICES — CONTAINER YARD + SHIPS ==================== -->
+    <section id="services" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Shipping Containers and Cranes" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-white via-white/96 to-white"></div>
+        </div>
+        <!-- Container ship watermark -->
+        <svg class="logistics-watermark bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[250px] opacity-[0.015]" viewBox="0 0 800 250" fill="#1A1A1A">
+            <path d="M0,180 Q100,100 250,130 Q400,160 500,110 Q600,60 750,120 L800,180 L750,220 L0,220 Z"/>
+            <rect x="200" y="60" width="70" height="70" rx="3" opacity="0.4"/>
+            <rect x="280" y="70" width="65" height="60" rx="3" opacity="0.4"/>
+            <rect x="355" y="55" width="75" height="75" rx="3" opacity="0.4"/>
+            <rect x="440" y="65" width="60" height="65" rx="3" opacity="0.4"/>
+            <rect x="510" y="60" width="70" height="70" rx="3" opacity="0.4"/>
+        </svg>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-16 reveal">
+            <div class="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
                 <div class="inline-flex items-center gap-2 mb-4">
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
-                    <span class="text-gold-500 text-sm font-semibold uppercase tracking-wider">What We Offer</span>
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
+                    <div class="w-8 h-[2px] gold-gradient rounded"></div>
+                    <span class="text-gold-600 text-xs font-bold tracking-[0.2em] uppercase">What We Offer</span>
+                    <div class="w-8 h-[2px] gold-gradient rounded"></div>
                 </div>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                    Our Core <span class="gold-text">Services</span>
+                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-black leading-tight mb-4">
+                    Our <span class="gold-text-gradient">Services</span>
                 </h2>
-                <p class="text-white/50 text-lg max-w-2xl mx-auto">
-                    Comprehensive logistics solutions tailored to move your cargo efficiently across the globe.
+                <div class="gold-divider w-16 mx-auto mb-6"></div>
+                <p class="text-brand-grey text-base lg:text-lg leading-relaxed">
+                    Comprehensive logistics solutions tailored to meet your unique supply chain requirements with precision and reliability.
                 </p>
             </div>
 
-            <!-- Services Grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Sea Freight -->
-                <div class="service-card reveal delay-100 bg-navy-800/50 backdrop-blur-sm rounded-2xl p-8 text-center group cursor-pointer">
-                    <div class="service-icon w-16 h-16 mx-auto mb-6 bg-navy-700/50 rounded-2xl flex items-center justify-center text-gold-500">
-                        <i data-lucide="ship" class="w-8 h-8"></i>
+                <div class="service-card bg-white rounded-2xl p-8 border border-brand-border animate-on-scroll" style="transition-delay: 0.05s;">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb95?q=80&w=600&auto=format&fit=crop" 
+                             alt="Sea Freight" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="service-icon absolute bottom-3 left-3 w-12 h-12 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-400">
+                            <i data-lucide="ship" class="w-6 h-6 text-gold-600 transition-colors"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Sea Freight</h3>
-                    <p class="text-white/50 text-sm leading-relaxed">FCL, LCL & Bulk Cargo shipping solutions across all major trade routes worldwide.</p>
-                    <div class="mt-4 flex items-center justify-center gap-1 text-gold-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="service-line h-[2px] w-10 bg-brand-border rounded mb-4 transition-all duration-400"></div>
+                    <h3 class="text-xl font-bold text-brand-black mb-3">Sea Freight</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed mb-4">FCL, LCL, and Bulk cargo shipping solutions with competitive rates and reliable schedules across major trade routes.</p>
+                    <a href="#contact" class="text-gold-600 text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Air Freight -->
-                <div class="service-card reveal delay-200 bg-navy-800/50 backdrop-blur-sm rounded-2xl p-8 text-center group cursor-pointer">
-                    <div class="service-icon w-16 h-16 mx-auto mb-6 bg-navy-700/50 rounded-2xl flex items-center justify-center text-gold-500">
-                        <i data-lucide="plane" class="w-8 h-8"></i>
+                <div class="service-card bg-white rounded-2xl p-8 border border-brand-border animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?q=80&w=2074&auto=format&fit=crop" 
+                             alt="Air Freight Airplane" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="service-icon absolute bottom-3 left-3 w-12 h-12 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-400">
+                            <i data-lucide="plane" class="w-6 h-6 text-gold-600 transition-colors"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Air Freight</h3>
-                    <p class="text-white/50 text-sm leading-relaxed">Fast & secure delivery for time-sensitive cargo with global airline partnerships.</p>
-                    <div class="mt-4 flex items-center justify-center gap-1 text-gold-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="service-line h-[2px] w-10 bg-brand-border rounded mb-4 transition-all duration-400"></div>
+                    <h3 class="text-xl font-bold text-brand-black mb-3">Air Freight</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed mb-4">Express and standard air cargo services ensuring time-sensitive shipments reach their destination safely and on schedule.</p>
+                    <a href="#contact" class="text-gold-600 text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Land Transport -->
-                <div class="service-card reveal delay-300 bg-navy-800/50 backdrop-blur-sm rounded-2xl p-8 text-center group cursor-pointer">
-                    <div class="service-icon w-16 h-16 mx-auto mb-6 bg-navy-700/50 rounded-2xl flex items-center justify-center text-gold-500">
-                        <i data-lucide="truck" class="w-8 h-8"></i>
+                <div class="service-card bg-white rounded-2xl p-8 border border-brand-border animate-on-scroll" style="transition-delay: 0.15s;">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop" 
+                             alt="Land Transport Trucks" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="service-icon absolute bottom-3 left-3 w-12 h-12 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-400">
+                            <i data-lucide="truck" class="w-6 h-6 text-gold-600 transition-colors"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Land Transport</h3>
-                    <p class="text-white/50 text-sm leading-relaxed">Reliable inland trucking solutions connecting ports, warehouses, and destinations.</p>
-                    <div class="mt-4 flex items-center justify-center gap-1 text-gold-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="service-line h-[2px] w-10 bg-brand-border rounded mb-4 transition-all duration-400"></div>
+                    <h3 class="text-xl font-bold text-brand-black mb-3">Land Transport</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed mb-4">Efficient road and rail freight services across Pakistan and cross-border, with full truckload and partial options available.</p>
+                    <a href="#contact" class="text-gold-600 text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Project Cargo -->
-                <div class="service-card reveal delay-400 bg-navy-800/50 backdrop-blur-sm rounded-2xl p-8 text-center group cursor-pointer">
-                    <div class="service-icon w-16 h-16 mx-auto mb-6 bg-navy-700/50 rounded-2xl flex items-center justify-center text-gold-500">
-                        <i data-lucide="package" class="w-8 h-8"></i>
+                <div class="service-card bg-white rounded-2xl p-8 border border-brand-border animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop" 
+                             alt="Project Cargo Heavy Lift" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="service-icon absolute bottom-3 left-3 w-12 h-12 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-400">
+                            <i data-lucide="crane" class="w-6 h-6 text-gold-600 transition-colors"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Project Cargo</h3>
-                    <p class="text-white/50 text-sm leading-relaxed">Heavy & oversized cargo handling with specialized equipment and expert planning.</p>
-                    <div class="mt-4 flex items-center justify-center gap-1 text-gold-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="service-line h-[2px] w-10 bg-brand-border rounded mb-4 transition-all duration-400"></div>
+                    <h3 class="text-xl font-bold text-brand-black mb-3">Project Cargo</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed mb-4">Specialized handling of oversized, heavy-lift, and complex project cargo with custom planning and engineering solutions.</p>
+                    <a href="#contact" class="text-gold-600 text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Warehousing -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-brand-border animate-on-scroll" style="transition-delay: 0.25s;">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2070&auto=format&fit=crop" 
+                             alt="Warehousing" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="service-icon absolute bottom-3 left-3 w-12 h-12 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-400">
+                            <i data-lucide="warehouse" class="w-6 h-6 text-gold-600 transition-colors"></i>
+                        </div>
                     </div>
+                    <div class="service-line h-[2px] w-10 bg-brand-border rounded mb-4 transition-all duration-400"></div>
+                    <h3 class="text-xl font-bold text-brand-black mb-3">Warehousing & Distribution</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed mb-4">State-of-the-art warehousing facilities with inventory management, pick-and-pack, and distribution services.</p>
+                    <a href="#contact" class="text-gold-600 text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Customs Clearance -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-brand-border animate-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000&auto=format&fit=crop" 
+                             alt="Customs Clearance Port" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="service-icon absolute bottom-3 left-3 w-12 h-12 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-400">
+                            <i data-lucide="file-check" class="w-6 h-6 text-gold-600 transition-colors"></i>
+                        </div>
+                    </div>
+                    <div class="service-line h-[2px] w-10 bg-brand-border rounded mb-4 transition-all duration-400"></div>
+                    <h3 class="text-xl font-bold text-brand-black mb-3">Customs Clearance</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed mb-4">Expert customs brokerage services ensuring smooth and hassle-free import/export clearance with full regulatory compliance.</p>
+                    <a href="#contact" class="text-gold-600 text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== DETAILED SERVICES LIST ========== -->
-    <section class="relative py-24 sm:py-32 bg-navy-950 overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-gold-500/3 rounded-full blur-3xl"></div>
+
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-brand-light"></div>
+        <!-- Subtle ship/plane watermark -->
+        <svg class="logistics-watermark top-20 left-10 w-[400px] h-[140px] opacity-[0.025]" viewBox="0 0 400 140" fill="#1A1A1A">
+            <path d="M20,100 Q60,40 140,60 Q220,80 260,50 Q320,20 380,60 L400,100 L370,125 L0,125 Z"/>
+            <rect x="120" y="15" width="45" height="45" rx="2" opacity="0.4"/>
+            <rect x="175" y="20" width="40" height="40" rx="2" opacity="0.4"/>
+            <rect x="225" y="15" width="48" height="45" rx="2" opacity="0.4"/>
+        </svg>
+        <svg class="logistics-watermark bottom-20 right-10 w-[350px] h-[100px] opacity-[0.02]" viewBox="0 0 350 100" fill="#1A1A1A">
+            <path d="M0,60 Q50,20 120,35 Q190,50 230,25 Q280,5 330,35 L350,60 L330,80 L0,80 Z"/>
+            <path d="M130,5 L160,5 L155,35 L135,35 Z" opacity="0.4"/>
+            <path d="M100,35 L190,35 L175,45 L110,45 Z" opacity="0.3"/>
+        </svg>
+
+        <div class="absolute top-0 left-0 right-0 h-1 gold-gradient"></div>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
-                <!-- Left: Image -->
-                <div class="reveal relative order-2 lg:order-1">
-                    <div class="relative rounded-2xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" 
-                             alt="Warehouse interior" 
-                             class="w-full h-[500px] object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-r from-navy-950/40 to-transparent"></div>
-                    </div>
-                    <div class="absolute -bottom-3 -left-3 w-20 h-20 border-b-2 border-l-2 border-gold-500/40 rounded-bl-2xl"></div>
-                </div>
-
-                <!-- Right: Services List -->
-                <div class="order-1 lg:order-2">
-                    <div class="reveal">
-                        <div class="inline-flex items-center gap-2 mb-4">
-                            <div class="w-8 h-[2px] bg-gold-500"></div>
-                            <span class="text-gold-500 text-sm font-semibold uppercase tracking-wider">Complete Solutions</span>
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl font-bold mb-10">
-                            End-to-End <span class="gold-text">Logistics Services</span>
-                        </h2>
-                    </div>
-
-                    <div class="space-y-1">
-                        <div class="detail-item reveal delay-100 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="anchor" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Freight Forwarding</h4>
-                                <p class="text-sm text-white/40">Sea & Air cargo solutions</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-150 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="file-check" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Customs Clearance</h4>
-                                <p class="text-sm text-white/40">Hassle-free documentation</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-200 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="arrow-left-right" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Import & Export Handling</h4>
-                                <p class="text-sm text-white/40">Complete trade management</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-250 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="home" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Door to Door Delivery</h4>
-                                <p class="text-sm text-white/40">Seamless end-to-end service</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-300 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="warehouse" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Warehousing & Distribution</h4>
-                                <p class="text-sm text-white/40">Secure storage solutions</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-350 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="box" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Packing & Relocation</h4>
-                                <p class="text-sm text-white/40">Professional packing services</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-400 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="shield-check" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Marine Insurance</h4>
-                                <p class="text-sm text-white/40">Comprehensive cargo protection</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-450 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="crane" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Project Cargo & Chartering</h4>
-                                <p class="text-sm text-white/40">Specialized heavy lift solutions</p>
-                            </div>
-                        </div>
-
-                        <div class="detail-item reveal delay-500 flex items-center gap-4 p-4 rounded-xl cursor-pointer">
-                            <div class="w-10 h-10 flex-shrink-0 bg-gold-500/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="book-open" class="w-5 h-5 text-gold-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white/90">Consultancy & Documentation</h4>
-                                <p class="text-sm text-white/40">Expert trade advisory</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== WHY CHOOSE US ========== -->
-    <section class="relative py-24 sm:py-32 bg-navy-900 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.04),transparent_50%)]"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-16 reveal">
+            <div class="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
                 <div class="inline-flex items-center gap-2 mb-4">
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
-                    <span class="text-gold-500 text-sm font-semibold uppercase tracking-wider">Our Advantage</span>
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
+                    <div class="w-8 h-[2px] gold-gradient rounded"></div>
+                    <span class="text-gold-600 text-xs font-bold tracking-[0.2em] uppercase">Our Advantage</span>
+                    <div class="w-8 h-[2px] gold-gradient rounded"></div>
                 </div>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                    Why Choose <span class="gold-text">KGI Logistics</span>
+                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-black leading-tight mb-4">
+                    Why <span class="gold-text-gradient">Choose Us</span>
                 </h2>
-                <p class="text-white/50 text-lg max-w-2xl mx-auto">
-                    We deliver excellence at every step of your supply chain.
+                <div class="gold-divider w-16 mx-auto mb-6"></div>
+                <p class="text-brand-grey text-base lg:text-lg leading-relaxed">
+                    We deliver excellence at every step of your supply chain journey.
                 </p>
             </div>
 
-            <!-- Grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="why-card reveal delay-100 bg-navy-800/30 rounded-2xl p-8 text-center">
-                    <div class="why-icon w-14 h-14 mx-auto mb-5 flex items-center justify-center text-gold-500/70">
-                        <i data-lucide="badge-dollar-sign" class="w-7 h-7"></i>
+                <div class="why-card bg-white rounded-xl p-7 border border-brand-border animate-on-scroll" style="transition-delay: 0.05s;">
+                    <div class="why-icon w-12 h-12 rounded-lg bg-gold-50 flex items-center justify-center mb-5 transition-all duration-300">
+                        <i data-lucide="badge-dollar-sign" class="w-6 h-6 text-gold-600 transition-colors"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Competitive Rates</h3>
-                    <p class="text-white/40 text-sm">Best-in-class pricing without compromising on service quality.</p>
+                    <h3 class="text-lg font-bold text-brand-black mb-2">Competitive Rates</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed">Cost-effective logistics solutions without compromising on quality or service standards.</p>
                 </div>
-
-                <div class="why-card reveal delay-200 bg-navy-800/30 rounded-2xl p-8 text-center">
-                    <div class="why-icon w-14 h-14 mx-auto mb-5 flex items-center justify-center text-gold-500/70">
-                        <i data-lucide="users" class="w-7 h-7"></i>
+                <div class="why-card bg-white rounded-xl p-7 border border-brand-border animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="why-icon w-12 h-12 rounded-lg bg-gold-50 flex items-center justify-center mb-5 transition-all duration-300">
+                        <i data-lucide="users" class="w-6 h-6 text-gold-600 transition-colors"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Experienced Team</h3>
-                    <p class="text-white/40 text-sm">Industry veterans who understand your unique logistics needs.</p>
+                    <h3 class="text-lg font-bold text-brand-black mb-2">Professional & Experienced Team</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed">Industry veterans with deep expertise in freight forwarding and supply chain management.</p>
                 </div>
-
-                <div class="why-card reveal delay-300 bg-navy-800/30 rounded-2xl p-8 text-center">
-                    <div class="why-icon w-14 h-14 mx-auto mb-5 flex items-center justify-center text-gold-500/70">
-                        <i data-lucide="globe" class="w-7 h-7"></i>
+                <div class="why-card bg-white rounded-xl p-7 border border-brand-border animate-on-scroll" style="transition-delay: 0.15s;">
+                    <div class="why-icon w-12 h-12 rounded-lg bg-gold-50 flex items-center justify-center mb-5 transition-all duration-300">
+                        <i data-lucide="globe" class="w-6 h-6 text-gold-600 transition-colors"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Global Network</h3>
-                    <p class="text-white/40 text-sm">Connected to major ports and airports across 50+ countries.</p>
+                    <h3 class="text-lg font-bold text-brand-black mb-2">Global Network & Local Expertise</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed">Worldwide partnerships combined with deep understanding of regional markets and regulations.</p>
                 </div>
-
-                <div class="why-card reveal delay-400 bg-navy-800/30 rounded-2xl p-8 text-center">
-                    <div class="why-icon w-14 h-14 mx-auto mb-5 flex items-center justify-center text-gold-500/70">
-                        <i data-lucide="zap" class="w-7 h-7"></i>
+                <div class="why-card bg-white rounded-xl p-7 border border-brand-border animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="why-icon w-12 h-12 rounded-lg bg-gold-50 flex items-center justify-center mb-5 transition-all duration-300">
+                        <i data-lucide="clock" class="w-6 h-6 text-gold-600 transition-colors"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Fast Delivery</h3>
-                    <p class="text-white/40 text-sm">Time-definite delivery with real-time tracking and updates.</p>
+                    <h3 class="text-lg font-bold text-brand-black mb-2">Timely Deliveries</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed">Strict adherence to schedules with proactive tracking and status updates at every stage.</p>
                 </div>
-
-                <div class="why-card reveal delay-500 bg-navy-800/30 rounded-2xl p-8 text-center">
-                    <div class="why-icon w-14 h-14 mx-auto mb-5 flex items-center justify-center text-gold-500/70">
-                        <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                <div class="why-card bg-white rounded-xl p-7 border border-brand-border animate-on-scroll" style="transition-delay: 0.25s;">
+                    <div class="why-icon w-12 h-12 rounded-lg bg-gold-50 flex items-center justify-center mb-5 transition-all duration-300">
+                        <i data-lucide="heart-handshake" class="w-6 h-6 text-gold-600 transition-colors"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Customer Satisfaction</h3>
-                    <p class="text-white/40 text-sm">Dedicated account managers ensuring a seamless experience.</p>
+                    <h3 class="text-lg font-bold text-brand-black mb-2">Customer Satisfaction Priority</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed">Customer-centric approach ensuring personalized solutions and exceeding expectations consistently.</p>
                 </div>
-
-                <div class="why-card reveal delay-600 bg-navy-800/30 rounded-2xl p-8 text-center">
-                    <div class="why-icon w-14 h-14 mx-auto mb-5 flex items-center justify-center text-gold-500/70">
-                        <i data-lucide="headphones" class="w-7 h-7"></i>
+                <div class="why-card bg-white rounded-xl p-7 border border-brand-border animate-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="why-icon w-12 h-12 rounded-lg bg-gold-50 flex items-center justify-center mb-5 transition-all duration-300">
+                        <i data-lucide="headphones" class="w-6 h-6 text-gold-600 transition-colors"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">24/7 Support</h3>
-                    <p class="text-white/40 text-sm">Round-the-clock assistance whenever you need us most.</p>
+                    <h3 class="text-lg font-bold text-brand-black mb-2">24/7 Support</h3>
+                    <p class="text-brand-grey text-sm leading-relaxed">Round-the-clock customer support team ready to assist you anytime, anywhere in the world.</p>
                 </div>
             </div>
         </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 gold-gradient"></div>
     </section>
 
-    <!-- ========== GLOBAL NETWORK SECTION ========== -->
-    <section id="network" class="relative py-24 sm:py-32 bg-navy-950 overflow-hidden">
+
+    <!-- ==================== TRACKING — AIRPLANE TECH BACKGROUND ==================== -->
+    <section id="tracking" class="relative py-24 lg:py-32 overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" 
-                 alt="World map" 
-                 class="w-full h-full object-cover opacity-10">
+            <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Airplane in Sky" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-dark to-brand-black opacity-95"></div>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/90 to-navy-950"></div>
-        
+        <!-- Airplane watermark -->
+        <svg class="absolute top-16 right-10 w-[500px] h-[200px] opacity-[0.03] z-0" viewBox="0 0 500 200" fill="white">
+            <path d="M200,100 L250,85 L350,80 L450,85 L480,100 L350,95 L250,95 Z"/>
+            <path d="M250,95 L240,160 L270,160 L265,95 Z"/>
+            <path d="M200,100 L120,130 L140,140 L230,105 Z"/>
+            <path d="M350,95 L420,120 L405,130 L345,100 Z"/>
+        </svg>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-16 reveal">
-                <div class="inline-flex items-center gap-2 mb-4">
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
-                    <span class="text-gold-500 text-sm font-semibold uppercase tracking-wider">Worldwide Reach</span>
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
-                </div>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                    Our Global <span class="gold-text">Network</span>
-                </h2>
-                <p class="text-white/50 text-lg max-w-2xl mx-auto">
-                    Strategic partnerships spanning major trade hubs across every continent.
-                </p>
-            </div>
-
-            <!-- Map SVG with Routes -->
-            <div class="reveal max-w-5xl mx-auto relative">
-                <svg viewBox="0 0 1000 500" class="w-full" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Simplified world map outline -->
-                    <ellipse cx="500" cy="250" rx="480" ry="230" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="1"/>
-                    <ellipse cx="500" cy="250" rx="350" ry="230" fill="none" stroke="rgba(212,175,55,0.05)" stroke-width="1"/>
-                    <line x1="20" y1="250" x2="980" y2="250" stroke="rgba(212,175,55,0.05)" stroke-width="1"/>
-                    <line x1="500" y1="20" x2="500" y2="480" stroke="rgba(212,175,55,0.05)" stroke-width="1"/>
-
-                    <!-- Route lines from Karachi -->
-                    <path d="M 620 240 Q 700 180 780 150" class="route-line" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2" style="animation-delay: 0.5s"/>
-                    <path d="M 620 240 Q 550 150 480 100" class="route-line" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2" style="animation-delay: 1s"/>
-                    <path d="M 620 240 Q 700 300 820 280" class="route-line" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2" style="animation-delay: 1.5s"/>
-                    <path d="M 620 240 Q 500 300 350 260" class="route-line" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2" style="animation-delay: 2s"/>
-                    <path d="M 620 240 Q 650 350 600 420" class="route-line" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2" style="animation-delay: 2.5s"/>
-                    <path d="M 620 240 Q 400 180 250 150" class="route-line" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2" style="animation-delay: 0.8s"/>
-
-                    <!-- Karachi - Main Hub -->
-                    <circle cx="620" cy="240" r="8" fill="#d4af37" class="map-dot"/>
-                    <circle cx="620" cy="240" r="14" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5" class="map-dot"/>
-                    <text x="620" y="270" fill="#d4af37" font-size="11" font-weight="600" text-anchor="middle">KARACHI</text>
-                    <text x="620" y="283" fill="rgba(212,175,55,0.5)" font-size="8" text-anchor="middle">HQ</text>
-
-                    <!-- Destination dots -->
-                    <circle cx="780" cy="150" r="5" fill="#d4af37" opacity="0.7"/>
-                    <text x="780" y="140" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle">CHINA</text>
-
-                    <circle cx="480" cy="100" r="5" fill="#d4af37" opacity="0.7"/>
-                    <text x="480" y="90" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle">EUROPE</text>
-
-                    <circle cx="820" cy="280" r="5" fill="#d4af37" opacity="0.7"/>
-                    <text x="845" y="275" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="start">FAR EAST</text>
-
-                    <circle cx="350" cy="260" r="5" fill="#d4af37" opacity="0.7"/>
-                    <text x="330" y="253" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="end">AFRICA</text>
-
-                    <circle cx="600" cy="420" r="5" fill="#d4af37" opacity="0.7"/>
-                    <text x="600" y="440" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle">S.E. ASIA</text>
-
-                    <circle cx="250" cy="150" r="5" fill="#d4af37" opacity="0.7"/>
-                    <text x="250" y="140" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle">AMERICAS</text>
-                </svg>
-
-                <!-- Floating location badges -->
-                <div class="absolute bottom-8 left-4 sm:left-8 flex flex-wrap gap-3">
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇵🇰 Pakistan</span>
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇨🇳 China</span>
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇦🇪 UAE</span>
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇬🇧 UK</span>
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇺🇸 USA</span>
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇩🇪 Germany</span>
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇯🇵 Japan</span>
-                    <span class="bg-navy-800/80 backdrop-blur-sm border border-gold-500/20 text-xs text-white/70 px-3 py-1.5 rounded-full">🇸🇦 Saudi Arabia</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== COMPANY PROFILE SECTION ========== -->
-    <section id="profile" class="relative py-24 sm:py-32 bg-navy-900 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03),transparent_70%)]"></div>
-        <!-- Background image -->
-        <div class="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
-            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" 
-                 alt="Logistics warehouse" 
-                 class="w-full h-full object-cover opacity-10">
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-900 to-navy-900/50"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <div class="reveal">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="animate-on-scroll">
                     <div class="inline-flex items-center gap-2 mb-4">
-                        <div class="w-8 h-[2px] bg-gold-500"></div>
-                        <span class="text-gold-500 text-sm font-semibold uppercase tracking-wider">Company Profile</span>
+                        <div class="w-8 h-[2px] bg-gold-400 rounded"></div>
+                        <span class="text-gold-400 text-xs font-bold tracking-[0.2em] uppercase">Real-Time Tracking</span>
+                        <div class="w-8 h-[2px] bg-gold-400 rounded"></div>
                     </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-                        Built on <span class="gold-text">Trust</span>, Driven by <span class="gold-text">Excellence</span>
+                    <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-4">
+                        Track Your <span class="gold-shimmer">Shipment</span>
                     </h2>
-                </div>
-                
-                <div class="reveal delay-200 space-y-5">
-                    <p class="text-white/60 text-lg leading-relaxed">
-                        Karachi Gwadar International Logistics (Pvt) Ltd. stands as a pillar of reliability in Pakistan's logistics landscape. As a fully licensed and bonded freight forwarding company, we operate with the highest standards of professionalism, integrity, and operational efficiency.
-                    </p>
-                    <p class="text-white/60 text-lg leading-relaxed">
-                        Our strategically positioned headquarters on MT Khan Road, Karachi — the heart of Pakistan's commercial hub — gives us direct access to Port Qasim and Karachi Port, enabling rapid turnaround times for both import and export consignments. With Gwadar Port emerging as a game-changer in regional trade, our company name reflects our forward-looking vision to connect Pakistan's southern corridor with the world.
-                    </p>
-                    <p class="text-white/60 text-lg leading-relaxed">
-                        Under the leadership of our Managing Director, Nabila Younus, we have built a team of seasoned professionals who bring decades of combined experience in customs regulations, international trade compliance, and multi-modal transport coordination. Every shipment we handle is backed by meticulous planning, transparent communication, and an unwavering commitment to delivering your cargo safely and on time.
+                    <div class="gold-divider w-16 mx-auto mb-6"></div>
+                    <p class="text-gray-400 text-base lg:text-lg leading-relaxed mb-12">
+                        Enter your tracking number to get real-time updates on your shipment status and location.
                     </p>
                 </div>
 
-                <div class="reveal delay-400 mt-10 flex flex-wrap gap-6">
-                    <div class="flex items-center gap-3">
-                        <div class="w-3 h-3 bg-gold-500 rounded-full"></div>
-                        <span class="text-white/70">Fully Licensed</span>
+                <div class="animate-on-scroll bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-2xl p-8 lg:p-12">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 relative">
+                            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"></i>
+                            <input type="text" id="trackingInput"
+                                   placeholder="Enter Tracking Number (e.g., KGI-2025-XXXXX)" 
+                                   class="tracking-input w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-500 text-sm font-medium transition-all duration-300 focus:outline-none">
+                        </div>
+                        <button onclick="trackShipment()" class="btn-gold text-white font-semibold px-8 py-4 rounded-xl text-sm flex items-center justify-center gap-2 whitespace-nowrap">
+                            <i data-lucide="radar" class="w-5 h-5"></i>
+                            Track Now
+                        </button>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-3 h-3 bg-gold-500 rounded-full"></div>
-                        <span class="text-white/70">Bonded Warehouse</span>
+
+                    <div id="trackingResult" class="hidden mt-8">
+                        <div id="trackingContent"></div>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-3 h-3 bg-gold-500 rounded-full"></div>
-                        <span class="text-white/70">ISO Compliant</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-3 h-3 bg-gold-500 rounded-full"></div>
-                        <span class="text-white/70">Insured Operations</span>
+
+                    <div class="mt-10 pt-8 border-t border-white/10">
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="package" class="w-4 h-4 text-gold-400"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-medium">Booked</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="ship" class="w-4 h-4 text-gold-400"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-medium">In Transit</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="building" class="w-4 h-4 text-gold-400"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-medium">Customs</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-gold-400"></i>
+                                </div>
+                                <span class="text-gray-400 text-xs font-medium">Delivered</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CTA BANNER ========== -->
-    <section class="relative py-20 overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=80" 
-                 alt="Airplane in sky" 
-                 class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/80 to-gold-500/20"></div>
+
+    <!-- ==================== CTA SECTION — SHIP BACKGROUND ==================== -->
+    <section class="relative py-20 lg:py-24 gold-gradient overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.08]">
+            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb95?q=80&w=2070&auto=format&fit=crop" 
+                 alt="" class="w-full h-full object-cover">
         </div>
-        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <div class="reveal">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                    Ready to Ship? <span class="gold-text">Let's Talk.</span>
-                </h2>
-                <p class="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
-                    Whether it's a single pallet or a full project cargo, we have the expertise and network to deliver.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#contact" class="btn-gold text-navy-900 font-semibold text-lg px-10 py-4 rounded-xl w-full sm:w-auto">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Ready to Ship? Let's Get Started.</h2>
+                <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto">Contact our logistics experts today for a customized quote tailored to your shipping needs.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-white text-brand-black font-semibold px-8 py-4 rounded-lg text-base inline-flex items-center justify-center gap-2 hover:bg-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
                         Request a Quote
                     </a>
-                    <a href="tel:03072950929" class="btn-outline text-gold-500 font-semibold text-lg px-10 py-4 rounded-xl w-full sm:w-auto inline-flex items-center gap-2">
+                    <a href="tel:03072950929" class="border-2 border-white text-white font-semibold px-8 py-4 rounded-lg text-base inline-flex items-center justify-center gap-2 hover:bg-white hover:text-brand-black transition-all duration-300 hover:-translate-y-0.5">
                         <i data-lucide="phone" class="w-5 h-5"></i>
-                        Call Now
+                        Call Us Now
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CONTACT SECTION ========== -->
-    <section id="contact" class="relative py-24 sm:py-32 bg-navy-950">
-        <div class="absolute top-0 left-0 w-96 h-96 bg-gold-500/3 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-72 h-72 bg-navy-400/5 rounded-full blur-3xl"></div>
-        
+
+    <!-- ==================== CONTACT — CITY/MAP BACKGROUND ==================== -->
+    <section id="contact" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Karachi City Skyline" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white"></div>
+        </div>
+        <!-- Ship watermark in contact -->
+        <svg class="logistics-watermark bottom-10 right-0 w-[450px] h-[160px] opacity-[0.02]" viewBox="0 0 450 160" fill="#1A1A1A">
+            <path d="M20,110 Q70,50 160,70 Q250,90 290,60 Q350,30 430,70 L450,110 L420,140 L0,140 Z"/>
+            <rect x="140" y="25" width="50" height="50" rx="2" opacity="0.4"/>
+            <rect x="200" y="30" width="45" height="45" rx="2" opacity="0.4"/>
+            <rect x="255" y="25" width="55" height="50" rx="2" opacity="0.4"/>
+        </svg>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-16 reveal">
+            <div class="text-center max-w-2xl mx-auto mb-16 animate-on-scroll">
                 <div class="inline-flex items-center gap-2 mb-4">
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
-                    <span class="text-gold-500 text-sm font-semibold uppercase tracking-wider">Get In Touch</span>
-                    <div class="w-8 h-[2px] bg-gold-500"></div>
+                    <div class="w-8 h-[2px] gold-gradient rounded"></div>
+                    <span class="text-gold-600 text-xs font-bold tracking-[0.2em] uppercase">Get In Touch</span>
+                    <div class="w-8 h-[2px] gold-gradient rounded"></div>
                 </div>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                    Contact <span class="gold-text">Us</span>
+                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-black leading-tight mb-4">
+                    Contact <span class="gold-text-gradient">Us</span>
                 </h2>
-                <p class="text-white/50 text-lg max-w-2xl mx-auto">
-                    Have a shipment in mind? Reach out and our team will respond within 24 hours.
+                <div class="gold-divider w-16 mx-auto mb-6"></div>
+                <p class="text-brand-grey text-base lg:text-lg leading-relaxed">
+                    Have a question or need a quote? Reach out to us and our team will respond promptly.
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-5 gap-10 lg:gap-16">
+            <div class="grid lg:grid-cols-5 gap-10 lg:gap-12">
                 <!-- Contact Info -->
-                <div class="lg:col-span-2 space-y-8">
-                    <div class="reveal delay-100">
-                        <div class="bg-navy-800/30 border border-gold-500/10 rounded-2xl p-6 space-y-6">
-                            <!-- Managing Director -->
+                <div class="lg:col-span-2 animate-on-scroll from-left">
+                    <div class="bg-white rounded-2xl border border-brand-border p-8 shadow-sm">
+                        <h3 class="text-xl font-bold text-brand-black mb-6">Contact Information</h3>
+                        <div class="space-y-6">
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 flex-shrink-0 gold-gradient rounded-xl flex items-center justify-center">
-                                    <i data-lucide="user" class="w-5 h-5 text-navy-900"></i>
+                                <div class="w-11 h-11 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="user" class="w-5 h-5 text-white"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-white/90">Nabila Younus</h4>
-                                    <p class="text-sm text-gold-500">Managing Director</p>
+                                    <div class="text-xs text-brand-grey font-medium uppercase tracking-wider mb-1">Managing Director</div>
+                                    <div class="text-sm font-semibold text-brand-black">Nabila Younus</div>
                                 </div>
                             </div>
-
-                            <!-- Phone -->
-                            <a href="tel:03072950929" class="flex items-start gap-4 group">
-                                <div class="w-12 h-12 flex-shrink-0 bg-navy-700/50 rounded-xl flex items-center justify-center text-gold-500 group-hover:bg-gold-500 group-hover:text-navy-900 transition-all">
-                                    <i data-lucide="phone" class="w-5 h-5"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-white/40">Phone</p>
-                                    <p class="text-white/80 font-medium group-hover:text-gold-500 transition-colors">03072950929</p>
-                                </div>
-                            </a>
-
-                            <!-- Email -->
-                            <a href="mailto:info@karachigwadarintlogistics.com" class="flex items-start gap-4 group">
-                                <div class="w-12 h-12 flex-shrink-0 bg-navy-700/50 rounded-xl flex items-center justify-center text-gold-500 group-hover:bg-gold-500 group-hover:text-navy-900 transition-all">
-                                    <i data-lucide="mail" class="w-5 h-5"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-white/40">Email</p>
-                                    <p class="text-white/80 font-medium group-hover:text-gold-500 transition-colors break-all">info@karachigwadarintlogistics.com</p>
-                                </div>
-                            </a>
-
-                            <!-- Address -->
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 flex-shrink-0 bg-navy-700/50 rounded-xl flex items-center justify-center text-gold-500">
-                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                <div class="w-11 h-11 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-5 h-5 text-white"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-white/40">Address</p>
-                                    <p class="text-white/80 font-medium">B-10 Back Annex Imperial Building,<br>MT Khan Road, Karachi</p>
+                                    <div class="text-xs text-brand-grey font-medium uppercase tracking-wider mb-1">Phone</div>
+                                    <a href="tel:03072950929" class="text-sm font-semibold text-brand-black hover:text-gold-600 transition-colors">03072950929</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-brand-grey font-medium uppercase tracking-wider mb-1">Email</div>
+                                    <a href="mailto:info@karachigwadarintlogistics.com" class="text-sm font-semibold text-brand-black hover:text-gold-600 transition-colors break-all">info@karachigwadarintlogistics.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-brand-grey font-medium uppercase tracking-wider mb-1">Address</div>
+                                    <p class="text-sm font-semibold text-brand-black leading-relaxed">B-10 Back Annexe Imperial Building, MT Khan Road, Karachi</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Social Media -->
-                    <div class="reveal delay-200">
-                        <p class="text-sm text-white/40 mb-3">Follow Us</p>
-                        <div class="flex gap-3">
-                            <a href="#" class="w-10 h-10 bg-navy-800/50 border border-gold-500/10 rounded-lg flex items-center justify-center text-white/50 hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500 transition-all">
-                                <i data-lucide="facebook" class="w-4 h-4"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-navy-800/50 border border-gold-500/10 rounded-lg flex items-center justify-center text-white/50 hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500 transition-all">
-                                <i data-lucide="linkedin" class="w-4 h-4"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-navy-800/50 border border-gold-500/10 rounded-lg flex items-center justify-center text-white/50 hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500 transition-all">
-                                <i data-lucide="instagram" class="w-4 h-4"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-navy-800/50 border border-gold-500/10 rounded-lg flex items-center justify-center text-white/50 hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500 transition-all">
-                                <i data-lucide="twitter" class="w-4 h-4"></i>
-                            </a>
+                        <div class="mt-8 pt-6 border-t border-brand-border">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i data-lucide="clock" class="w-4 h-4 text-gold-600"></i>
+                                <span class="text-sm font-semibold text-brand-black">Business Hours</span>
+                            </div>
+                            <p class="text-sm text-brand-grey">Monday – Saturday: 9:00 AM – 6:00 PM</p>
+                            <p class="text-sm text-brand-grey">24/7 Emergency Support Available</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="lg:col-span-3 reveal delay-300">
-                    <form id="contact-form" class="bg-navy-800/30 border border-gold-500/10 rounded-2xl p-8">
-                        <h3 class="text-xl font-bold mb-6">Request a Quote</h3>
-                        <div class="grid sm:grid-cols-2 gap-5 mb-5">
-                            <div>
-                                <label class="block text-sm text-white/50 mb-2">Full Name *</label>
-                                <input type="text" name="name" required placeholder="Your name"
-                                    class="form-input w-full px-4 py-3 rounded-xl text-white placeholder-white/20 outline-none">
+                <!-- Contact Form & Map -->
+                <div class="lg:col-span-3 space-y-8 animate-on-scroll from-right">
+                    <div class="bg-white rounded-2xl border border-brand-border p-8 shadow-sm">
+                        <h3 class="text-xl font-bold text-brand-black mb-6">Send Us a Message</h3>
+                        <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-brand-dark uppercase tracking-wider mb-2">Full Name *</label>
+                                    <input type="text" required placeholder="Your full name" class="form-input w-full px-4 py-3 rounded-lg border border-brand-border text-sm transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-brand-dark uppercase tracking-wider mb-2">Email *</label>
+                                    <input type="email" required placeholder="your@email.com" class="form-input w-full px-4 py-3 rounded-lg border border-brand-border text-sm transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-brand-dark uppercase tracking-wider mb-2">Phone</label>
+                                    <input type="tel" placeholder="Your phone number" class="form-input w-full px-4 py-3 rounded-lg border border-brand-border text-sm transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-brand-dark uppercase tracking-wider mb-2">Service Needed</label>
+                                    <select class="form-input w-full px-4 py-3 rounded-lg border border-brand-border text-sm text-brand-grey transition-all duration-300">
+                                        <option value="">Select a service</option>
+                                        <option>Sea Freight</option>
+                                        <option>Air Freight</option>
+                                        <option>Land Transport</option>
+                                        <option>Project Cargo</option>
+                                        <option>Warehousing & Distribution</option>
+                                        <option>Customs Clearance</option>
+                                    </select>
+                                </div>
                             </div>
                             <div>
-                                <label class="block text-sm text-white/50 mb-2">Email Address *</label>
-                                <input type="email" name="email" required placeholder="your@email.com"
-                                    class="form-input w-full px-4 py-3 rounded-xl text-white placeholder-white/20 outline-none">
+                                <label class="block text-xs font-semibold text-brand-dark uppercase tracking-wider mb-2">Message *</label>
+                                <textarea required rows="4" placeholder="Tell us about your shipping requirements..." class="form-input w-full px-4 py-3 rounded-lg border border-brand-border text-sm transition-all duration-300 resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="btn-gold text-white font-semibold px-8 py-3.5 rounded-lg text-sm inline-flex items-center gap-2">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                Send Message
+                            </button>
+                            <div id="formSuccess" class="hidden items-center gap-2 text-green-600 text-sm font-medium">
+                                <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                <span>Your message has been sent successfully!</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm">
+                        <div class="p-4 border-b border-brand-border">
+                            <h3 class="text-base font-bold text-brand-black flex items-center gap-2">
+                                <i data-lucide="map" class="w-5 h-5 text-gold-600"></i>
+                                Find Us on Map
+                            </h3>
+                        </div>
+                        <div class="relative h-[300px] bg-gray-100">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.7!2d67.01!3d24.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMT+Khan+Road+Karachi!5e0!3m2!1sen!2s!4v1"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                class="absolute inset-0">
+                            </iframe>
+                            <div id="mapFallback" class="absolute inset-0 bg-gray-100 flex flex-col items-center justify-center hidden">
+                                <i data-lucide="map-pin" class="w-12 h-12 text-gold-400 mb-3"></i>
+                                <p class="text-sm font-semibold text-brand-dark">B-10 Back Annexe Imperial Building</p>
+                                <p class="text-xs text-brand-grey">MT Khan Road, Karachi</p>
+                                <a href="https://maps.google.com/?q=MT+Khan+Road+Karachi" target="_blank" class="mt-3 text-gold-600 text-xs font-semibold hover:underline">Open in Google Maps →</a>
                             </div>
                         </div>
-                        <div class="grid sm:grid-cols-2 gap-5 mb-5">
-                            <div>
-                                <label class="block text-sm text-white/50 mb-2">Phone Number *</label>
-                                <input type="tel" name="phone" required placeholder="+92 300 0000000"
-                                    class="form-input w-full px-4 py-3 rounded-xl text-white placeholder-white/20 outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-sm text-white/50 mb-2">Service Type</label>
-                                <select name="service" class="form-input w-full px-4 py-3 rounded-xl text-white/60 outline-none appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%222%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 12px center; background-size: 18px;">
-                                    <option value="">Select a service</option>
-                                    <option value="sea-fcl">Sea Freight - FCL</option>
-                                    <option value="sea-lcl">Sea Freight - LCL</option>
-                                    <option value="air">Air Freight</option>
-                                    <option value="land">Land Transport</option>
-                                    <option value="customs">Customs Clearance</option>
-                                    <option value="project">Project Cargo</option>
-                                    <option value="warehouse">Warehousing</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <label class="block text-sm text-white/50 mb-2">Your Message *</label>
-                            <textarea name="message" required rows="5" placeholder="Describe your shipment requirements..."
-                                class="form-input w-full px-4 py-3 rounded-xl text-white placeholder-white/20 outline-none resize-none"></textarea>
-                        </div>
-                        <button type="submit" class="btn-gold w-full text-navy-900 font-semibold text-lg px-8 py-4 rounded-xl flex items-center justify-center gap-2">
-                            <i data-lucide="send" class="w-5 h-5"></i>
-                            Request a Quote
-                        </button>
-                        <p class="text-xs text-white/30 mt-4 text-center">We'll respond within 24 hours. Your information is kept confidential.</p>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="bg-navy-900 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-                <!-- Company Info -->
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-brand-black text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 gold-gradient"></div>
+        <!-- Ship watermark in footer -->
+        <svg class="absolute bottom-10 left-0 w-[600px] h-[200px] opacity-[0.02]" viewBox="0 0 600 200" fill="white">
+            <path d="M30,140 Q90,60 200,90 Q310,120 370,80 Q440,40 560,90 L600,140 L550,175 L0,175 Z"/>
+            <rect x="170" y="40" width="60" height="55" rx="2" opacity="0.4"/>
+            <rect x="240" y="50" width="55" height="45" rx="2" opacity="0.4"/>
+            <rect x="305" y="42" width="65" height="53" rx="2" opacity="0.4"/>
+            <rect x="380" y="48" width="55" height="47" rx="2" opacity="0.4"/>
+        </svg>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
                 <div class="lg:col-span-1">
-                    <a href="#home" class="inline-block mb-6">
-                        <img src="https://z-cdn-media.chatglm.cn/files/c2ffb5ae-b62b-4c20-92f5-184d3fa7b63d.png?auth_key=1877144940-ea57b13c3cfd44fc87c9eb16481be928-0-92b7a06a3442ba287b078682dcd239e4" alt="KGI Logistics Logo" class="h-14 w-auto">
-                    </a>
-                    <p class="text-white/40 text-sm leading-relaxed mb-6">
-                        Karachi Gwadar International Logistics (Pvt) Ltd. — Your trusted partner for seamless global cargo solutions.
+                    <img src="https://z-cdn-media.chatglm.cn/files/e1e83489-ce2b-4bd7-92a1-bb0f40b8536b.jpg?auth_key=1877153826-61952aa1848a491c9783ee12fc507e7f-0-9ea1f395058057c03dd379cee1fb805b" 
+                         alt="KGI Logo" class="h-14 w-auto object-contain mb-5 brightness-110">
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Karachi Gwadar International Logistics Pvt Ltd — Your trusted partner for comprehensive freight forwarding and supply chain solutions worldwide.
                     </p>
-                    <div class="flex gap-3">
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-white/40 hover:bg-gold-500 hover:text-navy-900 transition-all">
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold-400 hover:border-gold-400 transition-all duration-300">
                             <i data-lucide="facebook" class="w-4 h-4"></i>
                         </a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-white/40 hover:bg-gold-500 hover:text-navy-900 transition-all">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold-400 hover:border-gold-400 transition-all duration-300">
                             <i data-lucide="linkedin" class="w-4 h-4"></i>
                         </a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-white/40 hover:bg-gold-500 hover:text-navy-900 transition-all">
-                            <i data-lucide="instagram" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-white/40 hover:bg-gold-500 hover:text-navy-900 transition-all">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold-400 hover:border-gold-400 transition-all duration-300">
                             <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="mailto:info@karachigwadarintlogistics.com" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold-400 hover:border-gold-400 transition-all duration-300">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Quick Links -->
                 <div>
-                    <h4 class="font-semibold text-white/90 mb-5">Quick Links</h4>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-5 flex items-center gap-2">
+                        <div class="w-5 h-[2px] bg-gold-400 rounded"></div>
+                        Services
+                    </h4>
                     <ul class="space-y-3">
-                        <li><a href="#home" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Home</a></li>
-                        <li><a href="#about" class="text-white/40 text-sm hover:text-gold-500 transition-colors">About Us</a></li>
-                        <li><a href="#services" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Services</a></li>
-                        <li><a href="#network" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Global Network</a></li>
-                        <li><a href="#profile" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Company Profile</a></li>
-                        <li><a href="#contact" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Contact Us</a></li>
+                        <li><a href="#services" class="footer-link text-sm text-gray-400 inline-block">Sea Freight</a></li>
+                        <li><a href="#services" class="footer-link text-sm text-gray-400 inline-block">Air Freight</a></li>
+                        <li><a href="#services" class="footer-link text-sm text-gray-400 inline-block">Land Transport</a></li>
+                        <li><a href="#services" class="footer-link text-sm text-gray-400 inline-block">Project Cargo</a></li>
+                        <li><a href="#services" class="footer-link text-sm text-gray-400 inline-block">Warehousing & Distribution</a></li>
+                        <li><a href="#services" class="footer-link text-sm text-gray-400 inline-block">Customs Clearance</a></li>
                     </ul>
                 </div>
-
-                <!-- Services -->
                 <div>
-                    <h4 class="font-semibold text-white/90 mb-5">Services</h4>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-5 flex items-center gap-2">
+                        <div class="w-5 h-[2px] bg-gold-400 rounded"></div>
+                        Quick Links
+                    </h4>
                     <ul class="space-y-3">
-                        <li><a href="#services" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Sea Freight</a></li>
-                        <li><a href="#services" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Air Freight</a></li>
-                        <li><a href="#services" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Land Transport</a></li>
-                        <li><a href="#services" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Customs Clearance</a></li>
-                        <li><a href="#services" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Warehousing</a></li>
-                        <li><a href="#services" class="text-white/40 text-sm hover:text-gold-500 transition-colors">Project Cargo</a></li>
+                        <li><a href="#home" class="footer-link text-sm text-gray-400 inline-block">Home</a></li>
+                        <li><a href="#about" class="footer-link text-sm text-gray-400 inline-block">About Us</a></li>
+                        <li><a href="#services" class="footer-link text-sm text-gray-400 inline-block">Services</a></li>
+                        <li><a href="#tracking" class="footer-link text-sm text-gray-400 inline-block">Track Shipment</a></li>
+                        <li><a href="#contact" class="footer-link text-sm text-gray-400 inline-block">Contact Us</a></li>
+                        <li><a href="#contact" class="footer-link text-sm text-gray-400 inline-block">Get a Quote</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact Info -->
                 <div>
-                    <h4 class="font-semibold text-white/90 mb-5">Contact Info</h4>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-5 flex items-center gap-2">
+                        <div class="w-5 h-[2px] bg-gold-400 rounded"></div>
+                        Contact
+                    </h4>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5"></i>
-                            <span class="text-white/40 text-sm">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span>
+                            <i data-lucide="user" class="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-sm text-gray-400">Nabila Younus<br><span class="text-xs text-gray-500">Managing Director</span></span>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="phone" class="w-4 h-4 text-gold-500 flex-shrink-0"></i>
-                            <a href="tel:03072950929" class="text-white/40 text-sm hover:text-gold-500 transition-colors">03072950929</a>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0"></i>
+                            <a href="tel:03072950929" class="text-sm text-gray-400 hover:text-gold-400 transition-colors">03072950929</a>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="mail" class="w-4 h-4 text-gold-500 flex-shrink-0"></i>
-                            <a href="mailto:info@karachigwadarintlogistics.com" class="text-white/40 text-sm hover:text-gold-500 transition-colors break-all">info@karachigwadarintlogistics.com</a>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0"></i>
+                            <a href="mailto:info@karachigwadarintlogistics.com" class="text-sm text-gray-400 hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0"></i>
+                            <span class="text-sm text-gray-400">B-10 Back Annexe Imperial Building, MT Khan Road, Karachi</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom Bar -->
-        <div class="border-t border-white/5">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-white/30 text-sm">
-                    © 2025 Karachi Gwadar International Logistics (Pvt) Ltd. All rights reserved.
-                </p>
-                <div class="flex gap-6">
-                    <a href="#" class="text-white/30 text-sm hover:text-gold-500 transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-white/30 text-sm hover:text-gold-500 transition-colors">Terms of Service</a>
+        <div class="relative z-10 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-xs text-gray-500 text-center sm:text-left">
+                        © 2025 Karachi Gwadar International Logistics Pvt Ltd. All rights reserved.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <a href="#" class="text-xs text-gray-500 hover:text-gold-400 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-xs text-gray-500 hover:text-gold-400 transition-colors">Terms of Service</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 gold-gradient rounded-xl flex items-center justify-center text-navy-900 shadow-lg opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:scale-110">
-        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full gold-gradient text-white shadow-lg flex items-center justify-center z-50 opacity-0 translate-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5" style="pointer-events: none;">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
     </button>
 
-    <!-- ========== JAVASCRIPT ========== -->
+
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
 
-        // ===== Navbar scroll effect =====
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-
-            // Back to top button
-            if (window.scrollY > 600) {
-                backToTop.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                backToTop.classList.add('opacity-100', 'translate-y-0');
-            } else {
-                backToTop.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                backToTop.classList.remove('opacity-100', 'translate-y-0');
-            }
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ===== Mobile menu =====
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileOverlay = document.getElementById('mobile-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        // ========== MOBILE MENU ==========
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
         function openMenu() {
             mobileMenu.classList.add('open');
-            mobileOverlay.classList.remove('hidden');
+            menuOverlay.classList.remove('hidden');
+            setTimeout(() => menuOverlay.classList.add('opacity-100'), 10);
             document.body.style.overflow = 'hidden';
         }
         function closeMenu() {
             mobileMenu.classList.remove('open');
-            mobileOverlay.classList.add('hidden');
-            document.body.style.overflow = '';
+            menuOverlay.classList.remove('opacity-100');
+            setTimeout(() => { menuOverlay.classList.add('hidden'); document.body.style.overflow = ''; }, 300);
         }
 
-        menuToggle.addEventListener('click', openMenu);
-        menuClose.addEventListener('click', closeMenu);
-        mobileOverlay.addEventListener('click', closeMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+        menuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-        // ===== Scroll reveal =====
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // ===== Counter animation =====
-        const counterElements = document.querySelectorAll('[data-count]');
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.getAttribute('data-count'));
-                    const suffix = el.textContent.replace(/[0-9]/g, '');
-                    let current = 0;
-                    const increment = target / 60;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            current = target;
-                            clearInterval(timer);
-                        }
-                        el.textContent = Math.floor(current) + suffix;
-                    }, 25);
-                    counterObserver.unobserve(el);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counterElements.forEach(el => counterObserver.observe(el));
-
-        // ===== Contact form =====
-        const contactForm = document.getElementById('contact-form');
-        const toast = document.getElementById('toast');
-        const toastMessage = document.getElementById('toast-message');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = contactForm.querySelector('[name="name"]').value;
-            
-            // Show success toast
-            toastMessage.textContent = `Thank you, ${name}! Your quote request has been submitted. We'll contact you soon.`;
-            toast.classList.add('show');
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Hide toast after 5 seconds
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 5000);
-        });
-
-        // ===== Active nav link highlight =====
+        // ========== ACTIVE NAV ON SCROLL ==========
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
+        const desktopNavLinks = document.querySelectorAll('.nav-link');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
+        function updateActiveNav() {
+            const scrollY = window.scrollY + 200;
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                if (scrollY >= top && scrollY < top + height) {
+                    desktopNavLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+                    });
                 }
             });
+        }
+        window.addEventListener('scroll', updateActiveNav);
 
-            navLinks.forEach(link => {
-                link.classList.remove('text-gold-500');
-                link.classList.add('text-white/80');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('text-gold-500');
-                    link.classList.remove('text-white/80');
-                }
+        // ========== SCROLL ANIMATIONS ==========
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
             });
+        }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // ========== BACK TO TOP ==========
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.style.opacity = '1'; backToTop.style.transform = 'translateY(0)'; backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.opacity = '0'; backToTop.style.transform = 'translateY(16px)'; backToTop.style.pointerEvents = 'none';
+            }
         });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // ========== TRACKING ==========
+        function trackShipment() {
+            const input = document.getElementById('trackingInput');
+            const result = document.getElementById('trackingResult');
+            const content = document.getElementById('trackingContent');
+            const num = input.value.trim();
+
+            if (!num) {
+                input.style.borderColor = '#EF4444'; input.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.15)';
+                setTimeout(() => { input.style.borderColor = ''; input.style.boxShadow = ''; }, 2000);
+                return;
+            }
+
+            content.innerHTML = `<div class="flex items-center justify-center py-8"><div class="w-8 h-8 border-2 border-gold-400 border-t-transparent rounded-full animate-spin"></div><span class="ml-3 text-gray-400 text-sm">Searching for your shipment...</span></div>`;
+            result.classList.remove('hidden');
+
+            setTimeout(() => {
+                content.innerHTML = `
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <div><div class="text-xs text-gray-500 uppercase tracking-wider">Tracking Number</div><div class="text-sm font-bold text-white mt-1">${num}</div></div>
+                            <div class="px-3 py-1 rounded-full bg-gold-400/20 border border-gold-400/30"><span class="text-xs font-bold text-gold-400">In Transit</span></div>
+                        </div>
+                        <div class="space-y-0">
+                            <div class="flex items-start gap-4 pb-5"><div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center"><i data-lucide="check" class="w-4 h-4 text-green-400"></i></div><div class="w-0.5 h-8 bg-green-500/30 mt-1"></div></div><div class="pt-1"><div class="text-sm font-semibold text-white">Shipment Booked</div><div class="text-xs text-gray-500 mt-0.5">Jan 15, 2025 — Karachi, Pakistan</div></div></div>
+                            <div class="flex items-start gap-4 pb-5"><div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center"><i data-lucide="check" class="w-4 h-4 text-green-400"></i></div><div class="w-0.5 h-8 bg-green-500/30 mt-1"></div></div><div class="pt-1"><div class="text-sm font-semibold text-white">Departed Origin Port</div><div class="text-xs text-gray-500 mt-0.5">Jan 17, 2025 — Port Qasim</div></div></div>
+                            <div class="flex items-start gap-4 pb-5"><div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full gold-gradient flex items-center justify-center animate-pulse"><i data-lucide="ship" class="w-4 h-4 text-white"></i></div><div class="w-0.5 h-8 bg-white/10 mt-1"></div></div><div class="pt-1"><div class="text-sm font-semibold text-gold-400">In Transit — Arabian Sea</div><div class="text-xs text-gray-500 mt-0.5">Jan 20, 2025 — Current Location</div></div></div>
+                            <div class="flex items-start gap-4 pb-5 opacity-40"><div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center"><i data-lucide="building" class="w-4 h-4 text-gray-600"></i></div><div class="w-0.5 h-8 bg-white/5 mt-1"></div></div><div class="pt-1"><div class="text-sm font-medium text-gray-500">Customs Clearance</div><div class="text-xs text-gray-600 mt-0.5">Pending</div></div></div>
+                            <div class="flex items-start gap-4 opacity-40"><div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center"><i data-lucide="check-circle" class="w-4 h-4 text-gray-600"></i></div></div><div class="pt-1"><div class="text-sm font-medium text-gray-500">Delivered</div><div class="text-xs text-gray-600 mt-0.5">Pending</div></div></div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10"><p class="text-xs text-gray-500 text-center">For detailed tracking, contact <a href="tel:03072950929" class="text-gold-400 hover:underline">03072950929</a></p></div>
+                    </div>`;
+                lucide.createIcons();
+            }, 1500);
+        }
+
+        document.getElementById('trackingInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') trackShipment(); });
+
+        // ========== CONTACT FORM ==========
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+            success.classList.remove('hidden'); success.classList.add('flex');
+            form.reset(); lucide.createIcons();
+            setTimeout(() => { success.classList.add('hidden'); success.classList.remove('flex'); }, 5000);
+        }
+
+        // ========== MAP FALLBACK ==========
+        const mapIframe = document.querySelector('iframe');
+        if (mapIframe) {
+            mapIframe.addEventListener('error', () => {
+                document.getElementById('mapFallback').classList.remove('hidden');
+                mapIframe.style.display = 'none';
+            });
+        }
     </script>
+
 </body>
 </html>
