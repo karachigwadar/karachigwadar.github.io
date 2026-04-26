@@ -35,8 +35,20 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
         .top-bar { background: linear-gradient(90deg, #060f22 0%, #0a1a3a 50%, #0d2044 100%); }
-        .navbar { background: rgba(10, 26, 58, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.4s ease; }
-        .navbar.scrolled { background: rgba(6, 15, 34, 0.98); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+
+        /* ★ WHITE NAVBAR ★ */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+
         .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease-in-out; }
         .hero-slide.active { opacity: 1; }
         .hero-slide .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.08); transition: transform 8s ease-out; }
@@ -89,33 +101,33 @@
         .logo-img { height: 44px; width: auto; object-fit: contain; }
         .logo-img-sm { height: 38px; width: auto; object-fit: contain; }
         .logo-img-footer { height: 40px; width: auto; object-fit: contain; }
-
-        /* Tracking Result Styles */
-        .tracking-result {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-            opacity: 0;
-        }
-        .tracking-result.show {
-            max-height: 600px;
-            opacity: 1;
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .tracking-result.show .track-anim {
-            animation: slideUp 0.5s ease forwards;
-        }
+        .tracking-result { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease; opacity: 0; }
+        .tracking-result.show { max-height: 600px; opacity: 1; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .tracking-result.show .track-anim { animation: slideUp 0.5s ease forwards; }
         .track-anim:nth-child(2) { animation-delay: 0.1s; }
         .track-anim:nth-child(3) { animation-delay: 0.2s; }
-        .track-anim:nth-child(4) { animation-delay: 0.3s; }
-        @keyframes pulseGreen {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-            50% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
-        }
+        @keyframes pulseGreen { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 8px rgba(34,197,94,0); } }
         .pulse-green { animation: pulseGreen 2s ease-in-out infinite; }
+
+        /* ★ NAV LINK STYLES - WHITE NAV ★ */
+        .nav-link {
+            color: #374151;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link-active { color: #d4a843; }
+        .nav-link-mobile {
+            color: #e5e7eb;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        .nav-link-mobile:hover { background: rgba(255,255,255,0.05); }
+        .nav-link-mobile.active-mobile { color: #d4a843; }
     </style>
 </head>
 <body class="bg-white">
@@ -142,21 +154,27 @@
         </div>
     </div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar sticky top-0 z-50 border-b border-white/5" id="navbar">
+    <!-- ★ WHITE HEADER / NAVBAR ★ -->
+    <nav class="navbar sticky top-0 z-50" id="navbar">
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="logo-img lg:h-[52px]">
-                <div class="hidden sm:block">
-                    <div class="text-white font-bold text-sm lg:text-base leading-tight tracking-wide">KARACHI GWADAR</div>
-                    <div class="text-gold-400 text-[10px] lg:text-xs font-medium tracking-[0.15em] uppercase">International Logistics</div>
+            <!-- Logo + Full Company Name on ALL screens -->
+            <a href="#" class="flex items-center gap-2.5 sm:gap-3">
+                <img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="logo-img h-9 sm:h-10 lg:h-[52px]">
+                <div>
+                    <div class="text-navy-900 font-bold text-[11px] sm:text-sm lg:text-base leading-tight tracking-wide">KARACHI GWADAR</div>
+                    <div class="text-gold-600 text-[8px] sm:text-[10px] lg:text-xs font-medium tracking-[0.1em] sm:tracking-[0.15em] uppercase">International Logistics</div>
                 </div>
             </a>
+
+            <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center gap-1">
-                <a href="#home" class="text-white px-4 py-2 text-sm font-medium hover:text-gold-400 transition-colors">Home</a>
-                <a href="#about" class="text-gray-300 px-4 py-2 text-sm font-medium hover:text-gold-400 transition-colors">About Us</a>
+                <a href="#home" class="nav-link nav-link-active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
                 <div class="relative group">
-                    <button class="text-gray-300 px-4 py-2 text-sm font-medium hover:text-gold-400 transition-colors flex items-center gap-1">Services <span class="iconify" data-icon="lucide:chevron-down" data-width="14"></span></button>
+                    <button class="nav-link flex items-center gap-1">
+                        Services
+                        <span class="iconify" data-icon="lucide:chevron-down" data-width="14"></span>
+                    </button>
                     <div class="nav-dropdown absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2">
                         <a href="#services" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gold-50 hover:text-gold-700 transition-colors"><span class="iconify text-gold-500" data-icon="lucide:ship" data-width="18"></span> Sea Freight</a>
                         <a href="#services" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gold-50 hover:text-gold-700 transition-colors"><span class="iconify text-gold-500" data-icon="lucide:plane" data-width="18"></span> Air Freight</a>
@@ -166,42 +184,55 @@
                         <a href="#services" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gold-50 hover:text-gold-700 transition-colors"><span class="iconify text-gold-500" data-icon="lucide:file-check" data-width="18"></span> Customs Clearance</a>
                     </div>
                 </div>
-                <a href="#tracking" class="text-gray-300 px-4 py-2 text-sm font-medium hover:text-gold-400 transition-colors">Tracking</a>
-                <a href="#contact" class="text-gray-300 px-4 py-2 text-sm font-medium hover:text-gold-400 transition-colors">Contact Us</a>
+                <a href="#tracking" class="nav-link">Tracking</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
             </div>
+
+            <!-- Right side -->
             <div class="flex items-center gap-3">
                 <a href="#quote" class="hidden sm:inline-flex btn-gold px-5 py-2.5 rounded-lg text-sm">Get a Quote</a>
-                <button class="lg:hidden text-white p-2" onclick="toggleMobileMenu()"><span class="iconify" data-icon="lucide:menu" data-width="24"></span></button>
+                <button class="lg:hidden text-navy-900 p-2" onclick="toggleMobileMenu()">
+                    <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- MOBILE MENU -->
+    <!-- ★ MOBILE MENU ★ -->
     <div class="mobile-menu fixed inset-0 z-[60] bg-navy-950" id="mobileMenu">
         <div class="flex items-center justify-between p-4 border-b border-white/10">
-            <a href="#" class="flex items-center gap-3">
+            <a href="#" class="flex items-center gap-2.5" onclick="toggleMobileMenu()">
                 <img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="logo-img-sm">
-                <span class="text-white font-bold text-sm">KGI Logistics</span>
+                <div>
+                    <div class="text-white font-bold text-[11px] leading-tight tracking-wide">KARACHI GWADAR</div>
+                    <div class="text-gold-400 text-[8px] font-medium tracking-[0.1em] uppercase">International Logistics</div>
+                </div>
             </a>
-            <button onclick="toggleMobileMenu()" class="text-white p-2"><span class="iconify" data-icon="lucide:x" data-width="24"></span></button>
+            <button onclick="toggleMobileMenu()" class="text-white p-2">
+                <span class="iconify" data-icon="lucide:x" data-width="24"></span>
+            </button>
         </div>
-        <div class="p-6 space-y-1">
-            <a href="#home" onclick="toggleMobileMenu()" class="block text-white py-3 px-4 rounded-lg hover:bg-white/5 font-medium">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block text-gray-300 py-3 px-4 rounded-lg hover:bg-white/5 font-medium">About Us</a>
+        <div class="p-5 space-y-1">
+            <a href="#home" onclick="toggleMobileMenu()" class="block nav-link-mobile active-mobile">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block nav-link-mobile">About Us</a>
             <div>
-                <button onclick="toggleMobileDropdown('mobServices')" class="w-full flex items-center justify-between text-gray-300 py-3 px-4 rounded-lg hover:bg-white/5 font-medium">Services <span class="iconify" data-icon="lucide:chevron-down" data-width="16"></span></button>
-                <div id="mobServices" class="hidden pl-8 space-y-1">
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400">Sea Freight</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400">Air Freight</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400">Land Transport</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400">Project Cargo</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400">Warehousing</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400">Customs Clearance</a>
+                <button onclick="toggleMobileDropdown('mobServices')" class="w-full flex items-center justify-between nav-link-mobile">
+                    Services <span class="iconify" data-icon="lucide:chevron-down" data-width="16"></span>
+                </button>
+                <div id="mobServices" class="hidden pl-6 space-y-1 mt-1 mb-1">
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Sea Freight</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Air Freight</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Land Transport</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Project Cargo</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Warehousing</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Customs Clearance</a>
                 </div>
             </div>
-            <a href="#tracking" onclick="toggleMobileMenu()" class="block text-gray-300 py-3 px-4 rounded-lg hover:bg-white/5 font-medium">Tracking</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block text-gray-300 py-3 px-4 rounded-lg hover:bg-white/5 font-medium">Contact Us</a>
-            <div class="pt-4"><a href="#quote" onclick="toggleMobileMenu()" class="block btn-gold text-center px-5 py-3 rounded-lg text-sm font-bold">Get a Quote</a></div>
+            <a href="#tracking" onclick="toggleMobileMenu()" class="block nav-link-mobile">Tracking</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block nav-link-mobile">Contact Us</a>
+            <div class="pt-4">
+                <a href="#quote" onclick="toggleMobileMenu()" class="block btn-gold text-center px-5 py-3 rounded-lg text-sm font-bold">Get a Quote</a>
+            </div>
         </div>
     </div>
 
@@ -257,7 +288,7 @@
         </div>
         <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-5">
             <button class="slider-arrow" onclick="changeSlide(-1)"><span class="iconify" data-icon="lucide:chevron-left" data-width="20"></span></button>
-            <div class="flex items-center gap-2" id="sliderDots">
+            <div class="flex items-center gap-2">
                 <div class="slider-dot active" onclick="goToSlide(0)"></div>
                 <div class="slider-dot" onclick="goToSlide(1)"></div>
                 <div class="slider-dot" onclick="goToSlide(2)"></div>
@@ -267,91 +298,45 @@
         <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
     </section>
 
-    <!-- ═══════════════ TRACKING BAR + RESULT ═══════════════ -->
+    <!-- TRACKING BAR + RESULT -->
     <section id="tracking" class="relative z-20 -mt-8 px-4">
         <div class="max-w-4xl mx-auto">
-            <!-- Tracking Input -->
             <div class="bg-white rounded-2xl shadow-2xl shadow-navy-900/10 p-4 sm:p-6 flex flex-col sm:flex-row items-stretch gap-3 border border-gray-100">
                 <div class="flex-1 flex items-center gap-3 bg-gray-50 rounded-xl px-4">
                     <span class="iconify text-gold-500" data-icon="lucide:search" data-width="20"></span>
-                    <input type="text" id="trackingInput" placeholder="Enter Tracking Number..." class="tracking-input w-full bg-transparent py-3 text-sm text-gray-800 placeholder-gray-400 border-none" value="">
+                    <input type="text" id="trackingInput" placeholder="Enter Tracking Number..." class="tracking-input w-full bg-transparent py-3 text-sm text-gray-800 placeholder-gray-400 border-none">
                 </div>
                 <button onclick="trackShipment()" class="btn-gold px-8 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 whitespace-nowrap">
-                    <span class="iconify" data-icon="lucide:radar" data-width="16"></span>
-                    Track Now
+                    <span class="iconify" data-icon="lucide:radar" data-width="16"></span> Track Now
                 </button>
             </div>
-
-            <!-- Tracking Result - SUCCESS -->
             <div id="trackingResult" class="tracking-result mt-4">
                 <div class="bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 overflow-hidden">
-                    <!-- Header -->
                     <div class="bg-navy-900 px-5 sm:px-7 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-gold-500/20 rounded-lg flex items-center justify-center">
-                                <span class="iconify text-gold-400" data-icon="lucide:package-check" data-width="20"></span>
-                            </div>
-                            <div>
-                                <div class="text-gray-400 text-xs font-medium">Tracking Number</div>
-                                <div class="text-white font-bold text-sm tracking-wide" id="resultTrackNum">KGIL987654321</div>
-                            </div>
+                            <div class="w-10 h-10 bg-gold-500/20 rounded-lg flex items-center justify-center"><span class="iconify text-gold-400" data-icon="lucide:package-check" data-width="20"></span></div>
+                            <div><div class="text-gray-400 text-xs font-medium">Tracking Number</div><div class="text-white font-bold text-sm tracking-wide" id="resultTrackNum">KGIL987654321</div></div>
                         </div>
                         <div class="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1">
                             <div class="w-2 h-2 bg-green-400 rounded-full pulse-green"></div>
                             <span class="text-green-400 text-xs font-semibold">Shipment Booked</span>
                         </div>
                     </div>
-
-                    <!-- Info Grid -->
                     <div class="p-5 sm:p-7">
                         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-7 track-anim" style="opacity:0;">
-                            <div class="bg-gray-50 rounded-xl p-4">
-                                <div class="text-gray-400 text-xs font-medium mb-1">Status</div>
-                                <div class="text-navy-900 font-bold text-sm flex items-center gap-2">
-                                    <span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="16"></span>
-                                    Shipment Booked
-                                </div>
-                            </div>
-                            <div class="bg-gray-50 rounded-xl p-4">
-                                <div class="text-gray-400 text-xs font-medium mb-1">Current Location</div>
-                                <div class="text-navy-900 font-bold text-sm flex items-center gap-2">
-                                    <span class="iconify text-gold-500" data-icon="lucide:map-pin" data-width="16"></span>
-                                    Dubai, UAE
-                                </div>
-                            </div>
-                            <div class="bg-gray-50 rounded-xl p-4">
-                                <div class="text-gray-400 text-xs font-medium mb-1">Origin</div>
-                                <div class="text-navy-900 font-bold text-sm flex items-center gap-2">
-                                    <span class="iconify text-blue-500" data-icon="lucide:anchor" data-width="16"></span>
-                                    Karachi, Pakistan
-                                </div>
-                            </div>
-                            <div class="bg-gray-50 rounded-xl p-4">
-                                <div class="text-gray-400 text-xs font-medium mb-1">Destination</div>
-                                <div class="text-navy-900 font-bold text-sm flex items-center gap-2">
-                                    <span class="iconify text-red-500" data-icon="lucide:flag" data-width="16"></span>
-                                    Jebel Ali, Dubai
-                                </div>
-                            </div>
+                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Status</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="16"></span> Shipment Booked</div></div>
+                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Current Location</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-gold-500" data-icon="lucide:map-pin" data-width="16"></span> Dubai, UAE</div></div>
+                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Origin</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-blue-500" data-icon="lucide:anchor" data-width="16"></span> Karachi, Pakistan</div></div>
+                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Destination</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:flag" data-width="16"></span> Jebel Ali, Dubai</div></div>
                         </div>
-
-                        <!-- Timeline -->
                         <div class="track-anim" style="opacity:0;">
                             <h4 class="text-navy-900 font-bold text-sm mb-4">Shipment Timeline</h4>
                             <div class="relative pl-8">
-                                <!-- Vertical line -->
                                 <div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-gray-200"></div>
-
-                                <!-- Step 1 - Active -->
                                 <div class="relative mb-6">
-                                    <div class="absolute -left-8 top-0.5 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center pulse-green">
-                                        <span class="iconify text-white" data-icon="lucide:check" data-width="12"></span>
-                                    </div>
+                                    <div class="absolute -left-8 top-0.5 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center pulse-green"><span class="iconify text-white" data-icon="lucide:check" data-width="12"></span></div>
                                     <div>
-                                        <div class="flex flex-wrap items-center gap-2 mb-0.5">
-                                            <span class="text-navy-900 font-bold text-sm">Shipment Booked</span>
-                                            <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full">CURRENT</span>
-                                        </div>
+                                        <div class="flex flex-wrap items-center gap-2 mb-0.5"><span class="text-navy-900 font-bold text-sm">Shipment Booked</span><span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full">CURRENT</span></div>
                                         <p class="text-gray-500 text-xs">Shipment has been booked and confirmed. Cargo received at origin warehouse.</p>
                                         <div class="flex flex-wrap items-center gap-4 mt-1.5">
                                             <span class="text-gray-400 text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:map-pin" data-width="11"></span> Dubai, UAE</span>
@@ -360,51 +345,17 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Step 2 - Upcoming -->
-                                <div class="relative mb-6">
-                                    <div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <span class="iconify text-gray-400" data-icon="lucide:loader" data-width="12"></span>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-400 font-semibold text-sm">In Transit</span>
-                                        <p class="text-gray-300 text-xs">Shipment en route to destination — pending</p>
-                                    </div>
-                                </div>
-
-                                <!-- Step 3 - Upcoming -->
-                                <div class="relative mb-6">
-                                    <div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <span class="iconify text-gray-400" data-icon="lucide:warehouse" data-width="12"></span>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-400 font-semibold text-sm">Arrived at Destination</span>
-                                        <p class="text-gray-300 text-xs">Cargo arrived at destination port — pending</p>
-                                    </div>
-                                </div>
-
-                                <!-- Step 4 - Upcoming -->
-                                <div class="relative">
-                                    <div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <span class="iconify text-gray-400" data-icon="lucide:check-check" data-width="12"></span>
-                                    </div>
-                                    <div>
-                                        <span class="text-gray-400 font-semibold text-sm">Delivered</span>
-                                        <p class="text-gray-300 text-xs">Shipment delivered successfully — pending</p>
-                                    </div>
-                                </div>
+                                <div class="relative mb-6"><div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:loader" data-width="12"></span></div><div><span class="text-gray-400 font-semibold text-sm">In Transit</span><p class="text-gray-300 text-xs">Shipment en route to destination — pending</p></div></div>
+                                <div class="relative mb-6"><div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:warehouse" data-width="12"></span></div><div><span class="text-gray-400 font-semibold text-sm">Arrived at Destination</span><p class="text-gray-300 text-xs">Cargo arrived at destination port — pending</p></div></div>
+                                <div class="relative"><div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:check-check" data-width="12"></span></div><div><span class="text-gray-400 font-semibold text-sm">Delivered</span><p class="text-gray-300 text-xs">Shipment delivered successfully — pending</p></div></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Tracking Result - NOT FOUND -->
             <div id="trackingNotFound" class="tracking-result mt-4">
                 <div class="bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 p-6 sm:p-8 text-center">
-                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="iconify text-red-400" data-icon="lucide:package-x" data-width="28"></span>
-                    </div>
+                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4"><span class="iconify text-red-400" data-icon="lucide:package-x" data-width="28"></span></div>
                     <h3 class="text-navy-900 font-bold text-lg mb-2">Shipment Not Found</h3>
                     <p class="text-gray-500 text-sm mb-1">No shipment found with tracking number:</p>
                     <p class="text-red-500 font-bold text-sm mb-4" id="notFoundNum"></p>
@@ -424,65 +375,14 @@
                 <p class="text-gray-500 mt-4 max-w-2xl mx-auto">End-to-end freight and logistics solutions tailored for your business needs</p>
             </div>
             <div class="grid md:grid-cols-3 gap-5 lg:gap-6 mb-5 lg:mb-6 reveal">
-                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]">
-                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" alt="Sea Freight" class="w-full h-full object-cover">
-                    <div class="overlay"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7">
-                        <div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:ship" data-width="22"></span></div>
-                        <h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Sea Freight</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">FCL & LCL container shipments across all major global trade routes</p>
-                        <div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div>
-                    </div>
-                </div>
-                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]">
-                    <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80" alt="Air Freight" class="w-full h-full object-cover">
-                    <div class="overlay"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7">
-                        <div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:plane" data-width="22"></span></div>
-                        <h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Air Freight</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">Express global air cargo with guaranteed transit times</p>
-                        <div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div>
-                    </div>
-                </div>
-                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]">
-                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80" alt="Land Transport" class="w-full h-full object-cover">
-                    <div class="overlay"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7">
-                        <div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:truck" data-width="22"></span></div>
-                        <h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Land Transport</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">Reliable road freight across Pakistan with FTL & PTL options</p>
-                        <div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div>
-                    </div>
-                </div>
+                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" alt="Sea Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7"><div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:ship" data-width="22"></span></div><h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Sea Freight</h3><p class="text-gray-300 text-sm leading-relaxed">FCL & LCL container shipments across all major global trade routes</p><div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
+                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80" alt="Air Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7"><div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:plane" data-width="22"></span></div><h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Air Freight</h3><p class="text-gray-300 text-sm leading-relaxed">Express global air cargo with guaranteed transit times</p><div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
+                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80" alt="Land Transport" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7"><div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:truck" data-width="22"></span></div><h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Land Transport</h3><p class="text-gray-300 text-sm leading-relaxed">Reliable road freight across Pakistan with FTL & PTL options</p><div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
             </div>
             <div class="grid md:grid-cols-3 gap-5 lg:gap-6 reveal">
-                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Project Cargo" class="w-full h-full object-cover">
-                    <div class="overlay"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:package" data-width="20"></span></div>
-                        <h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Project Cargo</h3>
-                        <p class="text-gray-300 text-xs sm:text-sm">Oversized & heavy lift cargo handling</p>
-                    </div>
-                </div>
-                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]">
-                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="Warehousing" class="w-full h-full object-cover">
-                    <div class="overlay"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:warehouse" data-width="20"></span></div>
-                        <h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Warehousing</h3>
-                        <p class="text-gray-300 text-xs sm:text-sm">Secure storage & distribution solutions</p>
-                    </div>
-                </div>
-                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Customs Clearance" class="w-full h-full object-cover">
-                    <div class="overlay"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:file-check" data-width="20"></span></div>
-                        <h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Customs Clearance</h3>
-                        <p class="text-gray-300 text-xs sm:text-sm">Hassle-free import & export documentation</p>
-                    </div>
-                </div>
+                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Project Cargo" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:package" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Project Cargo</h3><p class="text-gray-300 text-xs sm:text-sm">Oversized & heavy lift cargo handling</p></div></div>
+                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="Warehousing" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:warehouse" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Warehousing</h3><p class="text-gray-300 text-xs sm:text-sm">Secure storage & distribution solutions</p></div></div>
+                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Customs Clearance" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:file-check" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Customs Clearance</h3><p class="text-gray-300 text-xs sm:text-sm">Hassle-free import & export documentation</p></div></div>
             </div>
         </div>
     </section>
@@ -492,15 +392,8 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="relative reveal">
-                    <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&q=80" alt="KGI Logistics" class="w-full h-[350px] lg:h-[450px] object-cover">
-                    </div>
-                    <div class="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-xl shadow-xl p-5 border border-gray-100">
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-gold-400 to-gold-600 rounded-xl flex items-center justify-center"><span class="iconify text-navy-900" data-icon="lucide:trending-up" data-width="24"></span></div>
-                            <div><div class="text-2xl font-black text-navy-900 counter" data-target="15">0</div><div class="text-xs text-gray-500 font-medium">Years of Excellence</div></div>
-                        </div>
-                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl"><img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&q=80" alt="KGI Logistics" class="w-full h-[350px] lg:h-[450px] object-cover"></div>
+                    <div class="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-xl shadow-xl p-5 border border-gray-100"><div class="flex items-center gap-4"><div class="w-14 h-14 bg-gradient-to-br from-gold-400 to-gold-600 rounded-xl flex items-center justify-center"><span class="iconify text-navy-900" data-icon="lucide:trending-up" data-width="24"></span></div><div><div class="text-2xl font-black text-navy-900 counter" data-target="15">0</div><div class="text-xs text-gray-500 font-medium">Years of Excellence</div></div></div></div>
                     <div class="absolute -top-4 -left-4 w-20 h-20 border-t-4 border-l-4 border-gold-500 rounded-tl-2xl"></div>
                 </div>
                 <div class="reveal">
@@ -536,11 +429,7 @@
     <!-- GLOBAL NETWORK -->
     <section class="py-16 lg:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 reveal">
-                <span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Worldwide Coverage</span>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Our Global Network</h2>
-                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-            </div>
+            <div class="text-center mb-12 reveal"><span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Worldwide Coverage</span><h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Our Global Network</h2><div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div></div>
             <div class="relative reveal">
                 <div class="bg-gradient-to-b from-navy-50 to-gray-50 rounded-2xl p-4 lg:p-8 border border-gray-100">
                     <svg viewBox="0 0 1000 500" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
@@ -576,11 +465,7 @@
     <!-- WHY CHOOSE US -->
     <section class="py-16 lg:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 reveal">
-                <span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Our Advantages</span>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Why Choose KGI Logistics</h2>
-                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-            </div>
+            <div class="text-center mb-12 reveal"><span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Our Advantages</span><h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Why Choose KGI Logistics</h2><div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div></div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:badge-dollar-sign" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">Competitive Rates</h3><p class="text-gray-500 text-sm leading-relaxed">Cost-effective logistics solutions without compromising service quality.</p></div>
                 <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:users" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">Experienced Team</h3><p class="text-gray-500 text-sm leading-relaxed">Seasoned logistics professionals with decades of combined experience.</p></div>
@@ -609,31 +494,18 @@
     <!-- CONTACT -->
     <section id="contact" class="py-16 lg:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 reveal">
-                <span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Get In Touch</span>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Contact Us</h2>
-                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-            </div>
+            <div class="text-center mb-12 reveal"><span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Get In Touch</span><h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Contact Us</h2><div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div></div>
             <div class="grid lg:grid-cols-5 gap-8 lg:gap-12">
                 <div class="lg:col-span-3 reveal">
                     <div class="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gray-100">
                         <h3 class="font-bold text-navy-900 text-lg mb-6">Send Us a Message</h3>
                         <form id="contactForm" class="space-y-5">
-                            <div class="grid sm:grid-cols-2 gap-5">
-                                <div><label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label><input type="text" required class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="Your name"></div>
-                                <div><label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label><input type="email" required class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="you@email.com"></div>
-                            </div>
-                            <div class="grid sm:grid-cols-2 gap-5">
-                                <div><label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label><input type="tel" class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="+92 xxx xxxxxxx"></div>
-                                <div><label class="block text-sm font-medium text-gray-700 mb-1.5">Service Required</label><select class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm text-gray-500"><option>Select a service</option><option>Sea Freight</option><option>Air Freight</option><option>Land Transport</option><option>Project Cargo</option><option>Warehousing</option><option>Customs Clearance</option></select></div>
-                            </div>
+                            <div class="grid sm:grid-cols-2 gap-5"><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label><input type="text" required class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="Your name"></div><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label><input type="email" required class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="you@email.com"></div></div>
+                            <div class="grid sm:grid-cols-2 gap-5"><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label><input type="tel" class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="+92 xxx xxxxxxx"></div><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Service Required</label><select class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm text-gray-500"><option>Select a service</option><option>Sea Freight</option><option>Air Freight</option><option>Land Transport</option><option>Project Cargo</option><option>Warehousing</option><option>Customs Clearance</option></select></div></div>
                             <div><label class="block text-sm font-medium text-gray-700 mb-1.5">Message *</label><textarea required rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm resize-none" placeholder="Tell us about your shipment..."></textarea></div>
                             <button type="submit" class="btn-gold w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">Send Message <span class="iconify" data-icon="lucide:send" data-width="16"></span></button>
                         </form>
-                        <div id="formSuccess" class="hidden mt-6 bg-green-50 border border-green-200 rounded-xl p-4 flex items-center gap-3">
-                            <span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="20"></span>
-                            <span class="text-green-700 text-sm font-medium">Thank you! Your message has been sent successfully.</span>
-                        </div>
+                        <div id="formSuccess" class="hidden mt-6 bg-green-50 border border-green-200 rounded-xl p-4 flex items-center gap-3"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="20"></span><span class="text-green-700 text-sm font-medium">Thank you! Your message has been sent successfully.</span></div>
                     </div>
                 </div>
                 <div class="lg:col-span-2 space-y-6 reveal">
@@ -646,9 +518,7 @@
                             <div class="flex items-start gap-4"><div class="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:clock" data-width="18"></span></div><div><div class="text-xs text-gray-400 font-medium mb-1">Working Hours</div><div class="text-sm text-gray-200">Mon - Sat: 9:00 AM - 6:00 PM</div><div class="text-sm text-gray-200">Sun: Closed</div></div></div>
                         </div>
                     </div>
-                    <div class="rounded-2xl overflow-hidden border border-gray-100 h-[220px]">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.7!2d67.01!3d24.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMT+Khan+Road+Karachi!5e0!3m2!1sen!2s!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-gray-100 h-[220px]"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.7!2d67.01!3d24.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMT+Khan+Road+Karachi!5e0!3m2!1sen!2s!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
                 </div>
             </div>
         </div>
@@ -668,44 +538,12 @@
                         <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:instagram" data-width="16"></span></a>
                     </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-5 text-white">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Home</a></li>
-                        <li><a href="#about" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>About Us</a></li>
-                        <li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Services</a></li>
-                        <li><a href="#tracking" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Track Shipment</a></li>
-                        <li><a href="#contact" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-5 text-white">Our Services</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Sea Freight</a></li>
-                        <li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Air Freight</a></li>
-                        <li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Land Transport</a></li>
-                        <li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Project Cargo</a></li>
-                        <li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Warehousing</a></li>
-                        <li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Customs Clearance</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-5 text-white">Contact Info</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3"><span class="iconify text-gold-500 mt-0.5 flex-shrink-0" data-icon="lucide:map-pin" data-width="16"></span><span class="text-gray-400 text-sm leading-relaxed">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span></div>
-                        <div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:phone" data-width="16"></span><a href="tel:03072950929" class="text-gray-400 text-sm hover:text-gold-400 transition-colors">03072950929</a></div>
-                        <div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:mail" data-width="16"></span><a href="mailto:info@karachigwadarintlogistics.com" class="text-gray-400 text-sm hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></div>
-                        <div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:clock" data-width="16"></span><span class="text-gray-400 text-sm">Mon - Sat: 9AM - 6PM</span></div>
-                    </div>
-                </div>
+                <div><h4 class="font-bold text-sm mb-5 text-white">Quick Links</h4><ul class="space-y-3"><li><a href="#home" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Home</a></li><li><a href="#about" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>About Us</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Services</a></li><li><a href="#tracking" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Track Shipment</a></li><li><a href="#contact" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Contact Us</a></li></ul></div>
+                <div><h4 class="font-bold text-sm mb-5 text-white">Our Services</h4><ul class="space-y-3"><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Sea Freight</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Air Freight</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Land Transport</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Project Cargo</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Warehousing</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Customs Clearance</a></li></ul></div>
+                <div><h4 class="font-bold text-sm mb-5 text-white">Contact Info</h4><div class="space-y-4"><div class="flex items-start gap-3"><span class="iconify text-gold-500 mt-0.5 flex-shrink-0" data-icon="lucide:map-pin" data-width="16"></span><span class="text-gray-400 text-sm leading-relaxed">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span></div><div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:phone" data-width="16"></span><a href="tel:03072950929" class="text-gray-400 text-sm hover:text-gold-400 transition-colors">03072950929</a></div><div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:mail" data-width="16"></span><a href="mailto:info@karachigwadarintlogistics.com" class="text-gray-400 text-sm hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></div><div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:clock" data-width="16"></span><span class="text-gray-400 text-sm">Mon - Sat: 9AM - 6PM</span></div></div></div>
             </div>
         </div>
-        <div class="border-t border-white/5">
-            <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-                <p class="text-gray-500 text-xs text-center sm:text-left">© 2025 Karachi Gwadar International Logistics (Pvt) Ltd. All rights reserved.</p>
-                <div class="flex items-center gap-4 text-xs text-gray-500"><a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a><span>|</span><a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a></div>
-            </div>
-        </div>
+        <div class="border-t border-white/5"><div class="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row justify-between items-center gap-3"><p class="text-gray-500 text-xs text-center sm:text-left">© 2025 Karachi Gwadar International Logistics (Pvt) Ltd. All rights reserved.</p><div class="flex items-center gap-4 text-xs text-gray-500"><a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a><span>|</span><a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a></div></div></div>
     </footer>
 
     <!-- WHATSAPP -->
@@ -715,38 +553,32 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // ─── Hero Slider ───
         let currentSlide = 0;
         const totalSlides = 3;
         let slideInterval;
-        function goToSlide(index) {
+        function goToSlide(i) {
             document.querySelectorAll('.hero-slide').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.hero-content').forEach(c => { c.classList.remove('active'); c.style.display = 'none'; });
             document.querySelectorAll('.slider-dot').forEach(d => d.classList.remove('active'));
-            currentSlide = index;
-            document.querySelector(`.hero-slide[data-slide="${index}"]`).classList.add('active');
-            const content = document.querySelector(`.hero-content[data-content="${index}"]`);
-            content.style.display = 'block';
-            setTimeout(() => content.classList.add('active'), 50);
-            document.querySelectorAll('.slider-dot')[index].classList.add('active');
+            currentSlide = i;
+            document.querySelector(`.hero-slide[data-slide="${i}"]`).classList.add('active');
+            const c = document.querySelector(`.hero-content[data-content="${i}"]`);
+            c.style.display = 'block'; setTimeout(() => c.classList.add('active'), 50);
+            document.querySelectorAll('.slider-dot')[i].classList.add('active');
             resetAutoSlide();
         }
-        function changeSlide(dir) { let n = currentSlide + dir; if (n >= totalSlides) n = 0; if (n < 0) n = totalSlides - 1; goToSlide(n); }
+        function changeSlide(d) { let n = currentSlide + d; if (n >= totalSlides) n = 0; if (n < 0) n = totalSlides - 1; goToSlide(n); }
         function resetAutoSlide() { clearInterval(slideInterval); slideInterval = setInterval(() => changeSlide(1), 5000); }
         slideInterval = setInterval(() => changeSlide(1), 5000);
 
-        // ─── Sticky Nav ───
         window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
 
-        // ─── Mobile Menu ───
         function toggleMobileMenu() { const m = document.getElementById('mobileMenu'); m.classList.toggle('open'); document.body.style.overflow = m.classList.contains('open') ? 'hidden' : ''; }
         function toggleMobileDropdown(id) { document.getElementById(id).classList.toggle('hidden'); }
 
-        // ─── Scroll Reveal ───
         const revealObs = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-        // ─── Counter ───
         const counterObs = new IntersectionObserver(e => e.forEach(entry => {
             if (entry.isIntersecting) {
                 const c = entry.target, t = parseInt(c.dataset.target), s = performance.now();
@@ -757,61 +589,39 @@
         }), { threshold: 0.5 });
         document.querySelectorAll('.counter').forEach(c => counterObs.observe(c));
 
-        // ─── Contact Form ───
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault(); this.style.display = 'none'; document.getElementById('formSuccess').classList.remove('hidden');
             setTimeout(() => { this.style.display = 'block'; this.reset(); document.getElementById('formSuccess').classList.add('hidden'); }, 5000);
         });
 
-        // ─── Smooth Scroll ───
         document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
             const t = document.querySelector(this.getAttribute('href'));
             if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
         }));
 
-        // ─── Dropdown ───
         const dp = document.querySelector('.group');
         if (dp) { const dd = dp.querySelector('.nav-dropdown'); dp.addEventListener('mouseenter', () => dd.classList.add('show')); dp.addEventListener('mouseleave', () => dd.classList.remove('show')); }
 
-        // ═══════════════ TRACKING SYSTEM ═══════════════
+        // ★ TRACKING SYSTEM ★
         function trackShipment() {
             const input = document.getElementById('trackingInput').value.trim().toUpperCase();
             const resultBox = document.getElementById('trackingResult');
             const notFoundBox = document.getElementById('trackingNotFound');
-
-            // Hide both first
-            resultBox.classList.remove('show');
-            notFoundBox.classList.remove('show');
-
-            if (input === '') return;
-
+            resultBox.classList.remove('show'); notFoundBox.classList.remove('show');
+            if (!input) return;
             if (input === 'KGIL987654321') {
-                // Set current date/time
                 const now = new Date();
                 document.getElementById('currentDate').textContent = now.toLocaleDateString('en-PK', { day: '2-digit', month: 'short', year: 'numeric' });
                 document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-PK', { hour: '2-digit', minute: '2-digit' });
                 document.getElementById('resultTrackNum').textContent = input;
-
-                // Show success result with slight delay for animation
-                setTimeout(() => { resultBox.classList.add('show'); }, 100);
+                setTimeout(() => resultBox.classList.add('show'), 100);
             } else {
-                // Show not found
                 document.getElementById('notFoundNum').textContent = input;
-                setTimeout(() => { notFoundBox.classList.add('show'); }, 100);
+                setTimeout(() => notFoundBox.classList.add('show'), 100);
             }
         }
-
-        // Allow Enter key to trigger tracking
-        document.getElementById('trackingInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') { e.preventDefault(); trackShipment(); }
-        });
-
-        // Auto-fill tracking number from URL hash
-        if (window.location.hash === '#track-KGIL987654321') {
-            document.getElementById('trackingInput').value = 'KGIL987654321';
-            setTimeout(trackShipment, 800);
-        }
+        document.getElementById('trackingInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') { e.preventDefault(); trackShipment(); } });
+        if (window.location.hash === '#track-KGIL987654321') { document.getElementById('trackingInput').value = 'KGIL987654321'; setTimeout(trackShipment, 800); }
     </script>
-
 </body>
 </html>
