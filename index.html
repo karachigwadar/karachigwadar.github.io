@@ -15,119 +15,84 @@
                 extend: {
                     colors: {
                         navy: {
-                            50: '#e8ecf4', 100: '#c5cee3', 200: '#9eaed0', 300: '#778ebd',
-                            400: '#5975af', 500: '#3b5ca1', 600: '#355399', 700: '#2d478e',
-                            800: '#263c83', 900: '#0a1a3a', 950: '#060f22',
+                            50:'#e8ecf4',100:'#c5cee3',200:'#9eaed0',300:'#778ebd',400:'#5975af',
+                            500:'#3b5ca1',600:'#355399',700:'#2d478e',800:'#263c83',900:'#0a1a3a',950:'#060f22',
                         },
                         gold: {
-                            50: '#fdf9eb', 100: '#faf0cc', 200: '#f5e394', 300: '#f0d55c',
-                            400: '#e9c433', 500: '#d4a843', 600: '#c49b2a', 700: '#a37a24',
-                            800: '#846023', 900: '#6c4f21',
+                            50:'#fdf9eb',100:'#faf0cc',200:'#f5e394',300:'#f0d55c',400:'#e9c433',
+                            500:'#d4a843',600:'#c49b2a',700:'#a37a24',800:'#846023',900:'#6c4f21',
                         }
                     },
-                    fontFamily: { 'inter': ['Inter', 'sans-serif'], 'playfair': ['Playfair Display', 'serif'] }
+                    fontFamily: { 'inter':['Inter','sans-serif'], 'playfair':['Playfair Display','serif'] }
                 }
             }
         }
     </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        .top-bar { background: linear-gradient(90deg, #060f22 0%, #0a1a3a 50%, #0d2044 100%); }
-
-        /* ★ WHITE NAVBAR ★ */
-        .navbar {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            transition: all 0.4s ease;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-        }
-
-        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease-in-out; }
-        .hero-slide.active { opacity: 1; }
-        .hero-slide .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.08); transition: transform 8s ease-out; }
-        .hero-slide.active .hero-bg { transform: scale(1); }
-        .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s ease; }
-        .slider-dot.active { background: #d4a843; width: 36px; border-radius: 6px; }
-        .slider-arrow { width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: all 0.3s ease; background: rgba(10,26,58,0.5); backdrop-filter: blur(10px); }
-        .slider-arrow:hover { border-color: #d4a843; background: rgba(212,168,67,0.2); color: #d4a843; }
-        .service-card { transition: all 0.4s ease; border-bottom: 3px solid transparent; }
-        .service-card:hover { background: rgba(212,168,67,0.08); border-bottom-color: #d4a843; transform: translateY(-4px); }
-        .service-card:hover .service-icon { color: #d4a843; transform: scale(1.15); }
-        .service-icon { transition: all 0.4s ease; }
-        .why-card { transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .why-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; background: #d4a843; transition: height 0.4s ease; }
-        .why-card:hover::before { height: 100%; }
-        .why-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .btn-gold { background: linear-gradient(135deg, #d4a843 0%, #c49b2a 100%); color: #0a1a3a; font-weight: 700; transition: all 0.3s ease; position: relative; overflow: hidden; }
-        .btn-gold::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease; }
-        .btn-gold:hover::before { left: 100%; }
-        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212,168,67,0.4); }
-        .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: white; font-weight: 600; transition: all 0.3s ease; }
-        .btn-outline:hover { border-color: #d4a843; color: #d4a843; background: rgba(212,168,67,0.1); }
-        .tracking-input:focus { outline: none; border-color: #d4a843; box-shadow: 0 0 0 3px rgba(212,168,67,0.2); }
-        .nav-dropdown { opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
-        .nav-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
-        @keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.8); opacity: 0.4; } }
-        .map-dot { animation: pulse-dot 2s ease-in-out infinite; }
-        @keyframes dash-move { to { stroke-dashoffset: -20; } }
-        .route-line { animation: dash-move 1.5s linear infinite; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 1000; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all 0.3s ease; cursor: pointer; }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .mobile-menu.open { transform: translateX(0); }
-        .counter { font-variant-numeric: tabular-nums; }
-        .form-input { border: 1px solid #e2e8f0; transition: all 0.3s ease; }
-        .form-input:focus { outline: none; border-color: #d4a843; box-shadow: 0 0 0 3px rgba(212,168,67,0.15); }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a1a3a; }
-        ::-webkit-scrollbar-thumb { background: #d4a843; border-radius: 4px; }
-        .service-img-card { position: relative; overflow: hidden; border-radius: 1rem; cursor: pointer; }
-        .service-img-card img { transition: transform 0.6s ease; }
-        .service-img-card:hover img { transform: scale(1.08); }
-        .service-img-card .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,15,34,0.95) 0%, rgba(6,15,34,0.4) 50%, rgba(6,15,34,0.1) 100%); transition: background 0.4s ease; }
-        .service-img-card:hover .overlay { background: linear-gradient(to top, rgba(212,168,67,0.9) 0%, rgba(6,15,34,0.5) 50%, rgba(6,15,34,0.1) 100%); }
-        .service-img-card:hover .svc-title { color: #0a1a3a; }
-        .service-img-card:hover .svc-arrow { opacity: 1; transform: translateX(0); }
-        .svc-arrow { opacity: 0; transform: translateX(-10px); transition: all 0.4s ease; }
-        .logo-img { height: 44px; width: auto; object-fit: contain; }
-        .logo-img-sm { height: 38px; width: auto; object-fit: contain; }
-        .logo-img-footer { height: 40px; width: auto; object-fit: contain; }
-        .tracking-result { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease; opacity: 0; }
-        .tracking-result.show { max-height: 600px; opacity: 1; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .tracking-result.show .track-anim { animation: slideUp 0.5s ease forwards; }
-        .track-anim:nth-child(2) { animation-delay: 0.1s; }
-        .track-anim:nth-child(3) { animation-delay: 0.2s; }
-        @keyframes pulseGreen { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 8px rgba(34,197,94,0); } }
-        .pulse-green { animation: pulseGreen 2s ease-in-out infinite; }
-
-        /* ★ NAV LINK STYLES - WHITE NAV ★ */
-        .nav-link {
-            color: #374151;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover, .nav-link-active { color: #d4a843; }
-        .nav-link-mobile {
-            color: #e5e7eb;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-        .nav-link-mobile:hover { background: rgba(255,255,255,0.05); }
-        .nav-link-mobile.active-mobile { color: #d4a843; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;overflow-x:hidden}
+        .top-bar{background:linear-gradient(90deg,#060f22 0%,#0a1a3a 50%,#0d2044 100%)}
+        .navbar{background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:all 0.4s ease;border-bottom:1px solid rgba(0,0,0,0.06)}
+        .navbar.scrolled{background:rgba(255,255,255,1);box-shadow:0 4px 30px rgba(0,0,0,0.08)}
+        .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out}
+        .hero-slide.active{opacity:1}
+        .hero-slide .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.08);transition:transform 8s ease-out}
+        .hero-slide.active .hero-bg{transform:scale(1)}
+        .slider-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s ease}
+        .slider-dot.active{background:#d4a843;width:36px;border-radius:6px}
+        .slider-arrow{width:50px;height:50px;border:2px solid rgba(255,255,255,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;cursor:pointer;transition:all 0.3s ease;background:rgba(10,26,58,0.5);backdrop-filter:blur(10px)}
+        .slider-arrow:hover{border-color:#d4a843;background:rgba(212,168,67,0.2);color:#d4a843}
+        .service-img-card{position:relative;overflow:hidden;border-radius:1rem;cursor:pointer}
+        .service-img-card img{transition:transform 0.6s ease}
+        .service-img-card:hover img{transform:scale(1.08)}
+        .service-img-card .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,15,34,0.95) 0%,rgba(6,15,34,0.4) 50%,rgba(6,15,34,0.1) 100%);transition:background 0.4s ease}
+        .service-img-card:hover .overlay{background:linear-gradient(to top,rgba(212,168,67,0.9) 0%,rgba(6,15,34,0.5) 50%,rgba(6,15,34,0.1) 100%)}
+        .service-img-card:hover .svc-title{color:#0a1a3a}
+        .service-img-card:hover .svc-arrow{opacity:1;transform:translateX(0)}
+        .svc-arrow{opacity:0;transform:translateX(-10px);transition:all 0.4s ease}
+        .why-card{transition:all 0.4s ease;position:relative;overflow:hidden}
+        .why-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:#d4a843;transition:height 0.4s ease}
+        .why-card:hover::before{height:100%}
+        .why-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.15)}
+        .btn-gold{background:linear-gradient(135deg,#d4a843 0%,#c49b2a 100%);color:#0a1a3a;font-weight:700;transition:all 0.3s ease;position:relative;overflow:hidden}
+        .btn-gold::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:left 0.5s ease}
+        .btn-gold:hover::before{left:100%}
+        .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,168,67,0.4)}
+        .btn-outline{border:2px solid rgba(255,255,255,0.6);color:white;font-weight:600;transition:all 0.3s ease}
+        .btn-outline:hover{border-color:#d4a843;color:#d4a843;background:rgba(212,168,67,0.1)}
+        .tracking-input:focus{outline:none;border-color:#d4a843;box-shadow:0 0 0 3px rgba(212,168,67,0.2)}
+        .nav-dropdown{opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s ease}
+        .nav-dropdown.show{opacity:1;visibility:visible;transform:translateY(0)}
+        @keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.8);opacity:0.4}}
+        .map-dot{animation:pulse-dot 2s ease-in-out infinite}
+        @keyframes dash-move{to{stroke-dashoffset:-20}}
+        .route-line{animation:dash-move 1.5s linear infinite}
+        .whatsapp-float{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;z-index:1000;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all 0.3s ease;cursor:pointer}
+        .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,0.6)}
+        .reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .mobile-menu{transform:translateX(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .mobile-menu.open{transform:translateX(0)}
+        .counter{font-variant-numeric:tabular-nums}
+        .form-input{border:1px solid #e2e8f0;transition:all 0.3s ease}
+        .form-input:focus{outline:none;border-color:#d4a843;box-shadow:0 0 0 3px rgba(212,168,67,0.15)}
+        ::-webkit-scrollbar{width:8px}
+        ::-webkit-scrollbar-track{background:#0a1a3a}
+        ::-webkit-scrollbar-thumb{background:#d4a843;border-radius:4px}
+        .tracking-result{max-height:0;overflow:hidden;transition:max-height 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease;opacity:0}
+        .tracking-result.show{max-height:600px;opacity:1}
+        @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        .tracking-result.show .track-anim{animation:slideUp 0.5s ease forwards}
+        .track-anim:nth-child(2){animation-delay:0.1s}
+        .track-anim:nth-child(3){animation-delay:0.2s}
+        @keyframes pulseGreen{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.5)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+        .pulse-green{animation:pulseGreen 2s ease-in-out infinite}
+        .nav-link{color:#374151;font-size:0.875rem;font-weight:500;padding:0.5rem 1rem;transition:color 0.3s ease}
+        .nav-link:hover,.nav-link-active{color:#d4a843}
+        .nav-link-mobile{color:#e5e7eb;padding:0.75rem 1rem;border-radius:0.5rem;font-weight:500;transition:background 0.3s ease}
+        .nav-link-mobile:hover{background:rgba(255,255,255,0.05)}
+        .nav-link-mobile.active-mobile{color:#d4a843}
     </style>
 </head>
 <body class="bg-white">
@@ -136,45 +101,38 @@
     <div class="top-bar text-white text-xs sm:text-sm py-2 relative z-50">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-0">
             <div class="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
-                <a href="tel:03072950929" class="flex items-center gap-1.5 hover:text-gold-400 transition-colors">
-                    <span class="iconify" data-icon="lucide:phone" data-width="13"></span>
-                    <span>03072950929</span>
-                </a>
-                <a href="mailto:info@karachigwadarintlogistics.com" class="flex items-center gap-1.5 hover:text-gold-400 transition-colors">
-                    <span class="iconify" data-icon="lucide:mail" data-width="13"></span>
-                    <span class="hidden sm:inline">info@karachigwadarintlogistics.com</span>
-                    <span class="sm:hidden">Email Us</span>
-                </a>
+                <a href="tel:03072950929" class="flex items-center gap-1.5 hover:text-gold-400 transition-colors"><span class="iconify" data-icon="lucide:phone" data-width="13"></span><span>03072950929</span></a>
+                <a href="mailto:info@karachigwadarintlogistics.com" class="flex items-center gap-1.5 hover:text-gold-400 transition-colors"><span class="iconify" data-icon="lucide:mail" data-width="13"></span><span class="hidden sm:inline">info@karachigwadarintlogistics.com</span><span class="sm:hidden">Email Us</span></a>
             </div>
-            <div class="flex items-center gap-1.5 text-gray-300">
-                <span class="iconify" data-icon="lucide:map-pin" data-width="13"></span>
-                <span class="hidden md:inline">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span>
-                <span class="md:hidden">MT Khan Road, Karachi</span>
-            </div>
+            <div class="flex items-center gap-1.5 text-gray-300"><span class="iconify" data-icon="lucide:map-pin" data-width="13"></span><span class="hidden md:inline">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span><span class="md:hidden">MT Khan Road, Karachi</span></div>
         </div>
     </div>
 
-    <!-- ★ WHITE HEADER / NAVBAR ★ -->
+    <!-- ★ NAVBAR — BIG LOGO + DARK NAME ON MOBILE ★ -->
     <nav class="navbar sticky top-0 z-50" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
-            <!-- Logo + Full Company Name on ALL screens -->
-            <a href="#" class="flex items-center gap-2.5 sm:gap-3">
-                <img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="logo-img h-9 sm:h-10 lg:h-[52px]">
-                <div>
-                    <div class="text-navy-900 font-bold text-[11px] sm:text-sm lg:text-base leading-tight tracking-wide">KARACHI GWADAR</div>
-                    <div class="text-gold-600 text-[8px] sm:text-[10px] lg:text-xs font-medium tracking-[0.1em] sm:tracking-[0.15em] uppercase">International Logistics</div>
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between
+                    h-[80px] sm:h-[76px] md:h-[80px] lg:h-[84px]">
+            <a href="#" class="flex items-center gap-2 sm:gap-2.5 md:gap-3 flex-shrink-0">
+                <img
+                    src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac"
+                    alt="KGL Logo"
+                    class="h-[70px] w-auto sm:h-[56px] md:h-[58px] lg:h-[60px] object-contain flex-shrink-0"
+                >
+                <div class="min-w-0">
+                    <div class="text-gray-900 font-extrabold text-[15px] sm:text-sm md:text-[15px] lg:text-base leading-[1.2] tracking-wide truncate">
+                        KARACHI GWADAR
+                    </div>
+                    <div class="text-gold-700 text-[10px] sm:text-[10px] md:text-[11px] lg:text-xs font-bold tracking-[0.08em] sm:tracking-[0.12em] lg:tracking-[0.15em] uppercase leading-[1.3]">
+                        International Logistics
+                    </div>
                 </div>
             </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center gap-1">
+            <div class="hidden lg:flex items-center gap-0.5">
                 <a href="#home" class="nav-link nav-link-active">Home</a>
                 <a href="#about" class="nav-link">About Us</a>
                 <div class="relative group">
-                    <button class="nav-link flex items-center gap-1">
-                        Services
-                        <span class="iconify" data-icon="lucide:chevron-down" data-width="14"></span>
-                    </button>
+                    <button class="nav-link flex items-center gap-1">Services <span class="iconify" data-icon="lucide:chevron-down" data-width="14"></span></button>
                     <div class="nav-dropdown absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2">
                         <a href="#services" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gold-50 hover:text-gold-700 transition-colors"><span class="iconify text-gold-500" data-icon="lucide:ship" data-width="18"></span> Sea Freight</a>
                         <a href="#services" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gold-50 hover:text-gold-700 transition-colors"><span class="iconify text-gold-500" data-icon="lucide:plane" data-width="18"></span> Air Freight</a>
@@ -188,337 +146,226 @@
                 <a href="#contact" class="nav-link">Contact Us</a>
             </div>
 
-            <!-- Right side -->
-            <div class="flex items-center gap-3">
-                <a href="#quote" class="hidden sm:inline-flex btn-gold px-5 py-2.5 rounded-lg text-sm">Get a Quote</a>
-                <button class="lg:hidden text-navy-900 p-2" onclick="toggleMobileMenu()">
-                    <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                <a href="#quote" class="hidden sm:inline-flex btn-gold px-4 lg:px-5 py-2 lg:py-2.5 rounded-lg text-xs sm:text-sm">Get a Quote</a>
+                <button class="lg:hidden text-gray-900 p-2 -mr-1" onclick="toggleMobileMenu()" aria-label="Open Menu">
+                    <span class="iconify" data-icon="lucide:menu" data-width="28"></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- ★ MOBILE MENU ★ -->
+    <!-- MOBILE MENU -->
     <div class="mobile-menu fixed inset-0 z-[60] bg-navy-950" id="mobileMenu">
-        <div class="flex items-center justify-between p-4 border-b border-white/10">
-            <a href="#" class="flex items-center gap-2.5" onclick="toggleMobileMenu()">
-                <img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="logo-img-sm">
-                <div>
-                    <div class="text-white font-bold text-[11px] leading-tight tracking-wide">KARACHI GWADAR</div>
-                    <div class="text-gold-400 text-[8px] font-medium tracking-[0.1em] uppercase">International Logistics</div>
+        <div class="flex items-center justify-between px-4 py-3 sm:py-4 border-b border-white/10 min-h-[80px]">
+            <a href="#" class="flex items-center gap-3" onclick="toggleMobileMenu()">
+                <img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="h-[60px] sm:h-[54px] w-auto object-contain flex-shrink-0">
+                <div class="min-w-0">
+                    <div class="text-white font-extrabold text-[15px] sm:text-base leading-tight tracking-wide">KARACHI GWADAR</div>
+                    <div class="text-gold-400 text-[9px] sm:text-[10px] font-semibold tracking-[0.1em] uppercase leading-tight mt-0.5">International Logistics</div>
                 </div>
             </a>
-            <button onclick="toggleMobileMenu()" class="text-white p-2">
-                <span class="iconify" data-icon="lucide:x" data-width="24"></span>
-            </button>
+            <button onclick="toggleMobileMenu()" class="text-white p-2 -mr-1" aria-label="Close Menu"><span class="iconify" data-icon="lucide:x" data-width="26"></span></button>
         </div>
-        <div class="p-5 space-y-1">
-            <a href="#home" onclick="toggleMobileMenu()" class="block nav-link-mobile active-mobile">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block nav-link-mobile">About Us</a>
+        <div class="px-4 py-4 sm:py-5 space-y-1 overflow-y-auto" style="max-height:calc(100vh - 80px)">
+            <a href="#home" onclick="toggleMobileMenu()" class="block nav-link-mobile active-mobile text-base sm:text-lg">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block nav-link-mobile text-base sm:text-lg">About Us</a>
             <div>
-                <button onclick="toggleMobileDropdown('mobServices')" class="w-full flex items-center justify-between nav-link-mobile">
-                    Services <span class="iconify" data-icon="lucide:chevron-down" data-width="16"></span>
-                </button>
-                <div id="mobServices" class="hidden pl-6 space-y-1 mt-1 mb-1">
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Sea Freight</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Air Freight</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Land Transport</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Project Cargo</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Warehousing</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2 text-sm hover:text-gold-400 transition-colors">Customs Clearance</a>
+                <button onclick="toggleMobileDropdown('mobServices')" class="w-full flex items-center justify-between nav-link-mobile text-base sm:text-lg">Services <span class="iconify" data-icon="lucide:chevron-down" data-width="18"></span></button>
+                <div id="mobServices" class="hidden pl-5 sm:pl-6 space-y-0.5 mt-1 mb-2">
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2.5 text-sm sm:text-base hover:text-gold-400 transition-colors">Sea Freight</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2.5 text-sm sm:text-base hover:text-gold-400 transition-colors">Air Freight</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2.5 text-sm sm:text-base hover:text-gold-400 transition-colors">Land Transport</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2.5 text-sm sm:text-base hover:text-gold-400 transition-colors">Project Cargo</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2.5 text-sm sm:text-base hover:text-gold-400 transition-colors">Warehousing</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-400 py-2.5 text-sm sm:text-base hover:text-gold-400 transition-colors">Customs Clearance</a>
                 </div>
             </div>
-            <a href="#tracking" onclick="toggleMobileMenu()" class="block nav-link-mobile">Tracking</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block nav-link-mobile">Contact Us</a>
-            <div class="pt-4">
-                <a href="#quote" onclick="toggleMobileMenu()" class="block btn-gold text-center px-5 py-3 rounded-lg text-sm font-bold">Get a Quote</a>
+            <a href="#tracking" onclick="toggleMobileMenu()" class="block nav-link-mobile text-base sm:text-lg">Tracking</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block nav-link-mobile text-base sm:text-lg">Contact Us</a>
+            <div class="pt-5 sm:pt-6"><a href="#quote" onclick="toggleMobileMenu()" class="block btn-gold text-center px-5 py-3.5 rounded-xl text-sm sm:text-base font-bold">Get a Quote</a></div>
+            <div class="pt-6 mt-4 border-t border-white/10 space-y-3">
+                <a href="tel:03072950929" class="flex items-center gap-3 text-gray-400 hover:text-gold-400 transition-colors text-sm"><span class="iconify flex-shrink-0" data-icon="lucide:phone" data-width="16"></span>03072950929</a>
+                <a href="mailto:info@karachigwadarintlogistics.com" class="flex items-center gap-3 text-gray-400 hover:text-gold-400 transition-colors text-sm break-all"><span class="iconify flex-shrink-0" data-icon="lucide:mail" data-width="16"></span>info@karachigwadarintlogistics.com</a>
             </div>
         </div>
     </div>
 
     <!-- HERO SLIDER -->
-    <section id="home" class="relative h-[85vh] sm:h-[90vh] lg:h-screen overflow-hidden">
-        <div class="hero-slide active" data-slide="0">
-            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=80');"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/75 to-navy-900/40"></div>
-        </div>
-        <div class="hero-slide" data-slide="1">
-            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=1920&q=80');"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/75 to-navy-900/40"></div>
-        </div>
-        <div class="hero-slide" data-slide="2">
-            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&q=80');"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/75 to-navy-900/40"></div>
-        </div>
+    <section id="home" class="relative h-[80vh] sm:h-[88vh] lg:h-screen overflow-hidden">
+        <div class="hero-slide active" data-slide="0"><div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=80')"></div><div class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/75 to-navy-900/40"></div></div>
+        <div class="hero-slide" data-slide="1"><div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=1920&q=80')"></div><div class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/75 to-navy-900/40"></div></div>
+        <div class="hero-slide" data-slide="2"><div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&q=80')"></div><div class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/75 to-navy-900/40"></div></div>
         <div class="absolute inset-0 z-10 flex items-center">
-            <div class="max-w-7xl mx-auto px-4 w-full">
-                <div class="max-w-2xl">
-                    <div class="hero-content active" data-content="0">
-                        <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 rounded-full px-4 py-1.5 mb-6">
-                            <span class="w-2 h-2 bg-gold-400 rounded-full"></span>
-                            <span class="text-gold-400 text-xs font-semibold tracking-wider uppercase">Connecting Cargo, Creating Opportunities</span>
-                        </div>
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">GLOBAL LOGISTICS <br><span class="text-gold-400">& FREIGHT</span> <br>SOLUTIONS</h1>
-                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-lg">Reliable Sea, Air & Land Transportation Worldwide. Your trusted partner for end-to-end logistics solutions.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#quote" class="btn-gold px-7 py-3.5 rounded-lg text-sm inline-flex items-center gap-2">Get a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a>
-                            <a href="#tracking" class="btn-outline px-7 py-3.5 rounded-lg text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:search" data-width="16"></span> Track Shipment</a>
-                        </div>
-                    </div>
-                    <div class="hero-content" data-content="1" style="display:none;">
-                        <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 rounded-full px-4 py-1.5 mb-6"><span class="w-2 h-2 bg-gold-400 rounded-full"></span><span class="text-gold-400 text-xs font-semibold tracking-wider uppercase">Express Delivery</span></div>
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">FAST & SECURE <br><span class="text-gold-400">AIR FREIGHT</span></h1>
-                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-lg">Time-critical shipments delivered with speed and precision across global destinations.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#quote" class="btn-gold px-7 py-3.5 rounded-lg text-sm inline-flex items-center gap-2">Get a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a>
-                            <a href="#tracking" class="btn-outline px-7 py-3.5 rounded-lg text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:search" data-width="16"></span> Track Shipment</a>
-                        </div>
-                    </div>
-                    <div class="hero-content" data-content="2" style="display:none;">
-                        <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 rounded-full px-4 py-1.5 mb-6"><span class="w-2 h-2 bg-gold-400 rounded-full"></span><span class="text-gold-400 text-xs font-semibold tracking-wider uppercase">Door to Door</span></div>
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">LAND TRANSPORT <br><span class="text-gold-400">SOLUTIONS</span></h1>
-                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-lg">Comprehensive road freight services with full truckload and part-load options across Pakistan and beyond.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#quote" class="btn-gold px-7 py-3.5 rounded-lg text-sm inline-flex items-center gap-2">Get a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a>
-                            <a href="#tracking" class="btn-outline px-7 py-3.5 rounded-lg text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:search" data-width="16"></span> Track Shipment</a>
-                        </div>
-                    </div>
+            <div class="max-w-7xl mx-auto px-4 w-full"><div class="max-w-2xl">
+                <div class="hero-content active" data-content="0">
+                    <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 rounded-full px-3 sm:px-4 py-1.5 mb-5 sm:mb-6"><span class="w-2 h-2 bg-gold-400 rounded-full"></span><span class="text-gold-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">Connecting Cargo, Creating Opportunities</span></div>
+                    <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-5 sm:mb-6">GLOBAL LOGISTICS <br><span class="text-gold-400">& FREIGHT</span> <br>SOLUTIONS</h1>
+                    <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">Reliable Sea, Air & Land Transportation Worldwide. Your trusted partner for end-to-end logistics solutions.</p>
+                    <div class="flex flex-wrap gap-3 sm:gap-4"><a href="#quote" class="btn-gold px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2">Get a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a><a href="#tracking" class="btn-outline px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:search" data-width="16"></span> Track Shipment</a></div>
                 </div>
-            </div>
+                <div class="hero-content" data-content="1" style="display:none">
+                    <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 rounded-full px-3 sm:px-4 py-1.5 mb-5 sm:mb-6"><span class="w-2 h-2 bg-gold-400 rounded-full"></span><span class="text-gold-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">Express Delivery</span></div>
+                    <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-5 sm:mb-6">FAST & SECURE <br><span class="text-gold-400">AIR FREIGHT</span></h1>
+                    <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">Time-critical shipments delivered with speed and precision across global destinations.</p>
+                    <div class="flex flex-wrap gap-3 sm:gap-4"><a href="#quote" class="btn-gold px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2">Get a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a><a href="#tracking" class="btn-outline px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:search" data-width="16"></span> Track Shipment</a></div>
+                </div>
+                <div class="hero-content" data-content="2" style="display:none">
+                    <div class="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 rounded-full px-3 sm:px-4 py-1.5 mb-5 sm:mb-6"><span class="w-2 h-2 bg-gold-400 rounded-full"></span><span class="text-gold-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">Door to Door</span></div>
+                    <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-5 sm:mb-6">LAND TRANSPORT <br><span class="text-gold-400">SOLUTIONS</span></h1>
+                    <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">Comprehensive road freight services with full truckload and part-load options across Pakistan and beyond.</p>
+                    <div class="flex flex-wrap gap-3 sm:gap-4"><a href="#quote" class="btn-gold px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2">Get a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a><a href="#tracking" class="btn-outline px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:search" data-width="16"></span> Track Shipment</a></div>
+                </div>
+            </div></div>
         </div>
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-5">
-            <button class="slider-arrow" onclick="changeSlide(-1)"><span class="iconify" data-icon="lucide:chevron-left" data-width="20"></span></button>
-            <div class="flex items-center gap-2">
-                <div class="slider-dot active" onclick="goToSlide(0)"></div>
-                <div class="slider-dot" onclick="goToSlide(1)"></div>
-                <div class="slider-dot" onclick="goToSlide(2)"></div>
-            </div>
-            <button class="slider-arrow" onclick="changeSlide(1)"><span class="iconify" data-icon="lucide:chevron-right" data-width="20"></span></button>
+        <div class="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 sm:gap-5">
+            <button class="slider-arrow w-10 h-10 sm:w-12 sm:h-12" onclick="changeSlide(-1)"><span class="iconify" data-icon="lucide:chevron-left" data-width="18"></span></button>
+            <div class="flex items-center gap-2"><div class="slider-dot active" onclick="goToSlide(0)"></div><div class="slider-dot" onclick="goToSlide(1)"></div><div class="slider-dot" onclick="goToSlide(2)"></div></div>
+            <button class="slider-arrow w-10 h-10 sm:w-12 sm:h-12" onclick="changeSlide(1)"><span class="iconify" data-icon="lucide:chevron-right" data-width="18"></span></button>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
     </section>
 
-    <!-- TRACKING BAR + RESULT -->
-    <section id="tracking" class="relative z-20 -mt-8 px-4">
+    <!-- TRACKING BAR -->
+    <section id="tracking" class="relative z-20 -mt-6 sm:-mt-8 px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-white rounded-2xl shadow-2xl shadow-navy-900/10 p-4 sm:p-6 flex flex-col sm:flex-row items-stretch gap-3 border border-gray-100">
-                <div class="flex-1 flex items-center gap-3 bg-gray-50 rounded-xl px-4">
-                    <span class="iconify text-gold-500" data-icon="lucide:search" data-width="20"></span>
-                    <input type="text" id="trackingInput" placeholder="Enter Tracking Number..." class="tracking-input w-full bg-transparent py-3 text-sm text-gray-800 placeholder-gray-400 border-none">
-                </div>
-                <button onclick="trackShipment()" class="btn-gold px-8 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 whitespace-nowrap">
-                    <span class="iconify" data-icon="lucide:radar" data-width="16"></span> Track Now
-                </button>
+            <div class="bg-white rounded-xl sm:rounded-2xl shadow-2xl shadow-navy-900/10 p-3 sm:p-4 md:p-6 flex flex-col sm:flex-row items-stretch gap-2 sm:gap-3 border border-gray-100">
+                <div class="flex-1 flex items-center gap-2 sm:gap-3 bg-gray-50 rounded-lg sm:rounded-xl px-3 sm:px-4"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:search" data-width="18"></span><input type="text" id="trackingInput" placeholder="Enter Tracking Number..." class="tracking-input w-full bg-transparent py-2.5 sm:py-3 text-sm text-gray-800 placeholder-gray-400 border-none"></div>
+                <button onclick="trackShipment()" class="btn-gold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 whitespace-nowrap"><span class="iconify" data-icon="lucide:radar" data-width="14"></span> Track Now</button>
             </div>
-            <div id="trackingResult" class="tracking-result mt-4">
-                <div class="bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 overflow-hidden">
-                    <div class="bg-navy-900 px-5 sm:px-7 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-gold-500/20 rounded-lg flex items-center justify-center"><span class="iconify text-gold-400" data-icon="lucide:package-check" data-width="20"></span></div>
-                            <div><div class="text-gray-400 text-xs font-medium">Tracking Number</div><div class="text-white font-bold text-sm tracking-wide" id="resultTrackNum">KGIL987654321</div></div>
-                        </div>
-                        <div class="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1">
-                            <div class="w-2 h-2 bg-green-400 rounded-full pulse-green"></div>
-                            <span class="text-green-400 text-xs font-semibold">Shipment Booked</span>
-                        </div>
+            <div id="trackingResult" class="tracking-result mt-3 sm:mt-4">
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 overflow-hidden">
+                    <div class="bg-navy-900 px-4 sm:px-6 lg:px-7 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
+                        <div class="flex items-center gap-3"><div class="w-9 h-9 sm:w-10 sm:h-10 bg-gold-500/20 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:package-check" data-width="18"></span></div><div><div class="text-gray-400 text-[10px] sm:text-xs font-medium">Tracking Number</div><div class="text-white font-bold text-xs sm:text-sm tracking-wide" id="resultTrackNum">KGIL987654321</div></div></div>
+                        <div class="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1 self-start sm:self-auto"><div class="w-2 h-2 bg-green-400 rounded-full pulse-green"></div><span class="text-green-400 text-[10px] sm:text-xs font-semibold">Shipment Booked</span></div>
                     </div>
-                    <div class="p-5 sm:p-7">
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-7 track-anim" style="opacity:0;">
-                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Status</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="16"></span> Shipment Booked</div></div>
-                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Current Location</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-gold-500" data-icon="lucide:map-pin" data-width="16"></span> Dubai, UAE</div></div>
-                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Origin</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-blue-500" data-icon="lucide:anchor" data-width="16"></span> Karachi, Pakistan</div></div>
-                            <div class="bg-gray-50 rounded-xl p-4"><div class="text-gray-400 text-xs font-medium mb-1">Destination</div><div class="text-navy-900 font-bold text-sm flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:flag" data-width="16"></span> Jebel Ali, Dubai</div></div>
+                    <div class="p-4 sm:p-5 lg:p-7">
+                        <div class="grid grid-cols-2 gap-2.5 sm:gap-4 mb-5 sm:mb-7 track-anim" style="opacity:0">
+                            <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Status</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="14"></span>Shipment Booked</div></div>
+                            <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Location</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-gold-500" data-icon="lucide:map-pin" data-width="14"></span>Dubai, UAE</div></div>
+                            <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Origin</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-blue-500" data-icon="lucide:anchor" data-width="14"></span>Karachi, PK</div></div>
+                            <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Destination</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-red-500" data-icon="lucide:flag" data-width="14"></span>Jebel Ali, Dubai</div></div>
                         </div>
-                        <div class="track-anim" style="opacity:0;">
-                            <h4 class="text-navy-900 font-bold text-sm mb-4">Shipment Timeline</h4>
-                            <div class="relative pl-8">
-                                <div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-gray-200"></div>
-                                <div class="relative mb-6">
-                                    <div class="absolute -left-8 top-0.5 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center pulse-green"><span class="iconify text-white" data-icon="lucide:check" data-width="12"></span></div>
-                                    <div>
-                                        <div class="flex flex-wrap items-center gap-2 mb-0.5"><span class="text-navy-900 font-bold text-sm">Shipment Booked</span><span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full">CURRENT</span></div>
-                                        <p class="text-gray-500 text-xs">Shipment has been booked and confirmed. Cargo received at origin warehouse.</p>
-                                        <div class="flex flex-wrap items-center gap-4 mt-1.5">
-                                            <span class="text-gray-400 text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:map-pin" data-width="11"></span> Dubai, UAE</span>
-                                            <span class="text-gray-400 text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="11"></span> <span id="currentDate"></span></span>
-                                            <span class="text-gray-400 text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="11"></span> <span id="currentTime"></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="relative mb-6"><div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:loader" data-width="12"></span></div><div><span class="text-gray-400 font-semibold text-sm">In Transit</span><p class="text-gray-300 text-xs">Shipment en route to destination — pending</p></div></div>
-                                <div class="relative mb-6"><div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:warehouse" data-width="12"></span></div><div><span class="text-gray-400 font-semibold text-sm">Arrived at Destination</span><p class="text-gray-300 text-xs">Cargo arrived at destination port — pending</p></div></div>
-                                <div class="relative"><div class="absolute -left-8 top-0.5 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:check-check" data-width="12"></span></div><div><span class="text-gray-400 font-semibold text-sm">Delivered</span><p class="text-gray-300 text-xs">Shipment delivered successfully — pending</p></div></div>
+                        <div class="track-anim" style="opacity:0">
+                            <h4 class="text-navy-900 font-bold text-xs sm:text-sm mb-3 sm:mb-4">Shipment Timeline</h4>
+                            <div class="relative pl-7 sm:pl-8">
+                                <div class="absolute left-[10px] sm:left-[11px] top-2 bottom-2 w-0.5 bg-gray-200"></div>
+                                <div class="relative mb-5 sm:mb-6"><div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center pulse-green"><span class="iconify text-white" data-icon="lucide:check" data-width="10"></span></div><div><div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-0.5"><span class="text-navy-900 font-bold text-xs sm:text-sm">Shipment Booked</span><span class="bg-green-100 text-green-700 text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full">CURRENT</span></div><p class="text-gray-500 text-[10px] sm:text-xs">Shipment has been booked and confirmed. Cargo received at origin warehouse.</p><div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-1 sm:mt-1.5"><span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:map-pin" data-width="10"></span>Dubai, UAE</span><span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="10"></span><span id="currentDate"></span></span><span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="10"></span><span id="currentTime"></span></span></div></div></div>
+                                <div class="relative mb-5 sm:mb-6"><div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:loader" data-width="10"></span></div><div><span class="text-gray-400 font-semibold text-xs sm:text-sm">In Transit</span><p class="text-gray-300 text-[10px] sm:text-xs">Shipment en route — pending</p></div></div>
+                                <div class="relative mb-5 sm:mb-6"><div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:warehouse" data-width="10"></span></div><div><span class="text-gray-400 font-semibold text-xs sm:text-sm">Arrived at Destination</span><p class="text-gray-300 text-[10px] sm:text-xs">Cargo arrived — pending</p></div></div>
+                                <div class="relative"><div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:check-check" data-width="10"></span></div><div><span class="text-gray-400 font-semibold text-xs sm:text-sm">Delivered</span><p class="text-gray-300 text-[10px] sm:text-xs">Shipment delivered — pending</p></div></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="trackingNotFound" class="tracking-result mt-4">
-                <div class="bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 p-6 sm:p-8 text-center">
-                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4"><span class="iconify text-red-400" data-icon="lucide:package-x" data-width="28"></span></div>
-                    <h3 class="text-navy-900 font-bold text-lg mb-2">Shipment Not Found</h3>
-                    <p class="text-gray-500 text-sm mb-1">No shipment found with tracking number:</p>
-                    <p class="text-red-500 font-bold text-sm mb-4" id="notFoundNum"></p>
-                    <p class="text-gray-400 text-xs">Please verify your tracking number and try again. For assistance, contact us at <a href="tel:03072950929" class="text-gold-500 font-semibold hover:underline">03072950929</a></p>
+            <div id="trackingNotFound" class="tracking-result mt-3 sm:mt-4">
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 p-5 sm:p-6 lg:p-8 text-center">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4"><span class="iconify text-red-400" data-icon="lucide:package-x" data-width="24"></span></div>
+                    <h3 class="text-navy-900 font-bold text-base sm:text-lg mb-2">Shipment Not Found</h3>
+                    <p class="text-gray-500 text-xs sm:text-sm mb-1">No shipment found with tracking number:</p>
+                    <p class="text-red-500 font-bold text-xs sm:text-sm mb-3 sm:mb-4" id="notFoundNum"></p>
+                    <p class="text-gray-400 text-[10px] sm:text-xs">Please verify your tracking number. Contact us at <a href="tel:03072950929" class="text-gold-500 font-semibold hover:underline">03072950929</a></p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="py-16 lg:py-24 bg-white">
+    <section id="services" class="py-12 sm:py-16 lg:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 reveal">
-                <span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">What We Offer</span>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Our Logistics Services</h2>
-                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">End-to-end freight and logistics solutions tailored for your business needs</p>
+            <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">What We Offer</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2">Our Logistics Services</h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
+            <div class="grid md:grid-cols-3 gap-3 sm:gap-5 lg:gap-6 mb-3 sm:mb-5 lg:mb-6 reveal">
+                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" alt="Sea Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:ship" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Sea Freight</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">FCL & LCL container shipments across all major global trade routes</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
+                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80" alt="Air Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:plane" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Air Freight</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Express global air cargo with guaranteed transit times</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
+                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80" alt="Land Transport" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:truck" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Land Transport</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Reliable road freight across Pakistan with FTL & PTL options</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
             </div>
-            <div class="grid md:grid-cols-3 gap-5 lg:gap-6 mb-5 lg:mb-6 reveal">
-                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" alt="Sea Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7"><div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:ship" data-width="22"></span></div><h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Sea Freight</h3><p class="text-gray-300 text-sm leading-relaxed">FCL & LCL container shipments across all major global trade routes</p><div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
-                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80" alt="Air Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7"><div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:plane" data-width="22"></span></div><h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Air Freight</h3><p class="text-gray-300 text-sm leading-relaxed">Express global air cargo with guaranteed transit times</p><div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
-                <div class="service-img-card h-[280px] sm:h-[320px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80" alt="Land Transport" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5 lg:p-7"><div class="flex items-center gap-2 mb-2"><span class="iconify text-gold-400" data-icon="lucide:truck" data-width="22"></span></div><h3 class="svc-title text-white font-bold text-lg lg:text-xl mb-1 transition-colors">Land Transport</h3><p class="text-gray-300 text-sm leading-relaxed">Reliable road freight across Pakistan with FTL & PTL options</p><div class="svc-arrow mt-3 flex items-center gap-2 text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-5 lg:gap-6 reveal">
-                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Project Cargo" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:package" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Project Cargo</h3><p class="text-gray-300 text-xs sm:text-sm">Oversized & heavy lift cargo handling</p></div></div>
-                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="Warehousing" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:warehouse" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Warehousing</h3><p class="text-gray-300 text-xs sm:text-sm">Secure storage & distribution solutions</p></div></div>
-                <div class="service-img-card h-[200px] sm:h-[220px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Customs Clearance" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="flex items-center gap-2 mb-1"><span class="iconify text-gold-400" data-icon="lucide:file-check" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base lg:text-lg mb-0.5 transition-colors">Customs Clearance</h3><p class="text-gray-300 text-xs sm:text-sm">Hassle-free import & export documentation</p></div></div>
+            <div class="grid md:grid-cols-3 gap-3 sm:gap-5 lg:gap-6 reveal">
+                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Project Cargo" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:package" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Project Cargo</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Oversized & heavy lift cargo handling</p></div></div>
+                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="Warehousing" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:warehouse" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Warehousing</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Secure storage & distribution solutions</p></div></div>
+                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Customs Clearance" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:file-check" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Customs Clearance</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Hassle-free import & export documentation</p></div></div>
             </div>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="py-16 lg:py-24 bg-gray-50">
+    <section id="about" class="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="relative reveal">
-                    <div class="rounded-2xl overflow-hidden shadow-2xl"><img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&q=80" alt="KGI Logistics" class="w-full h-[350px] lg:h-[450px] object-cover"></div>
-                    <div class="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-xl shadow-xl p-5 border border-gray-100"><div class="flex items-center gap-4"><div class="w-14 h-14 bg-gradient-to-br from-gold-400 to-gold-600 rounded-xl flex items-center justify-center"><span class="iconify text-navy-900" data-icon="lucide:trending-up" data-width="24"></span></div><div><div class="text-2xl font-black text-navy-900 counter" data-target="15">0</div><div class="text-xs text-gray-500 font-medium">Years of Excellence</div></div></div></div>
-                    <div class="absolute -top-4 -left-4 w-20 h-20 border-t-4 border-l-4 border-gold-500 rounded-tl-2xl"></div>
-                </div>
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+                <div class="relative reveal"><div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl"><img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&q=80" alt="KGI Logistics" class="w-full h-[280px] sm:h-[350px] lg:h-[450px] object-cover"></div><div class="absolute -bottom-5 -right-3 lg:-bottom-6 lg:-right-8 bg-white rounded-lg sm:rounded-xl shadow-xl p-3 sm:p-5 border border-gray-100"><div class="flex items-center gap-3 sm:gap-4"><div class="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg sm:rounded-xl flex items-center justify-center"><span class="iconify text-navy-900" data-icon="lucide:trending-up" data-width="20"></span></div><div><div class="text-xl sm:text-2xl font-black text-navy-900 counter" data-target="15">0</div><div class="text-[10px] sm:text-xs text-gray-500 font-medium">Years of Excellence</div></div></div></div><div class="absolute -top-3 -left-3 w-14 sm:w-20 h-14 sm:h-20 border-t-4 border-l-4 border-gold-500 rounded-tl-xl sm:rounded-tl-2xl"></div></div>
                 <div class="reveal">
-                    <span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Who We Are</span>
-                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2 mb-6 leading-tight">Your Trusted Partner in <span class="text-gold-500">Global Logistics</span></h2>
-                    <p class="text-gray-600 leading-relaxed mb-6">Karachi Gwadar International Logistics (Pvt) Ltd. is a premier freight forwarding and logistics company headquartered in Karachi, Pakistan. With over 15 years of industry expertise, we specialize in providing comprehensive sea, air, and land transportation solutions to businesses worldwide.</p>
-                    <p class="text-gray-600 leading-relaxed mb-8">Our extensive global network of partners and agents enables us to deliver seamless logistics services across all major trade routes. From customs clearance to warehousing, we handle every aspect of your supply chain with precision and reliability.</p>
-                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="14"></span></div><span class="text-sm text-gray-700 font-medium">Licensed Customs Broker</span></div>
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="14"></span></div><span class="text-sm text-gray-700 font-medium">ISO Certified Operations</span></div>
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="14"></span></div><span class="text-sm text-gray-700 font-medium">Global Agent Network</span></div>
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="14"></span></div><span class="text-sm text-gray-700 font-medium">Real-time Shipment Tracking</span></div>
+                    <span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Who We Are</span>
+                    <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2 mb-4 sm:mb-6 leading-tight">Your Trusted Partner in <span class="text-gold-500">Global Logistics</span></h2>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">Karachi Gwadar International Logistics (Pvt) Ltd. is a premier freight forwarding and logistics company headquartered in Karachi, Pakistan. With over 15 years of industry expertise, we specialize in providing comprehensive sea, air, and land transportation solutions.</p>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">Our extensive global network of partners and agents enables us to deliver seamless logistics services across all major trade routes.</p>
+                    <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                        <div class="flex items-start gap-2.5 sm:gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="12"></span></div><span class="text-xs sm:text-sm text-gray-700 font-medium">Licensed Customs Broker</span></div>
+                        <div class="flex items-start gap-2.5 sm:gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="12"></span></div><span class="text-xs sm:text-sm text-gray-700 font-medium">ISO Certified Operations</span></div>
+                        <div class="flex items-start gap-2.5 sm:gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="12"></span></div><span class="text-xs sm:text-sm text-gray-700 font-medium">Global Agent Network</span></div>
+                        <div class="flex items-start gap-2.5 sm:gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-600" data-icon="lucide:check" data-width="12"></span></div><span class="text-xs sm:text-sm text-gray-700 font-medium">Real-time Tracking</span></div>
                     </div>
-                    <a href="#contact" class="btn-gold px-7 py-3 rounded-lg text-sm inline-flex items-center gap-2">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a>
+                    <a href="#contact" class="btn-gold px-5 sm:px-7 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- STATS -->
-    <section class="py-16 bg-navy-900 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-15"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=60" alt="" class="w-full h-full object-cover" style="filter: grayscale(100%);"></div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                <div class="text-center reveal"><div class="text-3xl sm:text-4xl lg:text-5xl font-black text-gold-400 counter" data-target="5000">0</div><div class="text-sm text-gray-300 mt-2 font-medium">Shipments Delivered</div></div>
-                <div class="text-center reveal"><div class="text-3xl sm:text-4xl lg:text-5xl font-black text-gold-400 counter" data-target="80">0</div><div class="text-sm text-gray-300 mt-2 font-medium">Countries Served</div></div>
-                <div class="text-center reveal"><div class="text-3xl sm:text-4xl lg:text-5xl font-black text-gold-400 counter" data-target="200">0</div><div class="text-sm text-gray-300 mt-2 font-medium">Active Clients</div></div>
-                <div class="text-center reveal"><div class="text-3xl sm:text-4xl lg:text-5xl font-black text-gold-400 counter" data-target="99">0</div><div class="text-sm text-gray-300 mt-2 font-medium">Success Rate %</div></div>
-            </div>
-        </div>
+    <section class="py-12 sm:py-16 bg-navy-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-15"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=60" alt="" class="w-full h-full object-cover" style="filter:grayscale(100%)"></div></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10"><div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+            <div class="text-center reveal"><div class="text-2xl sm:text-3xl lg:text-5xl font-black text-gold-400 counter" data-target="5000">0</div><div class="text-xs sm:text-sm text-gray-300 mt-1 sm:mt-2 font-medium">Shipments Delivered</div></div>
+            <div class="text-center reveal"><div class="text-2xl sm:text-3xl lg:text-5xl font-black text-gold-400 counter" data-target="80">0</div><div class="text-xs sm:text-sm text-gray-300 mt-1 sm:mt-2 font-medium">Countries Served</div></div>
+            <div class="text-center reveal"><div class="text-2xl sm:text-3xl lg:text-5xl font-black text-gold-400 counter" data-target="200">0</div><div class="text-xs sm:text-sm text-gray-300 mt-1 sm:mt-2 font-medium">Active Clients</div></div>
+            <div class="text-center reveal"><div class="text-2xl sm:text-3xl lg:text-5xl font-black text-gold-400 counter" data-target="99">0</div><div class="text-xs sm:text-sm text-gray-300 mt-1 sm:mt-2 font-medium">Success Rate %</div></div>
+        </div></div>
     </section>
 
     <!-- GLOBAL NETWORK -->
-    <section class="py-16 lg:py-24 bg-white">
+    <section class="py-12 sm:py-16 lg:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 reveal"><span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Worldwide Coverage</span><h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Our Global Network</h2><div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div></div>
-            <div class="relative reveal">
-                <div class="bg-gradient-to-b from-navy-50 to-gray-50 rounded-2xl p-4 lg:p-8 border border-gray-100">
-                    <svg viewBox="0 0 1000 500" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="500" cy="250" rx="480" ry="230" fill="none" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
-                        <path d="M150,120 Q180,100 220,110 Q250,115 260,130 Q270,150 250,180 Q240,200 220,210 Q200,220 180,200 Q160,180 140,160 Q130,140 150,120Z" fill="#0a1a3a" opacity="0.08"/>
-                        <path d="M220,260 Q240,250 260,270 Q270,300 260,340 Q250,380 230,400 Q210,390 200,370 Q190,340 195,310 Q200,280 220,260Z" fill="#0a1a3a" opacity="0.08"/>
-                        <path d="M430,100 Q460,90 490,100 Q510,110 500,130 Q490,145 470,140 Q450,135 440,120 Q430,110 430,100Z" fill="#0a1a3a" opacity="0.08"/>
-                        <path d="M460,180 Q490,170 510,190 Q520,220 510,270 Q500,310 480,340 Q460,330 450,300 Q440,260 445,220 Q450,190 460,180Z" fill="#0a1a3a" opacity="0.08"/>
-                        <path d="M550,80 Q600,70 660,90 Q710,110 730,140 Q740,170 720,190 Q690,200 650,190 Q610,180 580,160 Q560,140 550,120 Q545,100 550,80Z" fill="#0a1a3a" opacity="0.08"/>
-                        <path d="M750,310 Q790,300 820,320 Q830,350 810,370 Q780,380 760,360 Q740,340 750,310Z" fill="#0a1a3a" opacity="0.08"/>
-                        <line x1="630" y1="150" x2="200" y2="160" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/>
-                        <line x1="630" y1="150" x2="470" y2="120" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/>
-                        <line x1="630" y1="150" x2="500" y2="260" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/>
-                        <line x1="630" y1="150" x2="790" y2="340" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/>
-                        <line x1="630" y1="150" x2="250" y2="340" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/>
-                        <line x1="630" y1="150" x2="690" y2="200" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/>
-                        <circle cx="630" cy="150" r="8" fill="#d4a843" class="map-dot"/><circle cx="630" cy="150" r="4" fill="#0a1a3a"/>
-                        <text x="630" y="138" text-anchor="middle" fill="#0a1a3a" font-size="10" font-weight="700" font-family="Inter">KARACHI</text>
-                        <circle cx="600" cy="155" r="4" fill="#d4a843" opacity="0.7"/><text x="588" y="170" text-anchor="end" fill="#64748b" font-size="8" font-family="Inter">Dubai</text>
-                        <circle cx="690" cy="140" r="4" fill="#d4a843" opacity="0.7"/><text x="698" y="135" fill="#64748b" font-size="8" font-family="Inter">Shanghai</text>
-                        <circle cx="690" cy="200" r="4" fill="#d4a843" opacity="0.7"/><text x="698" y="205" fill="#64748b" font-size="8" font-family="Inter">Singapore</text>
-                        <circle cx="470" cy="110" r="4" fill="#d4a843" opacity="0.7"/><text x="470" y="102" text-anchor="middle" fill="#64748b" font-size="8" font-family="Inter">London</text>
-                        <circle cx="200" cy="150" r="4" fill="#d4a843" opacity="0.7"/><text x="200" y="142" text-anchor="middle" fill="#64748b" font-size="8" font-family="Inter">New York</text>
-                        <circle cx="470" cy="230" r="4" fill="#d4a843" opacity="0.7"/><text x="458" y="245" text-anchor="end" fill="#64748b" font-size="8" font-family="Inter">Lagos</text>
-                        <circle cx="790" cy="340" r="4" fill="#d4a843" opacity="0.7"/><text x="798" y="345" fill="#64748b" font-size="8" font-family="Inter">Sydney</text>
-                        <circle cx="250" cy="340" r="4" fill="#d4a843" opacity="0.7"/><text x="262" y="345" fill="#64748b" font-size="8" font-family="Inter">São Paulo</text>
-                    </svg>
-                </div>
-            </div>
+            <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Worldwide Coverage</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2">Our Global Network</h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
+            <div class="relative reveal"><div class="bg-gradient-to-b from-navy-50 to-gray-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-8 border border-gray-100">
+                <svg viewBox="0 0 1000 500" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg"><ellipse cx="500" cy="250" rx="480" ry="230" fill="none" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/><path d="M150,120 Q180,100 220,110 Q250,115 260,130 Q270,150 250,180 Q240,200 220,210 Q200,220 180,200 Q160,180 140,160 Q130,140 150,120Z" fill="#0a1a3a" opacity="0.08"/><path d="M220,260 Q240,250 260,270 Q270,300 260,340 Q250,380 230,400 Q210,390 200,370 Q190,340 195,310 Q200,280 220,260Z" fill="#0a1a3a" opacity="0.08"/><path d="M430,100 Q460,90 490,100 Q510,110 500,130 Q490,145 470,140 Q450,135 440,120 Q430,110 430,100Z" fill="#0a1a3a" opacity="0.08"/><path d="M460,180 Q490,170 510,190 Q520,220 510,270 Q500,310 480,340 Q460,330 450,300 Q440,260 445,220 Q450,190 460,180Z" fill="#0a1a3a" opacity="0.08"/><path d="M550,80 Q600,70 660,90 Q710,110 730,140 Q740,170 720,190 Q690,200 650,190 Q610,180 580,160 Q560,140 550,120 Q545,100 550,80Z" fill="#0a1a3a" opacity="0.08"/><path d="M750,310 Q790,300 820,320 Q830,350 810,370 Q780,380 760,360 Q740,340 750,310Z" fill="#0a1a3a" opacity="0.08"/><line x1="630" y1="150" x2="200" y2="160" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/><line x1="630" y1="150" x2="470" y2="120" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/><line x1="630" y1="150" x2="500" y2="260" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/><line x1="630" y1="150" x2="790" y2="340" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/><line x1="630" y1="150" x2="250" y2="340" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/><line x1="630" y1="150" x2="690" y2="200" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" class="route-line" opacity="0.6"/><circle cx="630" cy="150" r="8" fill="#d4a843" class="map-dot"/><circle cx="630" cy="150" r="4" fill="#0a1a3a"/><text x="630" y="138" text-anchor="middle" fill="#0a1a3a" font-size="10" font-weight="700" font-family="Inter">KARACHI</text><circle cx="600" cy="155" r="4" fill="#d4a843" opacity="0.7"/><text x="588" y="170" text-anchor="end" fill="#64748b" font-size="8" font-family="Inter">Dubai</text><circle cx="690" cy="140" r="4" fill="#d4a843" opacity="0.7"/><text x="698" y="135" fill="#64748b" font-size="8" font-family="Inter">Shanghai</text><circle cx="690" cy="200" r="4" fill="#d4a843" opacity="0.7"/><text x="698" y="205" fill="#64748b" font-size="8" font-family="Inter">Singapore</text><circle cx="470" cy="110" r="4" fill="#d4a843" opacity="0.7"/><text x="470" y="102" text-anchor="middle" fill="#64748b" font-size="8" font-family="Inter">London</text><circle cx="200" cy="150" r="4" fill="#d4a843" opacity="0.7"/><text x="200" y="142" text-anchor="middle" fill="#64748b" font-size="8" font-family="Inter">New York</text><circle cx="790" cy="340" r="4" fill="#d4a843" opacity="0.7"/><text x="798" y="345" fill="#64748b" font-size="8" font-family="Inter">Sydney</text></svg>
+            </div></div>
         </div>
     </section>
 
     <!-- WHY CHOOSE US -->
-    <section class="py-16 lg:py-24 bg-gray-50">
+    <section class="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 reveal"><span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Our Advantages</span><h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Why Choose KGI Logistics</h2><div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div></div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:badge-dollar-sign" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">Competitive Rates</h3><p class="text-gray-500 text-sm leading-relaxed">Cost-effective logistics solutions without compromising service quality.</p></div>
-                <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:users" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">Experienced Team</h3><p class="text-gray-500 text-sm leading-relaxed">Seasoned logistics professionals with decades of combined experience.</p></div>
-                <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:globe" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">Global Reach</h3><p class="text-gray-500 text-sm leading-relaxed">Extensive network spanning 80+ countries worldwide.</p></div>
-                <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:zap" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">Fast Delivery</h3><p class="text-gray-500 text-sm leading-relaxed">Optimized routing ensures on-time delivery, every time.</p></div>
-                <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:headphones" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">24/7 Support</h3><p class="text-gray-500 text-sm leading-relaxed">Round-the-clock customer support always ready to assist.</p></div>
-                <div class="why-card bg-white rounded-xl p-6 lg:p-8 border border-gray-100 reveal"><div class="w-14 h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-5"><span class="iconify text-gold-500" data-icon="lucide:shield-check" data-width="26"></span></div><h3 class="font-bold text-navy-900 text-lg mb-2">Cargo Insurance</h3><p class="text-gray-500 text-sm leading-relaxed">Comprehensive insurance for complete peace of mind.</p></div>
+            <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Our Advantages</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2">Why Choose KGI Logistics</h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                <div class="why-card bg-white rounded-xl p-5 sm:p-6 lg:p-8 border border-gray-100 reveal"><div class="w-12 h-12 sm:w-14 sm:h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-4 sm:mb-5"><span class="iconify text-gold-500" data-icon="lucide:badge-dollar-sign" data-width="22"></span></div><h3 class="font-bold text-navy-900 text-base sm:text-lg mb-1.5 sm:mb-2">Competitive Rates</h3><p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Cost-effective logistics without compromising quality.</p></div>
+                <div class="why-card bg-white rounded-xl p-5 sm:p-6 lg:p-8 border border-gray-100 reveal"><div class="w-12 h-12 sm:w-14 sm:h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-4 sm:mb-5"><span class="iconify text-gold-500" data-icon="lucide:users" data-width="22"></span></div><h3 class="font-bold text-navy-900 text-base sm:text-lg mb-1.5 sm:mb-2">Experienced Team</h3><p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Decades of combined logistics expertise.</p></div>
+                <div class="why-card bg-white rounded-xl p-5 sm:p-6 lg:p-8 border border-gray-100 reveal"><div class="w-12 h-12 sm:w-14 sm:h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-4 sm:mb-5"><span class="iconify text-gold-500" data-icon="lucide:globe" data-width="22"></span></div><h3 class="font-bold text-navy-900 text-base sm:text-lg mb-1.5 sm:mb-2">Global Reach</h3><p class="text-gray-500 text-xs sm:text-sm leading-relaxed">80+ countries worldwide network.</p></div>
+                <div class="why-card bg-white rounded-xl p-5 sm:p-6 lg:p-8 border border-gray-100 reveal"><div class="w-12 h-12 sm:w-14 sm:h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-4 sm:mb-5"><span class="iconify text-gold-500" data-icon="lucide:zap" data-width="22"></span></div><h3 class="font-bold text-navy-900 text-base sm:text-lg mb-1.5 sm:mb-2">Fast Delivery</h3><p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Optimized routing, on-time every time.</p></div>
+                <div class="why-card bg-white rounded-xl p-5 sm:p-6 lg:p-8 border border-gray-100 reveal"><div class="w-12 h-12 sm:w-14 sm:h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-4 sm:mb-5"><span class="iconify text-gold-500" data-icon="lucide:headphones" data-width="22"></span></div><h3 class="font-bold text-navy-900 text-base sm:text-lg mb-1.5 sm:mb-2">24/7 Support</h3><p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Always ready to assist you.</p></div>
+                <div class="why-card bg-white rounded-xl p-5 sm:p-6 lg:p-8 border border-gray-100 reveal"><div class="w-12 h-12 sm:w-14 sm:h-14 bg-gold-50 rounded-xl flex items-center justify-center mb-4 sm:mb-5"><span class="iconify text-gold-500" data-icon="lucide:shield-check" data-width="22"></span></div><h3 class="font-bold text-navy-900 text-base sm:text-lg mb-1.5 sm:mb-2">Cargo Insurance</h3><p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Complete peace of mind coverage.</p></div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section id="quote" class="py-16 lg:py-24 bg-navy-900 relative overflow-hidden">
+    <section id="quote" class="py-12 sm:py-16 lg:py-24 bg-navy-900 relative overflow-hidden">
         <div class="absolute inset-0"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80" alt="" class="w-full h-full object-cover"><div class="absolute inset-0 bg-navy-950/90"></div></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10 reveal">
-            <span class="text-gold-400 text-xs font-bold tracking-[0.2em] uppercase">Ready to Ship?</span>
-            <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mt-3 mb-6 leading-tight">Get a Free Quote <br class="hidden sm:block"><span class="text-gold-400">For Your Next Shipment</span></h2>
-            <p class="text-gray-300 text-base lg:text-lg mb-10 max-w-2xl mx-auto">Contact us today for competitive rates and reliable logistics solutions tailored to your business needs.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#contact" class="btn-gold px-8 py-4 rounded-lg text-sm inline-flex items-center gap-2">Request a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a>
-                <a href="tel:03072950929" class="btn-outline px-8 py-4 rounded-lg text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:phone" data-width="16"></span> Call Now</a>
-            </div>
+            <span class="text-gold-400 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Ready to Ship?</span>
+            <h2 class="text-xl sm:text-2xl lg:text-5xl font-bold text-white mt-2 sm:mt-3 mb-5 sm:mb-6 leading-tight">Get a Free Quote <br class="hidden sm:block"><span class="text-gold-400">For Your Next Shipment</span></h2>
+            <p class="text-gray-300 text-sm sm:text-base lg:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto">Contact us for competitive rates and reliable logistics solutions.</p>
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4"><a href="#contact" class="btn-gold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2">Request a Quote <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span></a><a href="tel:03072950929" class="btn-outline px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-xs sm:text-sm inline-flex items-center gap-2"><span class="iconify" data-icon="lucide:phone" data-width="16"></span> Call Now</a></div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-16 lg:py-24 bg-white">
+    <section id="contact" class="py-12 sm:py-16 lg:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 reveal"><span class="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Get In Touch</span><h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mt-2">Contact Us</h2><div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div></div>
-            <div class="grid lg:grid-cols-5 gap-8 lg:gap-12">
-                <div class="lg:col-span-3 reveal">
-                    <div class="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gray-100">
-                        <h3 class="font-bold text-navy-900 text-lg mb-6">Send Us a Message</h3>
-                        <form id="contactForm" class="space-y-5">
-                            <div class="grid sm:grid-cols-2 gap-5"><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label><input type="text" required class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="Your name"></div><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label><input type="email" required class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="you@email.com"></div></div>
-                            <div class="grid sm:grid-cols-2 gap-5"><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label><input type="tel" class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm" placeholder="+92 xxx xxxxxxx"></div><div><label class="block text-sm font-medium text-gray-700 mb-1.5">Service Required</label><select class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm text-gray-500"><option>Select a service</option><option>Sea Freight</option><option>Air Freight</option><option>Land Transport</option><option>Project Cargo</option><option>Warehousing</option><option>Customs Clearance</option></select></div></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-1.5">Message *</label><textarea required rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm resize-none" placeholder="Tell us about your shipment..."></textarea></div>
-                            <button type="submit" class="btn-gold w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">Send Message <span class="iconify" data-icon="lucide:send" data-width="16"></span></button>
-                        </form>
-                        <div id="formSuccess" class="hidden mt-6 bg-green-50 border border-green-200 rounded-xl p-4 flex items-center gap-3"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="20"></span><span class="text-green-700 text-sm font-medium">Thank you! Your message has been sent successfully.</span></div>
-                    </div>
-                </div>
-                <div class="lg:col-span-2 space-y-6 reveal">
-                    <div class="bg-navy-900 rounded-2xl p-6 lg:p-8 text-white">
-                        <h3 class="font-bold text-lg mb-5">Company Details</h3>
-                        <div class="space-y-5">
-                            <div class="flex items-start gap-4"><div class="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:map-pin" data-width="18"></span></div><div><div class="text-xs text-gray-400 font-medium mb-1">Address</div><div class="text-sm text-gray-200 leading-relaxed">B-10 Back Annex Imperial Building, MT Khan Road, Karachi, Pakistan</div></div></div>
-                            <div class="flex items-start gap-4"><div class="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:phone" data-width="18"></span></div><div><div class="text-xs text-gray-400 font-medium mb-1">Phone</div><a href="tel:03072950929" class="text-sm text-gray-200 hover:text-gold-400 transition-colors">03072950929</a></div></div>
-                            <div class="flex items-start gap-4"><div class="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:mail" data-width="18"></span></div><div><div class="text-xs text-gray-400 font-medium mb-1">Email</div><a href="mailto:info@karachigwadarintlogistics.com" class="text-sm text-gray-200 hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></div></div>
-                            <div class="flex items-start gap-4"><div class="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:clock" data-width="18"></span></div><div><div class="text-xs text-gray-400 font-medium mb-1">Working Hours</div><div class="text-sm text-gray-200">Mon - Sat: 9:00 AM - 6:00 PM</div><div class="text-sm text-gray-200">Sun: Closed</div></div></div>
-                        </div>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-gray-100 h-[220px]"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.7!2d67.01!3d24.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMT+Khan+Road+Karachi!5e0!3m2!1sen!2s!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+            <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Get In Touch</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2">Contact Us</h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
+            <div class="grid lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12">
+                <div class="lg:col-span-3 reveal"><div class="bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-100"><h3 class="font-bold text-navy-900 text-base sm:text-lg mb-4 sm:mb-6">Send Us a Message</h3><form id="contactForm" class="space-y-4 sm:space-y-5"><div class="grid sm:grid-cols-2 gap-4 sm:gap-5"><div><label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">Full Name *</label><input type="text" required class="form-input w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white text-sm" placeholder="Your name"></div><div><label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">Email *</label><input type="email" required class="form-input w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white text-sm" placeholder="you@email.com"></div></div><div class="grid sm:grid-cols-2 gap-4 sm:gap-5"><div><label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">Phone</label><input type="tel" class="form-input w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white text-sm" placeholder="+92 xxx xxxxxxx"></div><div><label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">Service</label><select class="form-input w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white text-sm text-gray-500"><option>Select a service</option><option>Sea Freight</option><option>Air Freight</option><option>Land Transport</option><option>Project Cargo</option><option>Warehousing</option><option>Customs Clearance</option></select></div></div><div><label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">Message *</label><textarea required rows="4" class="form-input w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white text-sm resize-none" placeholder="Tell us about your shipment..."></textarea></div><button type="submit" class="btn-gold w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2">Send Message <span class="iconify" data-icon="lucide:send" data-width="16"></span></button></form><div id="formSuccess" class="hidden mt-4 sm:mt-6 bg-green-50 border border-green-200 rounded-xl p-3 sm:p-4 flex items-center gap-3"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="18"></span><span class="text-green-700 text-xs sm:text-sm font-medium">Thank you! Message sent successfully.</span></div></div></div>
+                <div class="lg:col-span-2 space-y-5 sm:space-y-6 reveal">
+                    <div class="bg-navy-900 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white"><h3 class="font-bold text-base sm:text-lg mb-4 sm:mb-5">Company Details</h3><div class="space-y-4 sm:space-y-5"><div class="flex items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:map-pin" data-width="16"></span></div><div><div class="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1">Address</div><div class="text-xs sm:text-sm text-gray-200 leading-relaxed">B-10 Back Annex Imperial Building, MT Khan Road, Karachi, Pakistan</div></div></div><div class="flex items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:phone" data-width="16"></span></div><div><div class="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1">Phone</div><a href="tel:03072950929" class="text-xs sm:text-sm text-gray-200 hover:text-gold-400 transition-colors">03072950929</a></div></div><div class="flex items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:mail" data-width="16"></span></div><div><div class="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1">Email</div><a href="mailto:info@karachigwadarintlogistics.com" class="text-xs sm:text-sm text-gray-200 hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></div></div><div class="flex items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:clock" data-width="16"></span></div><div><div class="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1">Working Hours</div><div class="text-xs sm:text-sm text-gray-200">Mon - Sat: 9:00 AM - 6:00 PM</div><div class="text-xs sm:text-sm text-gray-200">Sun: Closed</div></div></div></div></div>
+                    <div class="rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100 h-[180px] sm:h-[220px]"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.7!2d67.01!3d24.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMT+Khan+Road+Karachi!5e0!3m2!1sen!2s!4v1" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe></div>
                 </div>
             </div>
         </div>
@@ -526,102 +373,39 @@
 
     <!-- FOOTER -->
     <footer class="bg-navy-950 text-white">
-        <div class="max-w-7xl mx-auto px-4 py-12 lg:py-16">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                <div>
-                    <a href="#" class="flex items-center gap-3 mb-5"><img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="logo-img-footer"></a>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-5">Connecting cargo, creating opportunities. Your trusted partner for comprehensive logistics and freight forwarding solutions worldwide.</p>
-                    <div class="flex items-center gap-3">
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:facebook" data-width="16"></span></a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:linkedin" data-width="16"></span></a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:twitter" data-width="16"></span></a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:instagram" data-width="16"></span></a>
-                    </div>
-                </div>
-                <div><h4 class="font-bold text-sm mb-5 text-white">Quick Links</h4><ul class="space-y-3"><li><a href="#home" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Home</a></li><li><a href="#about" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>About Us</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Services</a></li><li><a href="#tracking" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Track Shipment</a></li><li><a href="#contact" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Contact Us</a></li></ul></div>
-                <div><h4 class="font-bold text-sm mb-5 text-white">Our Services</h4><ul class="space-y-3"><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Sea Freight</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Air Freight</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Land Transport</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Project Cargo</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Warehousing</a></li><li><a href="#services" class="text-gray-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Customs Clearance</a></li></ul></div>
-                <div><h4 class="font-bold text-sm mb-5 text-white">Contact Info</h4><div class="space-y-4"><div class="flex items-start gap-3"><span class="iconify text-gold-500 mt-0.5 flex-shrink-0" data-icon="lucide:map-pin" data-width="16"></span><span class="text-gray-400 text-sm leading-relaxed">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span></div><div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:phone" data-width="16"></span><a href="tel:03072950929" class="text-gray-400 text-sm hover:text-gold-400 transition-colors">03072950929</a></div><div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:mail" data-width="16"></span><a href="mailto:info@karachigwadarintlogistics.com" class="text-gray-400 text-sm hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></div><div class="flex items-center gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:clock" data-width="16"></span><span class="text-gray-400 text-sm">Mon - Sat: 9AM - 6PM</span></div></div></div>
+        <div class="max-w-7xl mx-auto px-4 py-10 sm:py-12 lg:py-16">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+                <div><a href="#" class="flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5"><img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="h-[38px] sm:h-[40px] w-auto object-contain"></a><p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">Connecting cargo, creating opportunities. Your trusted partner for comprehensive logistics solutions worldwide.</p><div class="flex items-center gap-2.5 sm:gap-3"><a href="#" class="w-8 h-8 sm:w-9 sm:h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:facebook" data-width="14"></span></a><a href="#" class="w-8 h-8 sm:w-9 sm:h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:linkedin" data-width="14"></span></a><a href="#" class="w-8 h-8 sm:w-9 sm:h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:twitter" data-width="14"></span></a><a href="#" class="w-8 h-8 sm:w-9 sm:h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-gold-500/20 hover:text-gold-400 transition-all"><span class="iconify" data-icon="lucide:instagram" data-width="14"></span></a></div></div>
+                <div><h4 class="font-bold text-xs sm:text-sm mb-4 sm:mb-5 text-white">Quick Links</h4><ul class="space-y-2 sm:space-y-3"><li><a href="#home" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Home</a></li><li><a href="#about" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>About Us</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Services</a></li><li><a href="#tracking" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Track Shipment</a></li><li><a href="#contact" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Contact Us</a></li></ul></div>
+                <div><h4 class="font-bold text-xs sm:text-sm mb-4 sm:mb-5 text-white">Our Services</h4><ul class="space-y-2 sm:space-y-3"><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Sea Freight</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Air Freight</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Land Transport</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Project Cargo</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Warehousing</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors flex items-center gap-1.5 sm:gap-2"><span class="iconify" data-icon="lucide:chevron-right" data-width="12"></span>Customs Clearance</a></li></ul></div>
+                <div><h4 class="font-bold text-xs sm:text-sm mb-4 sm:mb-5 text-white">Contact Info</h4><div class="space-y-3 sm:space-y-4"><div class="flex items-start gap-2.5 sm:gap-3"><span class="iconify text-gold-500 mt-0.5 flex-shrink-0" data-icon="lucide:map-pin" data-width="14"></span><span class="text-gray-400 text-xs sm:text-sm leading-relaxed">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span></div><div class="flex items-center gap-2.5 sm:gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:phone" data-width="14"></span><a href="tel:03072950929" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">03072950929</a></div><div class="flex items-center gap-2.5 sm:gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:mail" data-width="14"></span><a href="mailto:info@karachigwadarintlogistics.com" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></div><div class="flex items-center gap-2.5 sm:gap-3"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:clock" data-width="14"></span><span class="text-gray-400 text-xs sm:text-sm">Mon - Sat: 9AM - 6PM</span></div></div></div>
             </div>
         </div>
-        <div class="border-t border-white/5"><div class="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row justify-between items-center gap-3"><p class="text-gray-500 text-xs text-center sm:text-left">© 2025 Karachi Gwadar International Logistics (Pvt) Ltd. All rights reserved.</p><div class="flex items-center gap-4 text-xs text-gray-500"><a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a><span>|</span><a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a></div></div></div>
+        <div class="border-t border-white/5"><div class="max-w-7xl mx-auto px-4 py-4 sm:py-5 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-3"><p class="text-gray-500 text-[10px] sm:text-xs text-center sm:text-left">© 2025 Karachi Gwadar International Logistics (Pvt) Ltd. All rights reserved.</p><div class="flex items-center gap-3 sm:gap-4 text-[10px] sm:text-xs text-gray-500"><a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a><span>|</span><a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a></div></div></div>
     </footer>
 
     <!-- WHATSAPP -->
-    <a href="https://wa.me/923072950929?text=Hello%20KGI%20Logistics%2C%20I%20need%20a%20quote%20for%20shipment." target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
+    <a href="https://wa.me/923072950929?text=Hello%20KGI%20Logistics%2C%20I%20need%20a%20quote%20for%20shipment." target="_blank" class="whatsapp-float" title="Chat on WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
     <!-- JAVASCRIPT -->
     <script>
-        let currentSlide = 0;
-        const totalSlides = 3;
-        let slideInterval;
-        function goToSlide(i) {
-            document.querySelectorAll('.hero-slide').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.hero-content').forEach(c => { c.classList.remove('active'); c.style.display = 'none'; });
-            document.querySelectorAll('.slider-dot').forEach(d => d.classList.remove('active'));
-            currentSlide = i;
-            document.querySelector(`.hero-slide[data-slide="${i}"]`).classList.add('active');
-            const c = document.querySelector(`.hero-content[data-content="${i}"]`);
-            c.style.display = 'block'; setTimeout(() => c.classList.add('active'), 50);
-            document.querySelectorAll('.slider-dot')[i].classList.add('active');
-            resetAutoSlide();
-        }
-        function changeSlide(d) { let n = currentSlide + d; if (n >= totalSlides) n = 0; if (n < 0) n = totalSlides - 1; goToSlide(n); }
-        function resetAutoSlide() { clearInterval(slideInterval); slideInterval = setInterval(() => changeSlide(1), 5000); }
-        slideInterval = setInterval(() => changeSlide(1), 5000);
-
-        window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
-
-        function toggleMobileMenu() { const m = document.getElementById('mobileMenu'); m.classList.toggle('open'); document.body.style.overflow = m.classList.contains('open') ? 'hidden' : ''; }
-        function toggleMobileDropdown(id) { document.getElementById(id).classList.toggle('hidden'); }
-
-        const revealObs = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-        const counterObs = new IntersectionObserver(e => e.forEach(entry => {
-            if (entry.isIntersecting) {
-                const c = entry.target, t = parseInt(c.dataset.target), s = performance.now();
-                (function up(now) { const p = Math.min((now - s) / 2000, 1), v = Math.floor((1 - Math.pow(1 - p, 3)) * t);
-                    c.textContent = v.toLocaleString() + (t === 99 ? '%' : '+'); if (p < 1) requestAnimationFrame(up); })(s);
-                counterObs.unobserve(c);
-            }
-        }), { threshold: 0.5 });
-        document.querySelectorAll('.counter').forEach(c => counterObs.observe(c));
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); this.style.display = 'none'; document.getElementById('formSuccess').classList.remove('hidden');
-            setTimeout(() => { this.style.display = 'block'; this.reset(); document.getElementById('formSuccess').classList.add('hidden'); }, 5000);
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
-            const t = document.querySelector(this.getAttribute('href'));
-            if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
-        }));
-
-        const dp = document.querySelector('.group');
-        if (dp) { const dd = dp.querySelector('.nav-dropdown'); dp.addEventListener('mouseenter', () => dd.classList.add('show')); dp.addEventListener('mouseleave', () => dd.classList.remove('show')); }
-
-        // ★ TRACKING SYSTEM ★
-        function trackShipment() {
-            const input = document.getElementById('trackingInput').value.trim().toUpperCase();
-            const resultBox = document.getElementById('trackingResult');
-            const notFoundBox = document.getElementById('trackingNotFound');
-            resultBox.classList.remove('show'); notFoundBox.classList.remove('show');
-            if (!input) return;
-            if (input === 'KGIL987654321') {
-                const now = new Date();
-                document.getElementById('currentDate').textContent = now.toLocaleDateString('en-PK', { day: '2-digit', month: 'short', year: 'numeric' });
-                document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-PK', { hour: '2-digit', minute: '2-digit' });
-                document.getElementById('resultTrackNum').textContent = input;
-                setTimeout(() => resultBox.classList.add('show'), 100);
-            } else {
-                document.getElementById('notFoundNum').textContent = input;
-                setTimeout(() => notFoundBox.classList.add('show'), 100);
-            }
-        }
-        document.getElementById('trackingInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') { e.preventDefault(); trackShipment(); } });
-        if (window.location.hash === '#track-KGIL987654321') { document.getElementById('trackingInput').value = 'KGIL987654321'; setTimeout(trackShipment, 800); }
+        let currentSlide=0;const totalSlides=3;let slideInterval;
+        function goToSlide(i){document.querySelectorAll('.hero-slide').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.hero-content').forEach(c=>{c.classList.remove('active');c.style.display='none'});document.querySelectorAll('.slider-dot').forEach(d=>d.classList.remove('active'));currentSlide=i;document.querySelector(`.hero-slide[data-slide="${i}"]`).classList.add('active');const c=document.querySelector(`.hero-content[data-content="${i}"]`);c.style.display='block';setTimeout(()=>c.classList.add('active'),50);document.querySelectorAll('.slider-dot')[i].classList.add('active');resetAutoSlide()}
+        function changeSlide(d){let n=currentSlide+d;if(n>=totalSlides)n=0;if(n<0)n=totalSlides-1;goToSlide(n)}
+        function resetAutoSlide(){clearInterval(slideInterval);slideInterval=setInterval(()=>changeSlide(1),5000)}
+        slideInterval=setInterval(()=>changeSlide(1),5000);
+        window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
+        function toggleMobileMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+        function toggleMobileDropdown(id){document.getElementById(id).classList.toggle('hidden')}
+        const revealObs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+        document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+        const counterObs=new IntersectionObserver(e=>e.forEach(entry=>{if(entry.isIntersecting){const c=entry.target,t=parseInt(c.dataset.target),s=performance.now();(function up(now){const p=Math.min((now-s)/2000,1),v=Math.floor((1-Math.pow(1-p,3))*t);c.textContent=v.toLocaleString()+(t===99?'%':'+');if(p<1)requestAnimationFrame(up)})(s);counterObs.unobserve(c)}}),{threshold:0.5});
+        document.querySelectorAll('.counter').forEach(c=>counterObs.observe(c));
+        document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();this.style.display='none';document.getElementById('formSuccess').classList.remove('hidden');setTimeout(()=>{this.style.display='block';this.reset();document.getElementById('formSuccess').classList.add('hidden')},5000)});
+        document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-80,behavior:'smooth'})}}));
+        const dp=document.querySelector('.group');if(dp){const dd=dp.querySelector('.nav-dropdown');dp.addEventListener('mouseenter',()=>dd.classList.add('show'));dp.addEventListener('mouseleave',()=>dd.classList.remove('show'))}
+        function trackShipment(){const input=document.getElementById('trackingInput').value.trim().toUpperCase();const r=document.getElementById('trackingResult'),n=document.getElementById('trackingNotFound');r.classList.remove('show');n.classList.remove('show');if(!input)return;if(input==='KGIL987654321'){const now=new Date();document.getElementById('currentDate').textContent=now.toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});document.getElementById('currentTime').textContent=now.toLocaleTimeString('en-PK',{hour:'2-digit',minute:'2-digit'});document.getElementById('resultTrackNum').textContent=input;setTimeout(()=>r.classList.add('show'),100)}else{document.getElementById('notFoundNum').textContent=input;setTimeout(()=>n.classList.add('show'),100)}}
+        document.getElementById('trackingInput').addEventListener('keypress',function(e){if(e.key==='Enter'){e.preventDefault();trackShipment()}});
     </script>
 </body>
 </html>
