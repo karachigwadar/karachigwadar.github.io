@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -124,13 +124,12 @@
 </head>
 <body class="bg-white">
 
-    <!-- ★ JSON-LD STRUCTURED DATA ★ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@graph": [
             {"@type": "Organization","@id": "https://www.karachigwadarintlogistics.com/#organization","name": "Karachi Gwadar International Logistics (Pvt) Ltd.","alternateName": "KGI Logistics","url": "https://www.karachigwadarintlogistics.com","logo": "https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png","description": "Premier freight forwarding and logistics company in Karachi, Pakistan.","foundingDate": "2010","address": {"@type": "PostalAddress","streetAddress": "B-10 Back Annex Imperial Building, MT Khan Road","addressLocality": "Karachi","addressRegion": "Sindh","postalCode": "74000","addressCountry": "PK"},"contactPoint": [{"@type": "ContactPoint","telephone": "+92-307-295-0929","contactType": "sales","availableLanguage": ["English","Urdu"]}]},
-            {"@type": "FAQPage","@id": "https://www.karachigwadarintlogistics.com/#faq","mainEntity": [{"@type": "Question","name": "What services does KGI Logistics offer?","acceptedAnswer": {"@type": "Answer","text": "KGI Logistics offers sea freight (FCL/LCL), air freight, land transport, project cargo, warehousing, and customs clearance services across 80+ countries worldwide."}},{"@type": "Question","name": "How can I track my shipment?","acceptedAnswer": {"@type": "Answer","text": "Enter your tracking number (e.g., KGILJDH26080001) in the tracking bar on our homepage or contact us at 03072950929 for real-time shipment updates."}},{"@type": "Question","name": "Where is KGI Logistics located?","acceptedAnswer": {"@type": "Answer","text": "Our office is at B-10 Back Annex Imperial Building, MT Khan Road, Karachi, Pakistan."}},{"@type": "Question","name": "Does KGI Logistics handle customs clearance?","acceptedAnswer": {"@type": "Answer","text": "Yes, we are a licensed customs broker providing complete import and export documentation."}},{"@type": "Question","name": "What are the shipping routes from Karachi?","acceptedAnswer": {"@type": "Answer","text": "We ship from Karachi to Dubai, Saudi Arabia, China, Singapore, Europe, USA, and 80+ global destinations."}}]}
+            {"@type": "FAQPage","@id": "https://www.karachigwadarintlogistics.com/#faq","mainEntity": [{"@type": "Question","name": "What services does KGI Logistics offer?","acceptedAnswer": {"@type": "Answer","text": "KGI Logistics offers sea freight (FCL/LCL), air freight, land transport, project cargo, warehousing, and customs clearance services across 80+ countries worldwide."}},{"@type": "Question","name": "How can I track my shipment?","acceptedAnswer": {"@type": "Answer","text": "Enter your 10-digit tracking number in the tracking bar on our homepage or contact us at 03072950929 for real-time shipment updates."}},{"@type": "Question","name": "Where is KGI Logistics located?","acceptedAnswer": {"@type": "Answer","text": "Our office is at B-10 Back Annex Imperial Building, MT Khan Road, Karachi, Pakistan."}},{"@type": "Question","name": "Does KGI Logistics handle customs clearance?","acceptedAnswer": {"@type": "Answer","text": "Yes, we are a licensed customs broker providing complete import and export documentation."}},{"@type": "Question","name": "What are the shipping routes from Karachi?","acceptedAnswer": {"@type": "Answer","text": "We ship from Karachi to Makkah, Jeddah, Riyadh, Dubai, China, Singapore, Europe, USA, and 80+ global destinations."}}]}
         ]
     }
     </script>
@@ -240,9 +239,9 @@
             </div></div>
         </div>
         <div class="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 sm:gap-5">
-            <button class="slider-arrow w-10 h-10 sm:w-12 sm:h-12" onclick="changeSlide(-1)" aria-label="Previous Slide"><span class="iconify" data-icon="lucide:chevron-left" data-width="18"></span></button>
-            <div class="flex items-center gap-2" role="tablist"><div class="slider-dot active" onclick="goToSlide(0)" role="tab" aria-label="Slide 1"></div><div class="slider-dot" onclick="goToSlide(1)" role="tab" aria-label="Slide 2"></div><div class="slider-dot" onclick="goToSlide(2)" role="tab" aria-label="Slide 3"></div></div>
-            <button class="slider-arrow w-10 h-10 sm:w-12 sm:h-12" onclick="changeSlide(1)" aria-label="Next Slide"><span class="iconify" data-icon="lucide:chevron-right" data-width="18"></span></button>
+            <button class="slider-arrow w-10 h-10 sm:w-12 sm:h-12" onclick="changeSlide(-1)" aria-label="Previous"><span class="iconify" data-icon="lucide:chevron-left" data-width="18"></span></button>
+            <div class="flex items-center gap-2"><div class="slider-dot active" onclick="goToSlide(0)"></div><div class="slider-dot" onclick="goToSlide(1)"></div><div class="slider-dot" onclick="goToSlide(2)"></div></div>
+            <button class="slider-arrow w-10 h-10 sm:w-12 sm:h-12" onclick="changeSlide(1)" aria-label="Next"><span class="iconify" data-icon="lucide:chevron-right" data-width="18"></span></button>
         </div>
         <div class="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
     </section>
@@ -250,61 +249,45 @@
     <!-- ===================== TRACKING SECTION ===================== -->
     <section id="tracking" class="relative z-20 -mt-6 sm:-mt-8 px-4 pb-4">
         <div class="max-w-4xl mx-auto">
-            <!-- Input Bar -->
             <div class="bg-white rounded-xl sm:rounded-2xl shadow-2xl shadow-navy-900/10 p-3 sm:p-4 md:p-6 flex flex-col sm:flex-row items-stretch gap-2 sm:gap-3 border border-gray-100">
                 <div class="flex-1 flex items-center gap-2 sm:gap-3 bg-gray-50 rounded-lg sm:rounded-xl px-3 sm:px-4">
                     <span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:search" data-width="18"></span>
-                    <input type="text" id="trackingInput" placeholder="Enter Tracking Number (e.g. KGILJDH26080001)" class="tracking-input w-full bg-transparent py-2.5 sm:py-3 text-sm text-gray-800 placeholder-gray-400 border-none" aria-label="Tracking Number Input">
+                    <input type="text" id="trackingInput" placeholder="Enter 10 digits tracking number" maxlength="10" class="tracking-input w-full bg-transparent py-2.5 sm:py-3 text-sm text-gray-800 placeholder-gray-400 border-none" aria-label="Tracking Number Input">
                 </div>
                 <button onclick="trackShipment()" class="btn-gold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 whitespace-nowrap">
                     <span class="iconify" data-icon="lucide:radar" data-width="14"></span> Track Now
                 </button>
             </div>
 
-            <!-- ===== TRACKING RESULT — FOUND ===== -->
+            <!-- TRACKING RESULT -->
             <div id="trackingResult" class="tracking-result mt-3 sm:mt-4">
                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 overflow-hidden">
-                    <!-- Header -->
                     <div class="bg-navy-900 px-4 sm:px-6 lg:px-7 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 bg-gold-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <span class="iconify text-gold-400" data-icon="lucide:package-check" data-width="18"></span>
-                            </div>
-                            <div>
-                                <div class="text-gray-400 text-[10px] sm:text-xs font-medium">Tracking Number</div>
-                                <div class="text-white font-bold text-xs sm:text-sm tracking-wide" id="resultTrackNum">—</div>
-                            </div>
+                            <div class="w-9 h-9 sm:w-10 sm:h-10 bg-gold-500/20 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:package-check" data-width="18"></span></div>
+                            <div><div class="text-gray-400 text-[10px] sm:text-xs font-medium">Tracking Number</div><div class="text-white font-bold text-xs sm:text-sm tracking-widest" id="resultTrackNum">—</div></div>
                         </div>
                         <div id="statusBadge" class="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1 self-start sm:self-auto">
                             <div class="w-2 h-2 bg-green-400 rounded-full pulse-green"></div>
                             <span class="text-green-400 text-[10px] sm:text-xs font-semibold" id="statusBadgeText">—</span>
                         </div>
                     </div>
-
-                    <!-- Body -->
                     <div class="p-4 sm:p-5 lg:p-7">
-                        <!-- Info Grid (dynamically filled) -->
                         <div id="infoGrid" class="grid grid-cols-2 gap-2.5 sm:gap-4 mb-5 sm:mb-7 track-anim" style="opacity:0"></div>
-
-                        <!-- Route Visual (dynamically filled) -->
                         <div id="routeVisual" class="track-anim mb-5 sm:mb-7" style="opacity:0"></div>
-
-                        <!-- Timeline (dynamically filled) -->
                         <div id="timelineSection" class="track-anim" style="opacity:0"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- ===== TRACKING NOT FOUND ===== -->
+            <!-- NOT FOUND -->
             <div id="trackingNotFound" class="tracking-result mt-3 sm:mt-4">
                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-2xl shadow-navy-900/10 border border-gray-100 p-5 sm:p-6 lg:p-8 text-center">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <span class="iconify text-red-400" data-icon="lucide:package-x" data-width="24"></span>
-                    </div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4"><span class="iconify text-red-400" data-icon="lucide:package-x" data-width="24"></span></div>
                     <h3 class="text-navy-900 font-bold text-base sm:text-lg mb-2">Shipment Not Found</h3>
                     <p class="text-gray-500 text-xs sm:text-sm mb-1">No shipment found with tracking number:</p>
                     <p class="text-red-500 font-bold text-xs sm:text-sm mb-3 sm:mb-4" id="notFoundNum"></p>
-                    <p class="text-gray-400 text-[10px] sm:text-xs">Please verify your tracking number. Contact us at <a href="tel:03072950929" class="text-gold-500 font-semibold hover:underline">03072950929</a></p>
+                    <p class="text-gray-400 text-[10px] sm:text-xs">Please enter a valid 10-digit tracking number. Contact us at <a href="tel:03072950929" class="text-gold-500 font-semibold hover:underline">03072950929</a></p>
                 </div>
             </div>
         </div>
@@ -315,14 +298,14 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">What We Offer</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2">Our Logistics Services</h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
             <div class="grid md:grid-cols-3 gap-3 sm:gap-5 lg:gap-6 mb-3 sm:mb-5 lg:mb-6 reveal">
-                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" alt="Sea Freight containers at Karachi port" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:ship" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Sea Freight</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">FCL & LCL container shipments across all major global trade routes</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
-                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80" alt="Air freight cargo airplane" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:plane" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Air Freight</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Express global air cargo with guaranteed transit times</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
-                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80" alt="Container truck on highway" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:truck" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Land Transport</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Reliable road freight across Pakistan with FTL & PTL options</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
+                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" alt="Sea Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:ship" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Sea Freight</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">FCL & LCL container shipments across all major global trade routes</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
+                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80" alt="Air Freight" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:plane" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Air Freight</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Express global air cargo with guaranteed transit times</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
+                <div class="service-img-card h-[220px] sm:h-[280px] lg:h-[360px]"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80" alt="Land Transport" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-7"><div class="flex items-center gap-2 mb-1.5 sm:mb-2"><span class="iconify text-gold-400" data-icon="lucide:truck" data-width="20"></span></div><h3 class="svc-title text-white font-bold text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1 transition-colors">Land Transport</h3><p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Reliable road freight across Pakistan with FTL & PTL options</p><div class="svc-arrow mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold text-white">Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></div></div></div>
             </div>
             <div class="grid md:grid-cols-3 gap-3 sm:gap-5 lg:gap-6 reveal">
-                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Project cargo" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:package" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Project Cargo</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Oversized & heavy lift cargo handling</p></div></div>
-                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="Warehouse" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:warehouse" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Warehousing</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Secure storage & distribution solutions</p></div></div>
-                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Customs clearance" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:file-check" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Customs Clearance</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Hassle-free import & export documentation</p></div></div>
+                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Project Cargo" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:package" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Project Cargo</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Oversized & heavy lift cargo handling</p></div></div>
+                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="Warehousing" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:warehouse" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Warehousing</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Secure storage & distribution solutions</p></div></div>
+                <div class="service-img-card h-[170px] sm:h-[200px] lg:h-[250px]"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Customs Clearance" class="w-full h-full object-cover"><div class="overlay"></div><div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5"><div class="flex items-center gap-2 mb-0.5 sm:mb-1"><span class="iconify text-gold-400" data-icon="lucide:file-check" data-width="18"></span></div><h3 class="svc-title text-white font-bold text-sm sm:text-base lg:text-lg mb-0.5 transition-colors">Customs Clearance</h3><p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Hassle-free import & export documentation</p></div></div>
             </div>
         </div>
     </section>
@@ -332,19 +315,16 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
                 <div class="relative reveal">
-                    <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl"><img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&q=80" alt="KGI Logistics cargo ship at sunset" class="w-full h-[280px] sm:h-[350px] lg:h-[450px] object-cover"></div>
+                    <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl"><img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&q=80" alt="KGI Logistics" class="w-full h-[280px] sm:h-[350px] lg:h-[450px] object-cover"></div>
                     <div class="absolute -bottom-5 -right-3 lg:-bottom-6 lg:-right-8 bg-white rounded-lg sm:rounded-xl shadow-xl p-3 sm:p-5 border border-gray-100">
-                        <div class="flex items-center gap-3 sm:gap-4">
-                            <div class="w-11 h-11 sm:w-14 sm:h-14 bg-gold-500/10 rounded-full flex items-center justify-center"><span class="iconify text-gold-500" data-icon="lucide:award" data-width="22"></span></div>
-                            <div><div class="text-navy-900 font-extrabold text-xl sm:text-2xl counter" data-target="14">0</div><div class="text-gray-500 text-[10px] sm:text-xs font-medium">Years of Excellence</div></div>
-                        </div>
+                        <div class="flex items-center gap-3 sm:gap-4"><div class="w-11 h-11 sm:w-14 sm:h-14 bg-gold-500/10 rounded-full flex items-center justify-center"><span class="iconify text-gold-500" data-icon="lucide:award" data-width="22"></span></div><div><div class="text-navy-900 font-extrabold text-xl sm:text-2xl counter" data-target="14">0</div><div class="text-gray-500 text-[10px] sm:text-xs font-medium">Years of Excellence</div></div></div>
                     </div>
                 </div>
                 <div class="reveal">
                     <span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">About KGI Logistics</span>
                     <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2 mb-4 sm:mb-6">Your Trusted Partner in <span class="text-gold-500">Global Logistics</span></h2>
                     <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">Karachi Gwadar International Logistics (Pvt) Ltd. is a premier freight forwarding company established in 2010, headquartered in Karachi — Pakistan's commercial hub and gateway to international trade.</p>
-                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">We specialize in sea freight, air freight, land transport, project cargo, warehousing, and customs clearance services across 80+ countries, serving importers, exporters, and businesses of all sizes.</p>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">We specialize in sea freight, air freight, land transport, project cargo, warehousing, and customs clearance services across 80+ countries.</p>
                     <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                         <div class="flex items-center gap-2.5"><div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-green-600" data-icon="lucide:check" data-width="14"></span></div><span class="text-gray-700 text-xs sm:text-sm font-medium">Licensed Customs Broker</span></div>
                         <div class="flex items-center gap-2.5"><div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"><span class="iconify text-green-600" data-icon="lucide:check" data-width="14"></span></div><span class="text-gray-700 text-xs sm:text-sm font-medium">80+ Countries Served</span></div>
@@ -362,26 +342,10 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-400 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Why Choose Us</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-white mt-2">The KGI <span class="text-gold-400">Advantage</span></h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 reveal">
-                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6">
-                    <div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:globe" data-width="22"></span></div>
-                    <h3 class="text-white font-bold text-sm sm:text-base mb-2">Global Network</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Connected to 80+ countries through trusted agent partnerships worldwide.</p>
-                </div>
-                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6">
-                    <div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:shield-check" data-width="22"></span></div>
-                    <h3 class="text-white font-bold text-sm sm:text-base mb-2">Reliable & Secure</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">End-to-end cargo protection with comprehensive insurance coverage.</p>
-                </div>
-                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6">
-                    <div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:zap" data-width="22"></span></div>
-                    <h3 class="text-white font-bold text-sm sm:text-base mb-2">Fast Transit</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Optimized routing for minimum transit times on every shipment.</p>
-                </div>
-                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6">
-                    <div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:headphones" data-width="22"></span></div>
-                    <h3 class="text-white font-bold text-sm sm:text-base mb-2">24/7 Support</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Dedicated account managers available around the clock for your needs.</p>
-                </div>
+                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6"><div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:globe" data-width="22"></span></div><h3 class="text-white font-bold text-sm sm:text-base mb-2">Global Network</h3><p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Connected to 80+ countries through trusted agent partnerships worldwide.</p></div>
+                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6"><div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:shield-check" data-width="22"></span></div><h3 class="text-white font-bold text-sm sm:text-base mb-2">Reliable & Secure</h3><p class="text-gray-400 text-xs sm:text-sm leading-relaxed">End-to-end cargo protection with comprehensive insurance coverage.</p></div>
+                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6"><div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:zap" data-width="22"></span></div><h3 class="text-white font-bold text-sm sm:text-base mb-2">Fast Transit</h3><p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Optimized routing for minimum transit times on every shipment.</p></div>
+                <div class="why-card bg-navy-800/50 border border-white/5 rounded-xl sm:rounded-2xl p-5 sm:p-6"><div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4"><span class="iconify text-gold-400" data-icon="lucide:headphones" data-width="22"></span></div><h3 class="text-white font-bold text-sm sm:text-base mb-2">24/7 Support</h3><p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Dedicated account managers available around the clock for your needs.</p></div>
             </div>
         </div>
     </section>
@@ -403,21 +367,9 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Testimonials</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2">What Our Clients Say</h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
             <div class="grid md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 reveal">
-                <div class="testimonial-card bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100">
-                    <div class="flex items-center gap-1 mb-3"><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span></div>
-                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">"KGI Logistics handled our sea freight shipment from Karachi to Dubai flawlessly. Professional team, on-time delivery, and excellent communication throughout."</p>
-                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold text-sm">AK</div><div><div class="text-navy-900 font-bold text-xs sm:text-sm">Ahmed Khan</div><div class="text-gray-400 text-[10px] sm:text-xs">CEO, TradeLink International</div></div></div>
-                </div>
-                <div class="testimonial-card bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100">
-                    <div class="flex items-center gap-1 mb-3"><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span></div>
-                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">"Their air freight service to Saudi Arabia is incredibly fast. We use KGI for all our time-sensitive shipments. Highly recommended for Pakistan-to-GCC trade."</p>
-                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-gold-600 rounded-full flex items-center justify-center text-white font-bold text-sm">FR</div><div><div class="text-navy-900 font-bold text-xs sm:text-sm">Faisal Rehman</div><div class="text-gray-400 text-[10px] sm:text-xs">Director, Mardan Seeds Company</div></div></div>
-                </div>
-                <div class="testimonial-card bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100">
-                    <div class="flex items-center gap-1 mb-3"><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span></div>
-                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">"Customs clearance was seamless. KGI's documentation team is exceptional — they handled everything from tariff classification to final clearance without any delays."</p>
-                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">SZ</div><div><div class="text-navy-900 font-bold text-xs sm:text-sm">Sara Zaidi</div><div class="text-gray-400 text-[10px] sm:text-xs">Manager, Zaidi Enterprises</div></div></div>
-                </div>
+                <div class="testimonial-card bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100"><div class="flex items-center gap-1 mb-3"><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span></div><p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">"KGI Logistics handled our sea freight shipment from Karachi to Dubai flawlessly. Professional team, on-time delivery, and excellent communication."</p><div class="flex items-center gap-3"><div class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold text-sm">AK</div><div><div class="text-navy-900 font-bold text-xs sm:text-sm">Ahmed Khan</div><div class="text-gray-400 text-[10px] sm:text-xs">CEO, TradeLink International</div></div></div></div>
+                <div class="testimonial-card bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100"><div class="flex items-center gap-1 mb-3"><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span></div><p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">"Their freight service to Saudi Arabia is excellent. We use KGI for all our shipments to Makkah. Highly recommended for Pakistan-to-GCC trade."</p><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gold-600 rounded-full flex items-center justify-center text-white font-bold text-sm">FR</div><div><div class="text-navy-900 font-bold text-xs sm:text-sm">Faisal Rehman</div><div class="text-gray-400 text-[10px] sm:text-xs">Director, Mardan Seeds Company</div></div></div></div>
+                <div class="testimonial-card bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-100"><div class="flex items-center gap-1 mb-3"><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span><span class="iconify text-gold-400" data-icon="lucide:star" data-width="16"></span></div><p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">"Customs clearance was seamless. KGI's documentation team is exceptional — handled everything from tariff classification to final clearance without delays."</p><div class="flex items-center gap-3"><div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">SZ</div><div><div class="text-navy-900 font-bold text-xs sm:text-sm">Sara Zaidi</div><div class="text-gray-400 text-[10px] sm:text-xs">Manager, Zaidi Enterprises</div></div></div></div>
             </div>
         </div>
     </section>
@@ -427,26 +379,11 @@
         <div class="max-w-3xl mx-auto px-4">
             <div class="text-center mb-8 sm:mb-12 reveal"><span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">FAQ</span><h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2">Frequently Asked Questions</h2><div class="w-12 sm:w-16 h-1 bg-gold-500 mx-auto mt-3 sm:mt-4 rounded-full"></div></div>
             <div class="space-y-3 sm:space-y-4 reveal">
-                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">What services does KGI Logistics offer?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button>
-                    <div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">KGI Logistics offers sea freight (FCL/LCL), air freight, land transport, project cargo, warehousing, and customs clearance services across 80+ countries worldwide.</p></div>
-                </div>
-                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">How can I track my shipment?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button>
-                    <div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">Enter your tracking number (e.g., KGILJDH26080001) in the tracking bar on our homepage or contact us at 03072950929 for real-time shipment updates.</p></div>
-                </div>
-                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">Where is KGI Logistics located?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button>
-                    <div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">Our office is at B-10 Back Annex Imperial Building, MT Khan Road, Karachi, Pakistan, near Karachi Port and Port Qasim.</p></div>
-                </div>
-                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">Does KGI Logistics handle customs clearance?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button>
-                    <div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">Yes, we are a licensed customs broker providing complete import and export documentation, tariff classification, and regulatory compliance services.</p></div>
-                </div>
-                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">What are the shipping routes from Karachi?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button>
-                    <div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">We ship from Karachi to Dubai, Saudi Arabia, China, Singapore, Europe, USA, and 80+ global destinations via major sea and air routes.</p></div>
-                </div>
+                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">What services does KGI Logistics offer?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button><div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">KGI Logistics offers sea freight (FCL/LCL), air freight, land transport, project cargo, warehousing, and customs clearance services across 80+ countries worldwide.</p></div></div>
+                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">How can I track my shipment?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button><div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">Enter your 10-digit tracking number in the tracking bar on our homepage or contact us at 03072950929 for real-time shipment updates.</p></div></div>
+                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">Where is KGI Logistics located?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button><div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">Our office is at B-10 Back Annex Imperial Building, MT Khan Road, Karachi, Pakistan.</p></div></div>
+                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">Does KGI Logistics handle customs clearance?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button><div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">Yes, we are a licensed customs broker providing complete import and export documentation, tariff classification, and regulatory compliance services.</p></div></div>
+                <div class="faq-item bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left"><span class="text-navy-900 font-bold text-xs sm:text-sm pr-4">What are the shipping routes from Karachi?</span><span class="iconify faq-icon text-gold-500 flex-shrink-0" data-icon="lucide:plus" data-width="18"></span></button><div class="faq-answer px-5 sm:px-6"><p class="text-gray-500 text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">We ship from Karachi to Makkah, Jeddah, Riyadh, Dubai, China, Singapore, Europe, USA, and 80+ global destinations via sea and air routes.</p></div></div>
             </div>
         </div>
     </section>
@@ -458,38 +395,16 @@
                 <div class="reveal">
                     <span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Get a Quote</span>
                     <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-navy-900 mt-2 mb-4 sm:mb-6">Request a <span class="text-gold-500">Free Quote</span></h2>
-                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">Fill out the form and our logistics experts will get back to you within 2 hours with a competitive quote.</p>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">Fill out the form and our logistics experts will get back to you within 2 hours.</p>
                     <form onsubmit="handleQuoteForm(event)" class="space-y-3 sm:space-y-4">
-                        <div class="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                            <input type="text" placeholder="Full Name *" required class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50">
-                            <input type="text" placeholder="Company Name" class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50">
-                        </div>
-                        <div class="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                            <input type="email" placeholder="Email Address *" required class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50">
-                            <input type="tel" placeholder="Phone Number *" required class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50">
-                        </div>
-                        <div class="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                            <select class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50 text-gray-500">
-                                <option>Origin City *</option>
-                                <option>Karachi</option><option>Lahore</option><option>Islamabad</option><option>Faisalabad</option><option>Mardan</option><option>Other</option>
-                            </select>
-                            <select class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50 text-gray-500">
-                                <option>Destination Country *</option>
-                                <option>Saudi Arabia</option><option>UAE</option><option>China</option><option>UK</option><option>USA</option><option>Other</option>
-                            </select>
-                        </div>
-                        <select class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50 text-gray-500">
-                            <option>Service Type *</option>
-                            <option>Sea Freight (FCL)</option><option>Sea Freight (LCL)</option><option>Air Freight</option><option>Land Transport</option><option>Customs Clearance</option><option>Warehousing</option>
-                        </select>
+                        <div class="grid sm:grid-cols-2 gap-3 sm:gap-4"><input type="text" placeholder="Full Name *" required class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50"><input type="text" placeholder="Company Name" class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50"></div>
+                        <div class="grid sm:grid-cols-2 gap-3 sm:gap-4"><input type="email" placeholder="Email Address *" required class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50"><input type="tel" placeholder="Phone Number *" required class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50"></div>
+                        <div class="grid sm:grid-cols-2 gap-3 sm:gap-4"><select class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50 text-gray-500"><option>Origin City *</option><option>Karachi</option><option>Lahore</option><option>Islamabad</option><option>Faisalabad</option><option>Mardan</option><option>Other</option></select><select class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50 text-gray-500"><option>Destination Country *</option><option>Saudi Arabia</option><option>UAE</option><option>China</option><option>UK</option><option>USA</option><option>Other</option></select></div>
+                        <select class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50 text-gray-500"><option>Service Type *</option><option>Sea Freight (FCL)</option><option>Sea Freight (LCL)</option><option>Air Freight</option><option>Land Transport</option><option>Customs Clearance</option><option>Warehousing</option></select>
                         <textarea placeholder="Cargo Details (weight, dimensions, commodity...)" rows="3" class="form-input w-full px-4 py-3 rounded-lg sm:rounded-xl text-sm bg-gray-50 resize-none"></textarea>
                         <button type="submit" class="btn-gold w-full py-3 sm:py-3.5 rounded-lg sm:rounded-xl text-sm font-bold flex items-center justify-center gap-2">Submit Quote Request <span class="iconify" data-icon="lucide:send" data-width="14"></span></button>
                     </form>
-                    <div id="quoteSuccess" class="hidden mt-4 bg-green-50 border border-green-200 rounded-xl p-4 text-center">
-                        <span class="iconify text-green-500 mx-auto mb-2" data-icon="lucide:check-circle" data-width="32"></span>
-                        <p class="text-green-700 font-bold text-sm">Quote Request Submitted!</p>
-                        <p class="text-green-600 text-xs mt-1">Our team will contact you within 2 hours.</p>
-                    </div>
+                    <div id="quoteSuccess" class="hidden mt-4 bg-green-50 border border-green-200 rounded-xl p-4 text-center"><span class="iconify text-green-500 mx-auto mb-2" data-icon="lucide:check-circle" data-width="32"></span><p class="text-green-700 font-bold text-sm">Quote Request Submitted!</p><p class="text-green-600 text-xs mt-1">Our team will contact you within 2 hours.</p></div>
                 </div>
                 <div id="contact" class="reveal">
                     <span class="text-gold-500 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">Contact Us</span>
@@ -500,9 +415,7 @@
                         <div class="flex items-start gap-4"><div class="w-11 h-11 bg-gold-500/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-500" data-icon="lucide:mail" data-width="18"></span></div><div><div class="text-navy-900 font-bold text-xs sm:text-sm mb-0.5">Email Address</div><a href="mailto:info@karachigwadarintlogistics.com" class="text-gold-600 hover:text-gold-700 text-xs sm:text-sm font-semibold break-all">info@karachigwadarintlogistics.com</a></div></div>
                         <div class="flex items-start gap-4"><div class="w-11 h-11 bg-gold-500/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-500" data-icon="lucide:clock" data-width="18"></span></div><div><div class="text-navy-900 font-bold text-xs sm:text-sm mb-0.5">Working Hours</div><p class="text-gray-500 text-xs sm:text-sm">Mon – Sat: 9:00 AM – 6:00 PM</p></div></div>
                     </div>
-                    <div class="bg-gray-50 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.5!2d67.0011!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMT+Khan+Road%2C+Karachi!5e0!3m2!1sen!2s!4v1" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    <div class="bg-gray-50 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.5!2d67.0011!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMT+Khan+Road%2C+Karachi!5e0!3m2!1sen!2s!4v1" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
                 </div>
             </div>
         </div>
@@ -512,355 +425,141 @@
     <footer class="bg-navy-950 pt-12 sm:pt-16 pb-6">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
-                <div>
-                    <div class="flex items-center gap-2.5 mb-4">
-                        <img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="h-[50px] w-auto object-contain">
-                        <div><div class="text-white font-extrabold text-sm leading-tight tracking-wide">KARACHI GWADAR</div><div class="text-gold-400 text-[9px] font-semibold tracking-[0.12em] uppercase">International Logistics</div></div>
-                    </div>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Premier freight forwarding and logistics solutions from Pakistan to the world.</p>
-                    <div class="flex items-center gap-3">
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:facebook" data-width="16"></span></a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:linkedin" data-width="16"></span></a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:twitter" data-width="16"></span></a>
-                        <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:instagram" data-width="16"></span></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm mb-4">Quick Links</h4>
-                    <ul class="space-y-2.5">
-                        <li><a href="#home" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Home</a></li>
-                        <li><a href="#about" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">About Us</a></li>
-                        <li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Services</a></li>
-                        <li><a href="#tracking" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Track Shipment</a></li>
-                        <li><a href="#quote" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Get a Quote</a></li>
-                        <li><a href="#contact" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm mb-4">Our Services</h4>
-                    <ul class="space-y-2.5">
-                        <li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Sea Freight</a></li>
-                        <li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Air Freight</a></li>
-                        <li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Land Transport</a></li>
-                        <li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Project Cargo</a></li>
-                        <li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Warehousing</a></li>
-                        <li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Customs Clearance</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm mb-4">Contact Info</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-2.5"><span class="iconify text-gold-500 flex-shrink-0 mt-0.5" data-icon="lucide:map-pin" data-width="14"></span><span class="text-gray-400 text-xs sm:text-sm">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span></li>
-                        <li class="flex items-center gap-2.5"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:phone" data-width="14"></span><a href="tel:03072950929" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">+92 307 295 0929</a></li>
-                        <li class="flex items-center gap-2.5"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:mail" data-width="14"></span><a href="mailto:info@karachigwadarintlogistics.com" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></li>
-                    </ul>
-                </div>
+                <div><div class="flex items-center gap-2.5 mb-4"><img src="https://z-cdn-media.chatglm.cn/files/0a7d0203-a136-49f8-a355-b9d4c0892291.png?auth_key=1877216616-82517782a8494e249f8e8972f76f27f2-0-2828aaf95a865200264c1afc0e3fc9ac" alt="KGL Logo" class="h-[50px] w-auto object-contain"><div><div class="text-white font-extrabold text-sm leading-tight tracking-wide">KARACHI GWADAR</div><div class="text-gold-400 text-[9px] font-semibold tracking-[0.12em] uppercase">International Logistics</div></div></div><p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Premier freight forwarding and logistics solutions from Pakistan to the world.</p><div class="flex items-center gap-3"><a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:facebook" data-width="16"></span></a><a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:linkedin" data-width="16"></span></a><a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:twitter" data-width="16"></span></a><a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-white transition-all"><span class="iconify" data-icon="lucide:instagram" data-width="16"></span></a></div></div>
+                <div><h4 class="text-white font-bold text-sm mb-4">Quick Links</h4><ul class="space-y-2.5"><li><a href="#home" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Home</a></li><li><a href="#about" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">About Us</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Services</a></li><li><a href="#tracking" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Track Shipment</a></li><li><a href="#quote" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Get a Quote</a></li><li><a href="#contact" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Contact Us</a></li></ul></div>
+                <div><h4 class="text-white font-bold text-sm mb-4">Our Services</h4><ul class="space-y-2.5"><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Sea Freight</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Air Freight</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Land Transport</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Project Cargo</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Warehousing</a></li><li><a href="#services" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">Customs Clearance</a></li></ul></div>
+                <div><h4 class="text-white font-bold text-sm mb-4">Contact Info</h4><ul class="space-y-3"><li class="flex items-start gap-2.5"><span class="iconify text-gold-500 flex-shrink-0 mt-0.5" data-icon="lucide:map-pin" data-width="14"></span><span class="text-gray-400 text-xs sm:text-sm">B-10 Back Annex Imperial Building, MT Khan Road, Karachi</span></li><li class="flex items-center gap-2.5"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:phone" data-width="14"></span><a href="tel:03072950929" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors">+92 307 295 0929</a></li><li class="flex items-center gap-2.5"><span class="iconify text-gold-500 flex-shrink-0" data-icon="lucide:mail" data-width="14"></span><a href="mailto:info@karachigwadarintlogistics.com" class="text-gray-400 text-xs sm:text-sm hover:text-gold-400 transition-colors break-all">info@karachigwadarintlogistics.com</a></li></ul></div>
             </div>
-            <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-                <p class="text-gray-500 text-[10px] sm:text-xs">&copy; 2024 Karachi Gwadar International Logistics (Pvt) Ltd. All rights reserved.</p>
-                <div class="flex items-center gap-4 text-gray-500 text-[10px] sm:text-xs">
-                    <a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a>
-                </div>
-            </div>
+            <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3"><p class="text-gray-500 text-[10px] sm:text-xs">&copy; 2024 Karachi Gwadar International Logistics (Pvt) Ltd. All rights reserved.</p><div class="flex items-center gap-4 text-gray-500 text-[10px] sm:text-xs"><a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a><a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a></div></div>
         </div>
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/923072950929?text=Hello%20KGI%20Logistics%2C%20I%20need%20a%20shipping%20quote." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
+    <a href="https://wa.me/923072950929?text=Hello%20KGI%20Logistics%2C%20I%20need%20a%20shipping%20quote." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
     <!-- ===================== ALL JAVASCRIPT ===================== -->
     <script>
-    // ========== SHIPMENT DATABASE ==========
-    const shipmentDB = {
-        'KGILJDH26080001': {
-            trackNum: 'KGILJDH26080001',
+    var shipmentDB = {
+        '2608010001': {
+            trackNum: '2608010001',
             status: 'Shipment Booked',
             badgeText: 'Shipment Booked',
             badgeColor: 'green',
             mode: 'Air Freight',
             modeIcon: 'plane',
             modeColor: 'blue',
+            weight: '7 kg',
             origin: 'Karachi, Pakistan',
-            destination: 'Jeddah, Saudi Arabia',
+            destination: 'Makkah, Saudi Arabia',
             shipper: 'Mardan Seeds Company',
             originShort: 'Karachi',
             originCountry: 'Pakistan',
-            destShort: 'Jeddah',
+            destShort: 'Makkah',
             destCountry: 'Saudi Arabia',
             transitLabel: 'AIR FREIGHT',
-            transitTime: '~3-5 days transit',
-            progress: 15,
-            originIcon: 'anchor',
-            destIcon: 'flag',
-            steps: [
-                { name: 'Shipment Booked', desc: 'Air freight shipment booked from Karachi to Jeddah. Cargo received from Mardan Seeds Company and confirmed at origin warehouse.', icon: 'check', active: true, location: 'Karachi, Pakistan' },
-                { name: 'In Transit — Air', desc: 'Shipment in transit via air from Jinnah International Airport, Karachi.', icon: 'plane', active: false },
-                { name: 'Arrived at Jeddah', desc: 'Cargo arrived at King Abdulaziz International Airport, Jeddah.', icon: 'warehouse', active: false },
-                { name: 'Customs Clearance', desc: 'Shipment undergoing customs clearance at Jeddah port.', icon: 'file-check', active: false },
-                { name: 'Delivered', desc: 'Shipment delivered to consignee in Jeddah, Saudi Arabia.', icon: 'check-check', active: false }
-            ]
-        },
-        'KGIL987654321': {
-            trackNum: 'KGIL987654321',
-            status: 'Shipment Booked',
-            badgeText: 'Shipment Booked',
-            badgeColor: 'green',
-            mode: 'Sea Freight',
-            modeIcon: 'ship',
-            modeColor: 'navy',
-            origin: 'Karachi, Pakistan',
-            destination: 'Jebel Ali, Dubai, UAE',
-            shipper: '',
-            originShort: 'Karachi',
-            originCountry: 'Pakistan',
-            destShort: 'Dubai',
-            destCountry: 'UAE',
-            transitLabel: 'SEA FREIGHT',
-            transitTime: '~7-10 days transit',
+            transitTime: '10-12 days transit',
             progress: 10,
             originIcon: 'anchor',
             destIcon: 'flag',
             steps: [
-                { name: 'Shipment Booked', desc: 'Shipment has been booked and confirmed. Cargo received at origin warehouse.', icon: 'check', active: true, location: 'Karachi, Pakistan' },
-                { name: 'In Transit', desc: 'Shipment en route via sea from Karachi Port.', icon: 'ship', active: false },
-                { name: 'Arrived at Destination', desc: 'Cargo arrived at Jebel Ali Port.', icon: 'warehouse', active: false },
-                { name: 'Delivered', desc: 'Shipment delivered to consignee.', icon: 'check-check', active: false }
+                { name: 'Shipment Booked', desc: 'Air freight shipment booked from Karachi to Makkah. Shipment booked by Mardan Seeds Company. Cargo received and confirmed at origin warehouse.', icon: 'check', active: true, location: 'Karachi, Pakistan' },
+                { name: 'In Transit — Air', desc: 'Shipment in transit via air from Jinnah International Airport, Karachi to King Abdulaziz International Airport, Jeddah.', icon: 'plane', active: false },
+                { name: 'Arrived at Jeddah Airport', desc: 'Cargo arrived at King Abdulaziz International Airport (JED), Jeddah. Awaiting customs processing.', icon: 'warehouse', active: false },
+                { name: 'In Transit to Makkah', desc: 'Cargo cleared customs and dispatched via road transport from Jeddah to Makkah (~100 km).', icon: 'truck', active: false },
+                { name: 'Delivered in Makkah', desc: 'Shipment delivered to consignee in Makkah, Saudi Arabia.', icon: 'check-check', active: false }
             ]
         }
     };
 
-    // ========== TRACKING FUNCTION ==========
     function trackShipment() {
-        const input = document.getElementById('trackingInput').value.trim().toUpperCase();
-        const resultDiv = document.getElementById('trackingResult');
-        const notFoundDiv = document.getElementById('trackingNotFound');
+        var input = document.getElementById('trackingInput').value.trim();
+        var resultDiv = document.getElementById('trackingResult');
+        var notFoundDiv = document.getElementById('trackingNotFound');
 
         resultDiv.classList.remove('show');
         notFoundDiv.classList.remove('show');
 
         if (!input) {
-            document.getElementById('notFoundNum').textContent = '(Please enter a tracking number)';
+            document.getElementById('notFoundNum').textContent = '(Please enter a 10-digit tracking number)';
             notFoundDiv.classList.add('show');
             return;
         }
 
-        const s = shipmentDB[input];
+        var s = shipmentDB[input];
 
         if (s) {
-            // Header
             document.getElementById('resultTrackNum').textContent = s.trackNum;
             document.getElementById('statusBadgeText').textContent = s.badgeText;
 
-            const badge = document.getElementById('statusBadge');
-            badge.className = `flex items-center gap-2 bg-${s.badgeColor}-500/10 border border-${s.badgeColor}-500/30 rounded-full px-3 py-1 self-start sm:self-auto`;
-            badge.querySelector('div').className = `w-2 h-2 bg-${s.badgeColor}-400 rounded-full pulse-green`;
-            badge.querySelector('span').className = `text-${s.badgeColor}-400 text-[10px] sm:text-xs font-semibold`;
+            var badge = document.getElementById('statusBadge');
+            badge.className = 'flex items-center gap-2 bg-' + s.badgeColor + '-500/10 border border-' + s.badgeColor + '-500/30 rounded-full px-3 py-1 self-start sm:self-auto';
+            badge.querySelector('div').className = 'w-2 h-2 bg-' + s.badgeColor + '-400 rounded-full pulse-green';
+            badge.querySelector('span').className = 'text-' + s.badgeColor + '-400 text-[10px] sm:text-xs font-semibold';
 
-            // Info Grid
-            let gridHTML = `
-                <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Status</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="14"></span>${s.status}</div></div>
-                <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Mode</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-${s.modeColor}-500" data-icon="lucide:${s.modeIcon}" data-width="14"></span>${s.mode}</div></div>
-                <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Origin</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-blue-500" data-icon="lucide:${s.originIcon}" data-width="14"></span>${s.origin}</div></div>
-                <div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Destination</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-red-500" data-icon="lucide:${s.destIcon}" data-width="14"></span>${s.destination}</div></div>
-            `;
-            if (s.shipper) {
-                gridHTML += `<div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 col-span-2"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Shipper</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-gold-500" data-icon="lucide:building-2" data-width="14"></span>${s.shipper}</div></div>`;
-            }
-            document.getElementById('infoGrid').innerHTML = gridHTML;
+            var g = '';
+            g += '<div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Status</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-green-500" data-icon="lucide:check-circle" data-width="14"></span>' + s.status + '</div></div>';
+            g += '<div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Mode</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-' + s.modeColor + '-500" data-icon="lucide:' + s.modeIcon + '" data-width="14"></span>' + s.mode + '</div></div>';
+            g += '<div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Weight</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-purple-500" data-icon="lucide:scale" data-width="14"></span>' + s.weight + '</div></div>';
+            g += '<div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Origin</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-blue-500" data-icon="lucide:' + s.originIcon + '" data-width="14"></span>' + s.origin + '</div></div>';
+            g += '<div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Destination</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-red-500" data-icon="lucide:' + s.destIcon + '" data-width="14"></span>' + s.destination + '</div></div>';
+            g += '<div class="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 col-span-2"><div class="text-gray-400 text-[10px] sm:text-xs font-medium mb-0.5 sm:mb-1">Shipper</div><div class="text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-1.5"><span class="iconify text-gold-500" data-icon="lucide:building-2" data-width="14"></span>' + s.shipper + '</div></div>';
+            document.getElementById('infoGrid').innerHTML = g;
 
-            // Route Visual
-            const now = new Date();
-            const dateStr = now.toLocaleDateString('en-PK', { day:'numeric', month:'short', year:'numeric' });
-            const timeStr = now.toLocaleTimeString('en-PK', { hour:'2-digit', minute:'2-digit' });
+            var now = new Date();
+            var dateStr = now.toLocaleDateString('en-PK', { day:'numeric', month:'short', year:'numeric' });
+            var timeStr = now.toLocaleTimeString('en-PK', { hour:'2-digit', minute:'2-digit' });
 
-            document.getElementById('routeVisual').innerHTML = `
-                <h4 class="text-navy-900 font-bold text-xs sm:text-sm mb-3 sm:mb-4">Shipment Route</h4>
-                <div class="flex items-center justify-between bg-gradient-to-r from-blue-50 via-gray-50 to-red-50 rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-gray-100">
-                    <div class="text-center flex-1">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2"><span class="iconify text-blue-600" data-icon="lucide:${s.originIcon}" data-width="18"></span></div>
-                        <div class="text-navy-900 font-bold text-[10px] sm:text-xs">${s.originShort}</div>
-                        <div class="text-gray-400 text-[8px] sm:text-[10px]">${s.originCountry}</div>
-                    </div>
-                    <div class="flex-1 mx-3 sm:mx-5 flex flex-col items-center gap-1">
-                        <div class="text-gold-500 text-[8px] sm:text-[10px] font-semibold bg-white px-2 py-0.5 rounded-full border border-gold-200">${s.transitLabel}</div>
-                        <div class="w-full relative h-0.5 bg-gray-200 rounded-full">
-                            <div class="absolute left-0 top-0 h-full bg-gold-500 rounded-full transition-all" style="width:${s.progress}%"></div>
-                            <div class="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-gold-500 rounded-full map-dot" style="left:${s.progress}%"></div>
-                        </div>
-                        <div class="text-gray-400 text-[8px] sm:text-[10px]">${s.transitTime}</div>
-                    </div>
-                    <div class="text-center flex-1">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2"><span class="iconify text-red-600" data-icon="lucide:${s.destIcon}" data-width="18"></span></div>
-                        <div class="text-navy-900 font-bold text-[10px] sm:text-xs">${s.destShort}</div>
-                        <div class="text-gray-400 text-[8px] sm:text-[10px]">${s.destCountry}</div>
-                    </div>
-                </div>
-            `;
+            document.getElementById('routeVisual').innerHTML = '<h4 class="text-navy-900 font-bold text-xs sm:text-sm mb-3 sm:mb-4">Shipment Route</h4><div class="flex items-center justify-between bg-gradient-to-r from-blue-50 via-gray-50 to-red-50 rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-gray-100"><div class="text-center flex-1"><div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2"><span class="iconify text-blue-600" data-icon="lucide:' + s.originIcon + '" data-width="18"></span></div><div class="text-navy-900 font-bold text-[10px] sm:text-xs">' + s.originShort + '</div><div class="text-gray-400 text-[8px] sm:text-[10px]">' + s.originCountry + '</div></div><div class="flex-1 mx-3 sm:mx-5 flex flex-col items-center gap-1"><div class="text-gold-500 text-[8px] sm:text-[10px] font-semibold bg-white px-2 py-0.5 rounded-full border border-gold-200">' + s.transitLabel + '</div><div class="w-full relative h-0.5 bg-gray-200 rounded-full"><div class="absolute left-0 top-0 h-full bg-gold-500 rounded-full" style="width:' + s.progress + '%"></div><div class="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-gold-500 rounded-full map-dot" style="left:' + s.progress + '%"></div></div><div class="text-gray-400 text-[8px] sm:text-[10px]">' + s.transitTime + '</div></div><div class="text-center flex-1"><div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2"><span class="iconify text-red-600" data-icon="lucide:' + s.destIcon + '" data-width="18"></span></div><div class="text-navy-900 font-bold text-[10px] sm:text-xs">' + s.destShort + '</div><div class="text-gray-400 text-[8px] sm:text-[10px]">' + s.destCountry + '</div></div></div>';
 
-            // Timeline
-            let timelineHTML = `<h4 class="text-navy-900 font-bold text-xs sm:text-sm mb-3 sm:mb-4">Shipment Timeline</h4>
-                <div class="relative pl-7 sm:pl-8" id="timelineContainer">
-                    <div class="absolute left-[10px] sm:left-[11px] top-2 bottom-2 w-0.5 bg-gray-200"></div>`;
+            var t = '<h4 class="text-navy-900 font-bold text-xs sm:text-sm mb-3 sm:mb-4">Shipment Timeline</h4><div class="relative pl-7 sm:pl-8"><div class="absolute left-[10px] sm:left-[11px] top-2 bottom-2 w-0.5 bg-gray-200"></div>';
 
-            s.steps.forEach((step, idx) => {
-                const isLast = idx === s.steps.length - 1;
+            s.steps.forEach(function(step, idx) {
+                var isLast = idx === s.steps.length - 1;
                 if (step.active) {
-                    timelineHTML += `
-                    <div class="relative ${isLast ? '' : 'mb-5 sm:mb-6'}">
-                        <div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center pulse-green"><span class="iconify text-white" data-icon="lucide:${step.icon}" data-width="10"></span></div>
-                        <div>
-                            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-0.5"><span class="text-navy-900 font-bold text-xs sm:text-sm">${step.name}</span><span class="bg-green-100 text-green-700 text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full">CURRENT</span></div>
-                            <p class="text-gray-500 text-[10px] sm:text-xs">${step.desc}</p>
-                            <div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-1 sm:mt-1.5">
-                                ${step.location ? `<span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:map-pin" data-width="10"></span>${step.location}</span>` : ''}
-                                <span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="10"></span>${dateStr}</span>
-                                <span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="10"></span>${timeStr}</span>
-                            </div>
-                        </div>
-                    </div>`;
+                    t += '<div class="relative ' + (isLast ? '' : 'mb-5 sm:mb-6') + '"><div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center pulse-green"><span class="iconify text-white" data-icon="lucide:' + step.icon + '" data-width="10"></span></div><div><div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-0.5"><span class="text-navy-900 font-bold text-xs sm:text-sm">' + step.name + '</span><span class="bg-green-100 text-green-700 text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full">CURRENT</span></div><p class="text-gray-500 text-[10px] sm:text-xs">' + step.desc + '</p><div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-1 sm:mt-1.5">';
+                    if (step.location) t += '<span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:map-pin" data-width="10"></span>' + step.location + '</span>';
+                    t += '<span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="10"></span>' + dateStr + '</span><span class="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1"><span class="iconify" data-icon="lucide:clock" data-width="10"></span>' + timeStr + '</span></div></div></div>';
                 } else {
-                    timelineHTML += `
-                    <div class="relative ${isLast ? '' : 'mb-5 sm:mb-6'}">
-                        <div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:${step.icon}" data-width="10"></span></div>
-                        <div>
-                            <span class="text-gray-400 font-semibold text-xs sm:text-sm">${step.name}</span>
-                            <p class="text-gray-300 text-[10px] sm:text-xs">${step.desc} — pending</p>
-                        </div>
-                    </div>`;
+                    t += '<div class="relative ' + (isLast ? '' : 'mb-5 sm:mb-6') + '"><div class="absolute -left-7 sm:-left-8 top-0.5 w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full flex items-center justify-center"><span class="iconify text-gray-400" data-icon="lucide:' + step.icon + '" data-width="10"></span></div><div><span class="text-gray-400 font-semibold text-xs sm:text-sm">' + step.name + '</span><p class="text-gray-300 text-[10px] sm:text-xs">' + step.desc + ' — pending</p></div></div>';
                 }
             });
 
-            timelineHTML += '</div>';
-            document.getElementById('timelineSection').innerHTML = timelineHTML;
+            t += '</div>';
+            document.getElementById('timelineSection').innerHTML = t;
 
-            // Show result
             resultDiv.classList.add('show');
-
-            // Re-trigger animations
-            resultDiv.querySelectorAll('.track-anim').forEach(el => {
-                el.style.opacity = '0';
-                void el.offsetWidth;
-            });
-
+            resultDiv.querySelectorAll('.track-anim').forEach(function(el) { el.style.opacity = '0'; void el.offsetWidth; });
         } else {
             document.getElementById('notFoundNum').textContent = input;
             notFoundDiv.classList.add('show');
         }
 
-        setTimeout(() => {
-            const visible = resultDiv.classList.contains('show') ? resultDiv : notFoundDiv;
-            visible.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setTimeout(function() {
+            var v = resultDiv.classList.contains('show') ? resultDiv : notFoundDiv;
+            v.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 300);
     }
 
-    // ========== HERO SLIDER ==========
-    let currentSlide = 0;
-    const totalSlides = 3;
-    let slideInterval;
-
-    function goToSlide(n) {
-        document.querySelectorAll('.hero-slide').forEach(s => s.classList.remove('active'));
-        document.querySelectorAll('.hero-content').forEach(c => { c.style.display = 'none'; c.classList.remove('active'); });
-        document.querySelectorAll('.slider-dot').forEach(d => d.classList.remove('active'));
-        currentSlide = n;
-        document.querySelectorAll('.hero-slide')[n].classList.add('active');
-        document.querySelectorAll('.hero-content')[n].style.display = '';
-        document.querySelectorAll('.hero-content')[n].classList.add('active');
-        document.querySelectorAll('.slider-dot')[n].classList.add('active');
-        resetSlideTimer();
-    }
-
-    function changeSlide(dir) {
-        let next = (currentSlide + dir + totalSlides) % totalSlides;
-        goToSlide(next);
-    }
-
-    function resetSlideTimer() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(() => changeSlide(1), 6000);
-    }
+    var currentSlide = 0, totalSlides = 3, slideInterval;
+    function goToSlide(n) { document.querySelectorAll('.hero-slide').forEach(function(s){s.classList.remove('active')}); document.querySelectorAll('.hero-content').forEach(function(c){c.style.display='none';c.classList.remove('active')}); document.querySelectorAll('.slider-dot').forEach(function(d){d.classList.remove('active')}); currentSlide=n; document.querySelectorAll('.hero-slide')[n].classList.add('active'); document.querySelectorAll('.hero-content')[n].style.display=''; document.querySelectorAll('.hero-content')[n].classList.add('active'); document.querySelectorAll('.slider-dot')[n].classList.add('active'); resetSlideTimer(); }
+    function changeSlide(d) { goToSlide((currentSlide+d+totalSlides)%totalSlides); }
+    function resetSlideTimer() { clearInterval(slideInterval); slideInterval=setInterval(function(){changeSlide(1)},6000); }
     resetSlideTimer();
 
-    // ========== MOBILE MENU ==========
-    function toggleMobileMenu() {
-        document.getElementById('mobileMenu').classList.toggle('open');
-        document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
-    }
+    function toggleMobileMenu() { var m=document.getElementById('mobileMenu'); m.classList.toggle('open'); document.body.style.overflow=m.classList.contains('open')?'hidden':''; }
+    function toggleMobileDropdown(id) { document.getElementById(id).classList.toggle('hidden'); }
+    window.addEventListener('scroll', function() { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>50); });
 
-    function toggleMobileDropdown(id) {
-        document.getElementById(id).classList.toggle('hidden');
-    }
+    var revealObs = new IntersectionObserver(function(e) { e.forEach(function(en) { if(en.isIntersecting){en.target.classList.add('visible');revealObs.unobserve(en.target)} }); }, {threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el)});
 
-    // ========== NAVBAR SCROLL ==========
-    window.addEventListener('scroll', () => {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
+    var counterObs = new IntersectionObserver(function(e) { e.forEach(function(en) { if(en.isIntersecting){var el=en.target,target=parseInt(el.dataset.target),cur=0,inc=Math.max(1,Math.floor(target/60)),timer=setInterval(function(){cur+=inc;if(cur>=target){cur=target;clearInterval(timer)}el.textContent=cur.toLocaleString()},25);counterObs.unobserve(el)} }); }, {threshold:0.5});
+    document.querySelectorAll('.counter').forEach(function(el){counterObs.observe(el)});
 
-    // ========== REVEAL ON SCROLL ==========
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ========== COUNTER ANIMATION ==========
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.dataset.target);
-                let current = 0;
-                const increment = Math.max(1, Math.floor(target / 60));
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) { current = target; clearInterval(timer); }
-                    el.textContent = current.toLocaleString();
-                }, 25);
-                counterObserver.unobserve(el);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-    // ========== FAQ TOGGLE ==========
-    function toggleFaq(btn) {
-        const item = btn.closest('.faq-item');
-        const wasActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        if (!wasActive) item.classList.add('active');
-    }
-
-    // ========== QUOTE FORM ==========
-    function handleQuoteForm(e) {
-        e.preventDefault();
-        e.target.style.display = 'none';
-        document.getElementById('quoteSuccess').classList.remove('hidden');
-        setTimeout(() => {
-            e.target.style.display = '';
-            e.target.reset();
-            document.getElementById('quoteSuccess').classList.add('hidden');
-        }, 5000);
-    }
-
-    // ========== ENTER KEY FOR TRACKING ==========
-    document.getElementById('trackingInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') trackShipment();
-    });
-
-    // ========== NAV DROPDOWN (desktop) ==========
-    document.querySelectorAll('.nav-dropdown').forEach(dd => {
-        dd.parentElement.addEventListener('mouseenter', () => dd.classList.add('show'));
-        dd.parentElement.addEventListener('mouseleave', () => dd.classList.remove('show'));
-    });
+    function toggleFaq(btn) { var item=btn.closest('.faq-item'),was=item.classList.contains('active'); document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('active')}); if(!was)item.classList.add('active'); }
+    function handleQuoteForm(e) { e.preventDefault(); e.target.style.display='none'; document.getElementById('quoteSuccess').classList.remove('hidden'); setTimeout(function(){e.target.style.display='';e.target.reset();document.getElementById('quoteSuccess').classList.add('hidden')},5000); }
+    document.getElementById('trackingInput').addEventListener('keypress', function(e) { if(e.key==='Enter')trackShipment(); });
+    document.querySelectorAll('.nav-dropdown').forEach(function(dd) { dd.parentElement.addEventListener('mouseenter',function(){dd.classList.add('show')}); dd.parentElement.addEventListener('mouseleave',function(){dd.classList.remove('show')}); });
     </script>
 </body>
 </html>
