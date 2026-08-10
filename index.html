@@ -101,8 +101,8 @@
         ::-webkit-scrollbar{width:8px}
         ::-webkit-scrollbar-track{background:#0a1a3a}
         ::-webkit-scrollbar-thumb{background:#d4a843;border-radius:4px}
-        .tracking-result{max-height:0;overflow:hidden;transition:max-height 0.8s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease;opacity:0}
-        .tracking-result.show{max-height:1200px;opacity:1}
+        .tracking-result{max-height:0;overflow:hidden;transition:max-height 1s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease;opacity:0}
+        .tracking-result.show{max-height:3000px;opacity:1}
         @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .tracking-result.show .track-anim{animation:slideUp 0.5s ease forwards}
         .track-anim:nth-child(2){animation-delay:0.1s}
@@ -478,22 +478,27 @@
     // ===== SHIPMENT TRACKING DATABASE =====
     const shipments = {
         '2608010001': {
-            status: 'In Transit',
-            statusColor: 'blue',
+            status: 'Customs Cleared',
+            statusColor: 'green',
             origin: 'Karachi, Pakistan',
             destination: 'Mekkah, Saudi Arabia',
             mode: 'Air Freight',
             weight: '7 kg',
             pieces: '1',
             commodity: 'Vegetable Seeds',
-            currentLocation: 'Sharjah Airport, UAE',
-            route: ['Karachi (KHI)', 'Sharjah (SHJ)', 'Mekkah'],
-            progress: 50,
+            currentLocation: 'Dubai International Airport, UAE',
+            route: ['Karachi', 'Sharjah', 'Dubai', 'Mekkah'],
+            progress: 60,
             timeline: [
                 { date: '', time: '', location: 'Karachi, Pakistan', status: 'Shipment Booked', icon: 'lucide:clipboard-check', color: 'gray', desc: 'Air freight booking confirmed for Mekkah, Saudi Arabia.' },
-                { date: '', time: '', location: 'Karachi, Pakistan', status: 'Deposit to Airline', icon: 'lucide:banknote', color: 'green', desc: 'Payment deposited to airline. Cargo handed over.' },
-                { date: '', time: '', location: 'Jinnah International Airport, Karachi', status: 'Departed Karachi', icon: 'lucide:plane-takeoff', color: 'blue', desc: 'Shipment departed from Karachi airport.' },
-                { date: '07-08-2026', time: '12:00 PM', location: 'Sharjah Airport, UAE', status: 'Arrived at Sharjah Airport', icon: 'lucide:plane-landing', color: 'gold', desc: 'Shipment arrived at Sharjah International Airport. Transiting to Mekkah, Saudi Arabia.' }
+                { date: '', time: '', location: 'Karachi, Pakistan', status: 'Deposit to Airline', icon: 'lucide:banknote', color: 'green', desc: 'Payment deposited to airline. Cargo handed over for processing.' },
+                { date: '', time: '', location: 'Jinnah International Airport, Karachi', status: 'Departed Karachi', icon: 'lucide:plane-takeoff', color: 'blue', desc: 'Shipment departed from Jinnah International Airport, Karachi.' },
+                { date: '', time: '12:00 PM', location: 'Sharjah International Airport, UAE', status: 'Arrived at Sharjah Airport', icon: 'lucide:plane-landing', color: 'blue', desc: 'Shipment arrived at Sharjah International Airport.' },
+                { date: '07-Aug-2026', time: '12:58', location: 'Sharjah International Airport', status: 'Departure from Local Facility', icon: 'lucide:truck', color: 'blue', desc: 'Shipment departed from Sharjah local facility.' },
+                { date: '07-Aug-2026', time: '14:39', location: 'Dubai International Airport', status: 'Arrived at Local Facility', icon: 'lucide:warehouse', color: 'blue', desc: 'Shipment arrived at local facility, Dubai International Airport.' },
+                { date: '07-Aug-2026', time: '16:53', location: 'Dubai International Airport', status: 'Collected From Custom', icon: 'lucide:package', color: 'gold', desc: 'Shipment collected from customs area at Dubai International Airport.' },
+                { date: '08-Aug-2026', time: '11:23', location: 'Dubai International Airport', status: 'Under Custom Clearance', icon: 'lucide:file-search', color: 'gold', desc: 'Shipment is under customs clearance process at Dubai International Airport.' },
+                { date: '08-Aug-2026', time: '17:13', location: 'Dubai International Airport', status: 'Custom Clearance Process Completed', icon: 'lucide:file-check', color: 'green', desc: 'Customs clearance process completed successfully at Dubai International Airport.' }
             ]
         }
     };
@@ -532,7 +537,7 @@
         badgeText.className = `text-${c}-400 text-[10px] sm:text-xs font-semibold`;
         badgeText.textContent = shipment.status;
 
-        // Info grid — no departure date, no est delivery
+        // Info grid
         const infoItems = [
             { label: 'Origin', value: shipment.origin, icon: 'lucide:map-pin' },
             { label: 'Destination', value: shipment.destination, icon: 'lucide:flag' },
@@ -548,7 +553,7 @@
             </div>
         `).join('');
 
-        // Route visual — 3 stops
+        // Route visual — 4 stops
         const routeStops = shipment.route;
         const totalSegments = routeStops.length - 1;
         const completedSegments = Math.round((shipment.progress / 100) * totalSegments * 10) / 10;
@@ -558,32 +563,29 @@
                 <div class="text-navy-900 font-bold text-xs sm:text-sm mb-3 flex items-center gap-2"><span class="iconify text-gold-500" data-icon="lucide:route" data-width="15"></span> Shipment Route</div>
                 <div class="flex items-center gap-1 sm:gap-2">
                     ${routeStops.map((stop, i) => {
-                        const isCompleted = i <= completedSegments;
-                        const isCurrent = i === Math.ceil(completedSegments) && i < routeStops.length;
+                        const isCurrent = i === Math.round(completedSegments) && i < routeStops.length;
+                        const isCompleted = i < Math.round(completedSegments);
                         const isLast = i === routeStops.length - 1;
                         let dotClass, dotIcon;
-                        if (i === 0) { dotClass = 'bg-green-500 border-green-500'; dotIcon = 'lucide:check'; }
-                        else if (isCurrent) { dotClass = 'bg-gold-500 border-gold-500 map-dot'; dotIcon = 'lucide:plane-landing'; }
-                        else if (isCompleted) { dotClass = 'bg-green-500 border-green-500'; dotIcon = 'lucide:check'; }
+                        if (isCompleted) { dotClass = 'bg-green-500 border-green-500'; dotIcon = 'lucide:check'; }
+                        else if (isCurrent) { dotClass = 'bg-green-500 border-green-500 map-dot'; dotIcon = 'lucide:file-check'; }
                         else { dotClass = 'bg-gray-200 border-gray-300'; dotIcon = 'lucide:flag'; }
-
                         return `
                             <div class="flex items-center ${isLast ? '' : 'flex-1'}">
                                 <div class="flex flex-col items-center">
-                                    <div class="w-8 h-8 sm:w-10 sm:h-10 ${dotClass} border-2 rounded-full flex items-center justify-center flex-shrink-0">
-                                        <span class="iconify ${isCompleted || isCurrent ? 'text-white' : 'text-gray-400'}" data-icon="${dotIcon}" data-width="${i === 0 || isCurrent ? '13' : '12'}"></span>
+                                    <div class="w-7 h-7 sm:w-9 sm:h-9 ${dotClass} border-2 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="iconify ${isCompleted || isCurrent ? 'text-white' : 'text-gray-400'}" data-icon="${dotIcon}" data-width="12"></span>
                                     </div>
-                                    <div class="text-navy-900 font-bold text-[9px] sm:text-[10px] mt-1.5 text-center leading-tight max-w-[70px] sm:max-w-[90px]">${stop}</div>
+                                    <div class="text-navy-900 font-bold text-[8px] sm:text-[10px] mt-1.5 text-center leading-tight max-w-[60px] sm:max-w-[80px]">${stop}</div>
                                 </div>
-                                ${!isLast ? `<div class="flex-1 h-1.5 sm:h-2 bg-gray-200 rounded-full overflow-hidden mx-1 sm:mx-2 relative">
-                                    <div class="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ${i < completedSegments ? 'bg-green-500 w-full' : i < completedSegments + 1 ? 'bg-gradient-to-r from-green-500 to-gold-500' : 'w-0'}"></div>
-                                    ${isCurrent ? '<div class="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gold-500 border-2 border-white rounded-full shadow-md map-dot right-0"></div>' : ''}
+                                ${!isLast ? `<div class="flex-1 h-1.5 sm:h-2 bg-gray-200 rounded-full overflow-hidden mx-0.5 sm:mx-1.5 relative">
+                                    <div class="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ${i < Math.round(completedSegments) ? 'bg-green-500 w-full' : 'w-0'}"></div>
                                 </div>` : ''}
                             </div>
                         `;
                     }).join('')}
                 </div>
-                ${shipment.currentLocation ? `<div class="mt-3 text-center"><span class="inline-flex items-center gap-1.5 bg-gold-500/10 text-gold-700 text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-gold-500 rounded-full"></span> Current: ${shipment.currentLocation}</span></div>` : ''}
+                ${shipment.currentLocation ? `<div class="mt-3 text-center"><span class="inline-flex items-center gap-1.5 bg-green-500/10 text-green-700 text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Current: ${shipment.currentLocation}</span></div>` : ''}
             </div>
         `;
 
@@ -604,17 +606,17 @@
                     const isLatest = i === shipment.timeline.length - 1;
                     const hasDateTime = event.date && event.time;
                     return `
-                        <div class="flex gap-3 sm:gap-4 ${!isLast ? 'pb-5 sm:pb-6' : ''}">
+                        <div class="flex gap-3 sm:gap-4 ${!isLast ? 'pb-4 sm:pb-5' : ''}">
                             <div class="flex flex-col items-center">
-                                <div class="w-7 h-7 sm:w-8 sm:h-8 ${cc.dot} rounded-full flex items-center justify-center flex-shrink-0 ring-4 ${cc.ring} ${isLatest ? 'map-dot' : ''}">
-                                    <span class="iconify text-white" data-icon="${event.icon}" data-width="12"></span>
+                                <div class="w-6 h-6 sm:w-7 sm:h-7 ${cc.dot} rounded-full flex items-center justify-center flex-shrink-0 ring-3 sm:ring-4 ${cc.ring} ${isLatest ? 'map-dot' : ''}">
+                                    <span class="iconify text-white" data-icon="${event.icon}" data-width="10"></span>
                                 </div>
-                                ${!isLast ? `<div class="w-0.5 flex-1 ${cc.line} mt-1"></div>` : ''}
+                                ${!isLast ? `<div class="w-0.5 flex-1 ${cc.line} mt-0.5"></div>` : ''}
                             </div>
                             <div class="flex-1 -mt-0.5">
                                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5 sm:gap-2 mb-0.5">
-                                    <span class="${cc.text} font-bold text-xs sm:text-sm">${event.status}</span>
-                                    ${hasDateTime ? `<span class="text-gray-400 text-[10px] sm:text-xs font-medium">${event.date} · ${event.time}</span>` : ''}
+                                    <span class="${cc.text} font-bold text-[11px] sm:text-xs sm:text-sm">${event.status}</span>
+                                    ${hasDateTime ? `<span class="text-gray-400 text-[10px] sm:text-xs font-medium">${event.date}${event.time ? ' · ' + event.time : ''}</span>` : ''}
                                 </div>
                                 <div class="text-gray-500 text-[10px] sm:text-xs mb-0.5">${event.location}</div>
                                 <div class="text-gray-400 text-[10px] sm:text-xs leading-relaxed">${event.desc}</div>
@@ -636,7 +638,6 @@
     let currentSlide = 0;
     const totalSlides = 3;
     let slideInterval;
-
     function goToSlide(n) {
         document.querySelectorAll('.hero-slide').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.hero-content').forEach(c => { c.classList.remove('active'); c.style.display = 'none'; });
@@ -648,29 +649,19 @@
         document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
         resetSlideTimer();
     }
-
     function changeSlide(dir) { goToSlide(currentSlide + dir); }
-
-    function resetSlideTimer() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(() => changeSlide(1), 6000);
-    }
+    function resetSlideTimer() { clearInterval(slideInterval); slideInterval = setInterval(() => changeSlide(1), 6000); }
     resetSlideTimer();
 
     // ===== NAVBAR SCROLL =====
-    window.addEventListener('scroll', () => {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
 
     // ===== MOBILE MENU =====
     function toggleMobileMenu() {
         document.getElementById('mobileMenu').classList.toggle('open');
         document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
     }
-
-    function toggleMobileDropdown(id) {
-        document.getElementById(id).classList.toggle('hidden');
-    }
+    function toggleMobileDropdown(id) { document.getElementById(id).classList.toggle('hidden'); }
 
     // ===== FAQ =====
     function toggleFaq(btn) {
@@ -701,7 +692,6 @@
             }
         });
     }, { threshold: 0.15 });
-
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // ===== QUOTE FORM =====
@@ -731,10 +721,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         });
     });
     </script>
